@@ -75,15 +75,15 @@ project/
 * аудит макета, карта node-id, список блокеров
 * `tokens.css`, `base.css`, `fonts.css`
 * компоненты: `header`, `footer`, `button`, `hero`, `benefits`, `online-classes`,
-  `timeline-format`, `attestation-exam`
+  `timeline-format`, `attestation-exam`, `parents-teachers`
 * `main.js`: мобильное меню, якоря, появление при прокрутке, модалки
   (ловушка фокуса + Escape), маска телефона, клиентская валидация форм
 * сборщик превью
 
 ## Что дальше
 
-По порядку из `docs/AUDIT.md` §6. Ближайшее — секции главной:
-`1:579` ParentsTeachers, `1:740` ResultsFaq.
+По порядку из `docs/AUDIT.md` §6. Ближайшее — секция главной `1:740`
+ResultsFaq (последняя), потом внутренние страницы.
 
 Потом внутренние страницы, потом адаптив, потом тема WordPress.
 К WordPress **не переходить**, пока статика не закрыта и не сверена.

@@ -82,3 +82,18 @@ Figma отдаёт ассеты временными ссылками (≈7 дн
       `32:274` subtract, использована 3 раза одинаково) → свести в один
       SVG вручную в Figma, затем экспортировать →
       `assets/icons/check-double.svg`
+
+## ParentsTeachers (`1:579`) — добавлено в этой сессии
+
+* [ ] фото «Счастливая семья за учёбой», 636×477 →
+      `assets/images/parents-family.jpg`
+* [ ] `1:587` — иконка плавающей карточки (сердце), 32×32 →
+      `assets/icons/parents-heart.svg`
+* [ ] `1:601` — иконка «Берем на себя контроль», 24×24 →
+      `assets/icons/parents-control.svg`
+* [ ] `1:611` — иконка «Регулярная обратная связь», 24×24 →
+      `assets/icons/parents-feedback.svg`
+* [ ] 6 иконок карточек «Для кого подходит школа», 24×24 каждая →
+      `assets/icons/fit-*.svg`
+* [ ] 3 фото преподавателей, 424×527.5 каждое →
+      `assets/images/teacher-1.jpg`, `teacher-2.jpg`, `teacher-3.jpg`
