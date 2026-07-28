@@ -46,3 +46,23 @@ Figma отдаёт ассеты временными ссылками (≈7 дн
       `assets/icons/arrow-right-md.svg`
 * [ ] фото «Ученики на выпускном», 595×595 →
       `assets/images/online-classes-students.jpg`
+
+## TimelineFormat (`1:257`) — добавлено в этой сессии
+
+* [ ] `1:341` — иконка «Уроки в реальном времени», 20×20 →
+      `assets/icons/timeline-live.svg`
+* [ ] `1:350` — иконка «Объяснение до понимания», 20×20 →
+      `assets/icons/timeline-explain.svg`
+* [ ] `1:358` — иконка «Записи занятий», 20×20 →
+      `assets/icons/timeline-recordings.svg`
+* [ ] `1:370` — иконка «Личный кабинет родителя», 20×20 →
+      `assets/icons/timeline-parent-account.svg`
+* [ ] `1:387` — иконка счётчика участников, 12×12 →
+      `assets/icons/timeline-viewers.svg`
+* [ ] `1:380` — фото преподавателя на видеозвонке, 620×461 →
+      `assets/images/timeline-format-teacher.jpg`
+* [ ] `1:395` / `1:397` — 2 превью-миниатюры видео, 96×60 каждая →
+      `assets/images/timeline-format-thumb-1.jpg`,
+      `assets/images/timeline-format-thumb-2.jpg`
+* [ ] `Inter-Black.woff2` (начертание 900, фоновые цифры шагов) —
+      добавляется к остальным начертаниям Inter из блокера 5.7

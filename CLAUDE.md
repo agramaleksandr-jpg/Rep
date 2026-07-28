@@ -74,7 +74,8 @@ project/
 
 * аудит макета, карта node-id, список блокеров
 * `tokens.css`, `base.css`, `fonts.css`
-* компоненты: `header`, `footer`, `button`, `hero`, `benefits`, `online-classes`
+* компоненты: `header`, `footer`, `button`, `hero`, `benefits`, `online-classes`,
+  `timeline-format`
 * `main.js`: мобильное меню, якоря, появление при прокрутке, модалки
   (ловушка фокуса + Escape), маска телефона, клиентская валидация форм
 * сборщик превью
@@ -82,8 +83,7 @@ project/
 ## Что дальше
 
 По порядку из `docs/AUDIT.md` §6. Ближайшее — секции главной:
-`1:257` TimelineFormat, `1:398` AttestationExam,
-`1:579` ParentsTeachers, `1:740` ResultsFaq.
+`1:398` AttestationExam, `1:579` ParentsTeachers, `1:740` ResultsFaq.
 
 Потом внутренние страницы, потом адаптив, потом тема WordPress.
 К WordPress **не переходить**, пока статика не закрыта и не сверена.
@@ -101,6 +101,9 @@ project/
 4. Ассеты не выгружены — см. `static/ASSETS-TODO.md`.
 5. В OnlineClasses (`1:194`) в макете спроектирован только таб «1–2 класс» —
    для остальных возрастов стоит технический placeholder вместо контента.
+6. В TimelineFormat (`1:257`) 7 карточек шагов в макете физически шире
+   контейнера (обрезаны overflow-clip) — свёрстаны равной шириной (grid),
+   без обрезки контента. Подробности — `docs/AUDIT.md` §5.9.
 
 ## Проверка
 
