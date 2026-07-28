@@ -145,6 +145,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Чтобы якорные ссылки не прятали заголовок секции под фиксированной шапкой */
+[id] {
+  scroll-margin-top: var(--header-total-height);
+}
+
 body {
   margin: 0;
   background-color: var(--color-surface);
@@ -385,6 +390,22 @@ button {
 .btn--lg .btn__icon {
   width: 20px;
   height: 20px;
+}
+
+/* --- Прямоугольная (внутренние страницы, radius 14 вместо pill) --------- */
+
+.btn--rect {
+  border-radius: 14px;
+}
+
+.btn--outline-brand {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-brand);
+  color: var(--color-brand);
+}
+
+.btn--outline-brand:hover {
+  background-color: #f5f3ff;
 }
 
 /* --- Общие состояния ---------------------------------------------------- */

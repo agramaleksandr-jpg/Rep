@@ -12,6 +12,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Чтобы якорные ссылки не прятали заголовок секции под фиксированной шапкой */
+[id] {
+  scroll-margin-top: var(--header-total-height);
+}
+
 body {
   margin: 0;
   background-color: var(--color-surface);

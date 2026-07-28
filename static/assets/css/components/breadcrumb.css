@@ -1,0 +1,24 @@
+/* ==========================================================================
+   Хлебные крошки — используются на всех внутренних страницах
+   (например Figma node 36:4101 на странице «Архив курсов»).
+   ========================================================================== */
+
+.breadcrumb {
+  padding-block: 16px;
+}
+
+.breadcrumb__list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-body);
+  color: var(--color-text-muted);
+}
+
+.breadcrumb__link:hover {
+  color: var(--color-text);
+}
+
+.breadcrumb__current {
+  color: var(--color-text);
+}

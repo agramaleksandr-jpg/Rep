@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Курсы для дистанционного обучения с 1 по 11 класс — Вектор семьи</title>
+  <meta name="description" content="Подберите онлайн-курс под возраст, цели и темп ребёнка: от начальной школы до подготовки к ОГЭ и ЕГЭ.">
+
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components/button.css">
+  <link rel="stylesheet" href="../assets/css/components/header.css">
+  <link rel="stylesheet" href="../assets/css/components/footer.css">
+  <link rel="stylesheet" href="../assets/css/components/breadcrumb.css">
+  <link rel="stylesheet" href="../assets/css/components/modal.css">
+  <link rel="stylesheet" href="../assets/css/components/courses.css">
+</head>
+<body>
+
+  <a class="visually-hidden" href="#main">Перейти к содержанию</a>
+
+  <!-- ======================= Шапка (Figma 7:1479) ======================= -->
+  <header class="header">
+    <div class="container header__inner">
+
+      <a class="logo" href="../index.html">
+        <span class="logo__mark">
+          <span class="asset-pending" style="width:33px;height:24px"></span>
+        </span>
+        <span class="logo__text">
+          <span class="logo__name">Вектор семьи</span>
+          <span class="logo__tagline">онлайн-школа</span>
+        </span>
+      </a>
+
+      <nav class="header__nav" aria-label="Основная навигация">
+        <ul class="header__nav-list" data-menu>
+          <li><a class="header__nav-link" href="courses.html" aria-current="page">Курсы</a></li>
+          <li><a class="header__nav-link" href="attestation.html">Аттестация</a></li>
+          <li><a class="header__nav-link" href="about.html">О школе</a></li>
+          <li><a class="header__nav-link" href="parents.html">Для родителей</a></li>
+          <li><a class="header__nav-link" href="blog.html">Блог</a></li>
+          <li><a class="header__nav-link" href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__aside">
+        <div class="header__contacts">
+          <a class="header__phone" href="tel:+78001234567">8 (800) 123-45-67</a>
+          <span class="header__schedule">Ежедневно с 9:00 до 21:00</span>
+        </div>
+
+        <div class="header__actions">
+          <a class="btn btn--secondary" href="#">
+            <span class="asset-pending" style="width:16px;height:16px"></span>
+            Войти
+          </a>
+          <button class="btn btn--primary" type="button" data-modal-open="consultation">
+            Записаться
+            <span class="asset-pending" style="width:16px;height:16px"></span>
+          </button>
+        </div>
+
+        <button class="header__burger" type="button"
+                aria-expanded="false" aria-controls="main-menu"
+                data-menu-toggle>
+          <span class="visually-hidden">Открыть меню</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="header__spacer" aria-hidden="true"></div>
+
+  <main id="main">
+
+    <nav class="breadcrumb" aria-label="Хлебные крошки">
+      <div class="container">
+        <ol class="breadcrumb__list">
+          <li><a class="breadcrumb__link" href="../index.html">Главная</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="breadcrumb__current" aria-current="page">Курсы</li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- ===================== Hero (Figma 35:1307) ====================== -->
+    <section class="courses-hero">
+      <div class="container">
+        <div class="courses-hero__grid">
+          <div class="courses-hero__content">
+            <h1 class="courses-hero__title">Курсы для дистанционного обучения с 1 по 11 класс</h1>
+            <p class="courses-hero__text">Подберите программу под возраст, цели и темп ребёнка: от начальной школы до подготовки к ОГЭ и ЕГЭ.</p>
+
+            <div class="courses-hero__actions">
+              <button class="btn btn--primary btn--lg btn--rect" type="button" data-modal-open="consultation" style="padding-inline:32px">Подобрать курс</button>
+              <button class="btn btn--outline-brand btn--lg btn--rect" type="button" data-modal-open="consultation" style="padding-inline:33px">Получить консультацию</button>
+            </div>
+
+            <ul class="courses-hero__features">
+              <li class="courses-hero__feature">
+                <span class="asset-pending" style="width:20px;height:20px"></span>
+                Обучение из дома
+              </li>
+              <li class="courses-hero__feature">
+                <span class="asset-pending" style="width:20px;height:20px"></span>
+                Поддержка куратора
+              </li>
+              <li class="courses-hero__feature">
+                <span class="asset-pending" style="width:20px;height:20px"></span>
+                Понятная программа
+              </li>
+              <li class="courses-hero__feature">
+                <span class="asset-pending" style="width:20px;height:20px"></span>
+                Контроль прогресса
+              </li>
+            </ul>
+          </div>
+
+          <div class="courses-hero__media" aria-hidden="true">
+            <div class="courses-hero__media-inner">
+              <!-- Требуется экспорт из Figma: node 35:1363, 128×128 -->
+              <span class="asset-pending"></span>
+            </div>
+          </div>
+
+          <div class="courses-hero__card courses-hero__card--subject" aria-hidden="true">
+            <p class="courses-hero__card-label">
+              <span class="asset-pending"></span>
+              Математика
+            </p>
+            <span class="courses-hero__progress-bar"><span></span></span>
+          </div>
+
+          <div class="courses-hero__card courses-hero__card--progress" aria-hidden="true">
+            <p class="courses-hero__card-label">
+              <span class="asset-pending"></span>
+              Прогресс
+            </p>
+            <p class="courses-hero__card-value">85%</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============= Что нужно вашему ребёнку (Figma 35:1394) =========== -->
+    <section class="courses-need">
+      <div class="container">
+        <h2 class="courses-need__title">Что нужно вашему ребёнку?</h2>
+        <div class="courses-need__grid">
+          <a class="courses-need__chip" href="#catalog">Перейти на дистанционное обучение</a>
+          <a class="courses-need__chip courses-need__chip--active" href="#catalog" aria-current="true">Учиться в своём темпе</a>
+          <a class="courses-need__chip" href="#catalog">Подтянуть школьные предметы</a>
+          <a class="courses-need__chip" href="#catalog">Подготовиться к аттестации</a>
+          <a class="courses-need__chip" href="#catalog">Подготовиться к ОГЭ</a>
+          <a class="courses-need__chip" href="#catalog">Подготовиться к ЕГЭ</a>
+          <a class="courses-need__chip" href="#catalog">Вернуться к учёбе без стресса</a>
+          <a class="courses-need__chip" href="#catalog">Совмещать школу со спортом</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== Фильтры + каталог курсов (Figma 35:1434) ========== -->
+    <section class="courses-catalog" id="catalog">
+      <div class="container">
+        <div class="courses-catalog__layout">
+
+          <form class="courses-filters" aria-label="Фильтры курсов">
+            <div class="courses-filters__group">
+              <h2 class="courses-filters__title">Класс</h2>
+              <div class="courses-filters__options">
+                <label class="courses-filters__option">
+                  <input type="radio" name="grade-filter" value="all" checked>
+                  Все классы
+                </label>
+                <label class="courses-filters__option">
+                  <input type="radio" name="grade-filter" value="1-4">
+                  1–4 классы
+                </label>
+                <label class="courses-filters__option">
+                  <input type="radio" name="grade-filter" value="5-8">
+                  5–8 классы
+                </label>
+                <label class="courses-filters__option">
+                  <input type="radio" name="grade-filter" value="9">
+                  9 класс
+                </label>
+                <label class="courses-filters__option">
+                  <input type="radio" name="grade-filter" value="10-11">
+                  10–11 классы
+                </label>
+              </div>
+            </div>
+
+            <div class="courses-filters__group">
+              <h2 class="courses-filters__title">Цель</h2>
+              <div class="courses-filters__options">
+                <label class="courses-filters__option">
+                  <input type="checkbox" name="goal-filter" value="full">
+                  Полное обучение
+                </label>
+                <label class="courses-filters__option">
+                  <input type="checkbox" name="goal-filter" value="attestation">
+                  Подготовка к аттестации
+                </label>
+                <label class="courses-filters__option">
+                  <input type="checkbox" name="goal-filter" value="oge">
+                  Подготовка к ОГЭ
+                </label>
+                <label class="courses-filters__option">
+                  <input type="checkbox" name="goal-filter" value="ege">
+                  Подготовка к ЕГЭ
+                </label>
+                <label class="courses-filters__option">
+                  <input type="checkbox" name="goal-filter" value="individual">
+                  Индивидуально
+                </label>
+              </div>
+            </div>
+          </form>
+
+          <ul class="courses-grid">
+            <li class="courses-card">
+              <span class="courses-card__tag">Начальная школа</span>
+              <h3 class="courses-card__title">Онлайн-школа 1–4 класс</h3>
+              <p class="courses-card__text">Бережное погружение в учёбу. Базовые предметы, игровая форма, развитие самостоятельности.</p>
+              <div class="courses-card__meta">
+                <span class="courses-card__meta-item"><span class="asset-pending"></span> Онлайн / Записи / ДЗ</span>
+                <span class="courses-card__meta-item"><span class="asset-pending"></span> С куратором</span>
+              </div>
+              <div class="courses-card__actions">
+                <a class="btn btn--outline-brand btn--rect" href="course.html">Подробнее</a>
+                <button class="btn btn--primary btn--rect" type="button" data-modal-open="consultation">Записаться</button>
+              </div>
+            </li>
+            <li class="courses-card">
+              <span class="courses-card__tag">Средняя школа</span>
+              <h3 class="courses-card__title">Онлайн-школа 5–8 класс</h3>
+              <p class="courses-card__text">Полноценная программа ФГОС, живые уроки, куратор и прозрачный прогресс для родителей.</p>
+              <div class="courses-card__meta">
+                <span class="courses-card__meta-item"><span class="asset-pending"></span> Онлайн / Записи / ДЗ</span>
+                <span class="courses-card__meta-item"><span class="asset-pending"></span> С куратором</span>
+              </div>
+              <div class="courses-card__actions">
+                <a class="btn btn--outline-brand btn--rect" href="course.html">Подробнее</a>
+                <button class="btn btn--primary btn--rect" type="button" data-modal-open="consultation">Записаться</button>
+              </div>
+            </li>
+            <li class="courses-card">
+              <span class="courses-card__tag">Выпускной класс</span>
+              <h3 class="courses-card__title">Подготовка к ОГЭ (9 класс)</h3>
+              <p class="courses-card__text">Целенаправленная подготовка к экзаменам без паники. Пробники, разбор сложных тем.</p>
+              <div class="courses-card__meta">
+                <span class="courses-card__meta-item"><span class="asset-pending"></span> Онлайн / Записи / ДЗ</span>
+                <span class="courses-card__meta-item"><span class="asset-pending"></span> С куратором</span>
+              </div>
+              <div class="courses-card__actions">
+                <a class="btn btn--outline-brand btn--rect" href="course.html">Подробнее</a>
+                <button class="btn btn--primary btn--rect" type="button" data-modal-open="consultation">Записаться</button>
+              </div>
+            </li>
+            <li class="courses-card">
+              <span class="courses-card__tag">Любой возраст</span>
+              <h3 class="courses-card__title">Индивидуальное сопровождение</h3>
+              <p class="courses-card__text">Обучение 1 на 1 с преподавателем. Гибкий график и персональная программа.</p>
+              <div class="courses-card__meta">
+                <span class="courses-card__meta-item"><span class="asset-pending"></span> Онлайн / Записи / ДЗ</span>
+                <span class="courses-card__meta-item"><span class="asset-pending"></span> С куратором</span>
+              </div>
+              <div class="courses-card__actions">
+                <a class="btn btn--outline-brand btn--rect" href="course.html">Подробнее</a>
+                <button class="btn btn--primary btn--rect" type="button" data-modal-open="consultation">Записаться</button>
+              </div>
+            </li>
+            <li class="courses-card">
+              <span class="courses-card__tag">Для семейников</span>
+              <h3 class="courses-card__title">Подготовка к аттестации</h3>
+              <p class="courses-card__text">Помощь в прохождении промежуточной аттестации за любой класс.</p>
+              <div class="courses-card__meta">
+                <span class="courses-card__meta-item"><span class="asset-pending"></span> Онлайн / Записи / ДЗ</span>
+                <span class="courses-card__meta-item"><span class="asset-pending"></span> С куратором</span>
+              </div>
+              <div class="courses-card__actions">
+                <a class="btn btn--outline-brand btn--rect" href="course.html">Подробнее</a>
+                <button class="btn btn--primary btn--rect" type="button" data-modal-open="consultation">Записаться</button>
+              </div>
+            </li>
+            <li class="courses-card">
+              <span class="courses-card__tag">Старшая школа</span>
+              <h3 class="courses-card__title">Онлайн-школа 10–11 класс</h3>
+              <p class="courses-card__text">Упор на подготовку к ЕГЭ и поступлению. Индивидуальный учебный план.</p>
+              <div class="courses-card__meta">
+                <span class="courses-card__meta-item"><span class="asset-pending"></span> Онлайн / Записи / ДЗ</span>
+                <span class="courses-card__meta-item"><span class="asset-pending"></span> С куратором</span>
+              </div>
+              <div class="courses-card__actions">
+                <a class="btn btn--outline-brand btn--rect" href="course.html">Подробнее</a>
+                <button class="btn btn--primary btn--rect" type="button" data-modal-open="consultation">Записаться</button>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== Сравнение программ (Figma 35:1811) =========== -->
+    <section class="courses-compare">
+      <div class="container">
+        <h2 class="courses-compare__title">Сравнение программ</h2>
+        <div class="courses-compare__table-wrap">
+          <table class="courses-compare__table">
+            <thead>
+              <tr>
+                <th scope="col"><span class="visually-hidden">Параметр</span></th>
+                <th scope="col">Начальная школа</th>
+                <th scope="col">Средняя школа</th>
+                <th scope="col">Старшие классы</th>
+                <th scope="col">Подготовка к экзаменам</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Формат занятий</th>
+                <td>Интерактив, игры</td>
+                <td>Онлайн + записи</td>
+                <td>Онлайн + записи</td>
+                <td>Интенсивы, вебинары</td>
+              </tr>
+              <tr>
+                <th scope="row">Роль родителя</th>
+                <td>Высокая вовлеченность</td>
+                <td>Средняя, контроль</td>
+                <td>Только поддержка</td>
+                <td>Только поддержка</td>
+              </tr>
+              <tr>
+                <th scope="row">Куратор</th>
+                <td><span class="asset-pending" role="img" aria-label="Есть"></span></td>
+                <td><span class="asset-pending" role="img" aria-label="Есть"></span></td>
+                <td><span class="asset-pending" role="img" aria-label="Есть"></span></td>
+                <td><span class="asset-pending" role="img" aria-label="Есть"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Что получает родитель/ученик (Figma 35:1882) ========= -->
+    <section class="courses-lists">
+      <div class="container">
+        <div class="courses-lists__grid">
+          <div>
+            <h2 class="courses-lists__col-title">Что получает родитель</h2>
+            <ul class="courses-lists__items">
+              <li class="courses-lists__item courses-lists__item--parent"><span class="asset-pending"></span> Понятное расписание без сюрпризов</li>
+              <li class="courses-lists__item courses-lists__item--parent"><span class="asset-pending"></span> Доступ к реальному прогрессу ребёнка</li>
+              <li class="courses-lists__item courses-lists__item--parent"><span class="asset-pending"></span> Связь с куратором в любое время</li>
+              <li class="courses-lists__item courses-lists__item--parent"><span class="asset-pending"></span> Подробные отчёты об успеваемости</li>
+              <li class="courses-lists__item courses-lists__item--parent"><span class="asset-pending"></span> Помощь с переходом из обычной школы</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="courses-lists__col-title">Что получает ученик</h2>
+            <ul class="courses-lists__items">
+              <li class="courses-lists__item courses-lists__item--student"><span class="asset-pending"></span> Понятные и интересные уроки</li>
+              <li class="courses-lists__item courses-lists__item--student"><span class="asset-pending"></span> Меньше стресса и тревоги из-за оценок</li>
+              <li class="courses-lists__item courses-lists__item--student"><span class="asset-pending"></span> Возможность учиться в своём комфортном темпе</li>
+              <li class="courses-lists__item courses-lists__item--student"><span class="asset-pending"></span> Записи всех занятий (можно пересмотреть)</li>
+              <li class="courses-lists__item courses-lists__item--student"><span class="asset-pending"></span> Современная и удобная платформа</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= FAQ (Figma 35:1986) ===================== -->
+    <section class="courses-faq">
+      <div class="container">
+        <h2 class="courses-faq__title">Частые вопросы</h2>
+        <div class="courses-faq__panel">
+          <div class="courses-faq__col">
+            <details class="courses-faq__item" open>
+              <summary>
+                Можно ли перейти к вам в течение года?
+                <span class="courses-faq__chevron asset-pending" aria-hidden="true"></span>
+              </summary>
+              <p class="courses-faq__answer">Да, вы можете присоединиться к нам в любой момент. Мы поможем плавно влиться в учебный процесс.</p>
+            </details>
+            <details class="courses-faq__item">
+              <summary>
+                Есть ли пробное занятие?
+                <span class="courses-faq__chevron asset-pending" aria-hidden="true"></span>
+              </summary>
+              <p class="courses-faq__answer">Ответ на этот вопрос ещё не добавлен в макет Figma.</p>
+            </details>
+          </div>
+          <div class="courses-faq__col">
+            <details class="courses-faq__item">
+              <summary>
+                Как родитель видит прогресс?
+                <span class="courses-faq__chevron asset-pending" aria-hidden="true"></span>
+              </summary>
+              <p class="courses-faq__answer">Ответ на этот вопрос ещё не добавлен в макет Figma.</p>
+            </details>
+            <details class="courses-faq__item">
+              <summary>
+                Как родитель видит прогресс?
+                <span class="courses-faq__chevron asset-pending" aria-hidden="true"></span>
+              </summary>
+              <p class="courses-faq__answer">Ответ на этот вопрос ещё не добавлен в макет Figma.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= CTA-баннер (Figma 35:2022) ================ -->
+    <section class="courses-cta">
+      <span class="courses-cta__glow courses-cta__glow--left" aria-hidden="true"></span>
+      <span class="courses-cta__glow courses-cta__glow--right" aria-hidden="true"></span>
+      <div class="container">
+        <div class="courses-cta__inner">
+          <h2 class="courses-cta__title">Не знаете, какой курс подойдёт ребёнку?</h2>
+          <p class="courses-cta__text">Оставьте заявку — мы поможем подобрать программу под класс, цели и текущую ситуацию.</p>
+          <button class="btn btn--rect courses-cta__button" type="button" data-modal-open="consultation">Записаться на консультацию</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================= Подвал (Figma 7:1480) ====================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+
+      <div class="footer__columns">
+
+        <div class="footer__about">
+          <a class="logo" href="../index.html">
+            <span class="logo__mark">
+              <span class="asset-pending" style="width:33px;height:24px"></span>
+            </span>
+            <span class="logo__text">
+              <span class="logo__name">Вектор семьи</span>
+              <span class="logo__tagline">онлайн-школа</span>
+            </span>
+          </a>
+
+          <p class="footer__description">
+            Современная онлайн-школа с человеческим лицом. Учим детей, бережем нервы родителей.
+          </p>
+
+          <div class="footer__contacts">
+            <a class="footer__phone" href="tel:+78001234567">8 (800) 123-45-67</a>
+            <a class="footer__email" href="mailto:hello@tochkarosta.ru">hello@tochkarosta.ru</a>
+          </div>
+        </div>
+
+        <div class="footer__column">
+          <h2 class="footer__heading">Обучение</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="#catalog">Начальная школа 1-4 кл.</a></li>
+            <li><a class="footer__link" href="#catalog">Средняя школа 5-9 кл.</a></li>
+            <li><a class="footer__link" href="#catalog">Старшая школа 10-11 кл.</a></li>
+            <li><a class="footer__link" href="#catalog">Подготовка к ОГЭ/ЕГЭ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h2 class="footer__heading">Информация</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="about.html">Об онлайн-школе</a></li>
+            <li><a class="footer__link" href="#">Преподаватели</a></li>
+            <li><a class="footer__link" href="attestation.html">Аттестация</a></li>
+            <li><a class="footer__link" href="#">Отзывы</a></li>
+            <li><a class="footer__link" href="blog.html">Блог</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h2 class="footer__heading">Документы</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="#">Оферта</a></li>
+            <li><a class="footer__link" href="#">Политика конфиденциальности</a></li>
+            <li><a class="footer__link" href="#">Лицензия</a></li>
+            <li><a class="footer__link" href="#">Реквизиты</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">© 2026 Онлайн-школа «Точка роста». Все права защищены.</p>
+
+        <ul class="footer__social">
+          <li><span class="footer__social-item"></span></li>
+          <li><span class="footer__social-item"></span></li>
+          <li><span class="footer__social-item"></span></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== Модалка консультации (Figma 7:1254) ================= -->
+  <div class="modal" id="consultation" data-modal hidden>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="consultation-title">
+      <button class="modal__close" type="button" data-modal-close aria-label="Закрыть">
+        <span class="asset-pending" style="width:16px;height:16px"></span>
+      </button>
+
+      <div class="modal__header">
+        <h2 class="modal__title" id="consultation-title">Записаться на консультацию</h2>
+        <p class="modal__subtitle">Оставьте свои данные, и мы поможем подобрать подходящую программу для вашего ребенка</p>
+      </div>
+
+      <form class="modal__form" data-validate novalidate>
+        <div class="modal__field" data-field>
+          <label class="modal__label" for="consultation-name">Как к вам обращаться?</label>
+          <input class="modal__input" type="text" id="consultation-name" name="name" placeholder="Ваше имя" required>
+          <span class="modal__error" data-error hidden></span>
+        </div>
+
+        <div class="modal__field" data-field>
+          <label class="modal__label" for="consultation-phone">Номер телефона</label>
+          <input class="modal__input" type="tel" id="consultation-phone" name="phone" placeholder="+7 (999) 000-00-00" data-phone required>
+          <span class="modal__error" data-error hidden></span>
+        </div>
+
+        <div class="modal__field" data-field>
+          <label class="modal__label" for="consultation-grade">В какой класс пойдет ребенок?</label>
+          <span class="modal__select-wrap">
+            <select class="modal__select" id="consultation-grade" name="grade" required>
+              <option value="" selected disabled hidden>Выберите класс</option>
+              <option value="1">1 класс</option>
+              <option value="2">2 класс</option>
+              <option value="3">3 класс</option>
+              <option value="4">4 класс</option>
+              <option value="5">5 класс</option>
+              <option value="6">6 класс</option>
+              <option value="7">7 класс</option>
+              <option value="8">8 класс</option>
+              <option value="9">9 класс</option>
+              <option value="10">10 класс</option>
+              <option value="11">11 класс</option>
+            </select>
+            <span class="asset-pending modal__select-icon"></span>
+          </span>
+          <span class="modal__error" data-error hidden></span>
+        </div>
+
+        <div class="modal__field" data-field>
+          <label class="modal__consent">
+            <input type="checkbox" name="consent" required>
+            <span class="modal__consent-text">
+              Нажимая на кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a> и <a href="#">обработкой персональных данных</a>
+            </span>
+          </label>
+          <span class="modal__error" data-error hidden></span>
+        </div>
+
+        <button class="btn btn--primary modal__submit" type="submit">Оставить заявку</button>
+        <p class="modal__status" data-form-status hidden></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
