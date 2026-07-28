@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Вектор семьи — онлайн-школа с 1 по 11 класс</title>
+  <meta name="description" content="Живые онлайн-уроки с преподавателями с 1 по 11 класс.">
+
+  <style>
+/* ==========================================================================
+   Inter. Файлы .woff2 положить в assets/fonts/ (см. блокер 5.7 в docs/AUDIT.md).
+   Локальное подключение выбрано вместо Google Fonts: нет внешних запросов,
+   нет зависимости от домена, корректно работает офлайн и на хостинге РФ.
+   ========================================================================== */
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+</style>
+<style>
+/* ==========================================================================
+   Токены дизайна. Значения выведены из макета Figma (файл Q62UEDAt6rf0LdDtOrqYLF).
+   Менять только вслед за макетом.
+   ========================================================================== */
+
+:root {
+  /* --- Цвет ------------------------------------------------------------- */
+  --color-brand: #7b61ff;
+  --color-brand-gradient: linear-gradient(135deg, #7b61ff 0%, #00d1ff 100%);
+
+  --color-text: #0f172b;
+  --color-text-body: #45556c;
+  --color-text-muted: #62748e;
+  --color-text-secondary-btn: #314158;
+
+  --color-border: #e2e8f0;
+  --color-border-light: #f1f5f9;
+
+  --color-surface: #ffffff;
+  --color-surface-muted: #f8fafc;
+  --color-header-bg: rgba(255, 255, 255, 0.8);
+
+  --color-on-brand: #ffffff;
+
+  /* --- Типографика ------------------------------------------------------ */
+  --font-base: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Arial, sans-serif;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --fs-caption: 11px;
+  --lh-caption: 16.5px;
+  --ls-caption: 0.55px;
+
+  --fs-small: 12px;
+  --lh-small: 16px;
+
+  --fs-body: 14px;
+  --lh-body: 20px;
+
+  --fs-lead: 16px;
+  --lh-lead: 24px;
+
+  --fs-logo: 20px;
+  --lh-logo: 20px;
+  --ls-logo: -0.5px;
+
+  /* --- Раскладка -------------------------------------------------------- */
+  --container-width: 1400px;
+  --container-padding: 32px;
+  --grid-gap: 32px;
+
+  --header-height: 80px;
+  --header-total-height: 81px; /* 80 + нижняя граница 1px */
+
+  /* --- Форма ------------------------------------------------------------ */
+  --radius-pill: 9999px;
+  --radius-logo: 14px;
+
+  --shadow-brand: 0 10px 7.5px rgba(123, 97, 255, 0.25),
+    0 4px 3px rgba(123, 97, 255, 0.25);
+
+  /* --- Движение --------------------------------------------------------- */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+}
+</style>
+<style>
+/* ==========================================================================
+   База: сброс, типографика, контейнер, служебные классы
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-surface);
+  color: var(--color-text-body);
+  font-family: var(--font-base);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-regular);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+body.is-locked {
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+figure {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease),
+    opacity var(--duration-fast) var(--ease);
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+/* Видимый фокус только для клавиатуры (п.11 ТЗ) */
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* --- Контейнер ---------------------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* --- Служебное ---------------------------------------------------------- */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Появление при прокрутке — включается скриптом */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity var(--duration-slow) var(--ease),
+    transform var(--duration-slow) var(--ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- prefers-reduced-motion (п.8 ТЗ) ------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+<style>
+/* ==========================================================================
+   Кнопки — Figma nodes 1:1007 (secondary), 1:1012 (primary), 1:23 / 1:28 (hero)
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding-inline: 24px;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-medium);
+  white-space: nowrap;
+  text-align: center;
+  transition: background-color var(--duration-fast) var(--ease),
+    color var(--duration-fast) var(--ease),
+    box-shadow var(--duration-base) var(--ease),
+    opacity var(--duration-fast) var(--ease);
+}
+
+.btn__icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+/* --- Основная ----------------------------------------------------------- */
+
+.btn--primary {
+  background-color: var(--color-brand);
+  color: var(--color-on-brand);
+  box-shadow: var(--shadow-brand);
+}
+
+.btn--primary:hover {
+  background-color: #6a4dff;
+}
+
+.btn--primary:active {
+  background-color: #5f42f5;
+}
+
+/* --- Вторичная ---------------------------------------------------------- */
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-text-secondary-btn);
+  font-weight: var(--fw-semibold);
+}
+
+.btn--secondary:hover {
+  color: var(--color-text);
+}
+
+/* --- Крупная (герой, высота 56) ---------------------------------------- */
+
+.btn--lg {
+  height: 56px;
+  padding-inline: 26px;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+}
+
+.btn--lg .btn__icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* --- Общие состояния ---------------------------------------------------- */
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.btn.is-loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+</style>
+<style>
+/* ==========================================================================
+   Шапка — Figma node 7:1479
+   В макете шапка вынесена отдельным слоем поверх страницы, а внутри страницы
+   стоит «Placeholder for Header» той же высоты — значит шапка фиксированная,
+   а место под неё занимает распорка.
+   ========================================================================== */
+
+.header {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: 100;
+  background-color: var(--color-header-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.header__spacer {
+  height: var(--header-total-height);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+}
+
+/* --- Логотип ------------------------------------------------------------ */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo__mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border-radius: var(--radius-logo);
+  background-image: var(--color-brand-gradient);
+}
+
+.logo__mark img {
+  width: 33px;
+  height: 24px;
+}
+
+.logo__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logo__name {
+  font-size: var(--fs-logo);
+  line-height: var(--lh-logo);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-logo);
+  color: var(--color-text);
+}
+
+.logo__tagline {
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-caption);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* --- Навигация ---------------------------------------------------------- */
+
+.header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.header__nav-link {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-body);
+  white-space: nowrap;
+}
+
+.header__nav-link:hover,
+.header__nav-link[aria-current="page"] {
+  color: var(--color-text);
+}
+
+/* --- Правый блок -------------------------------------------------------- */
+
+.header__aside {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header__contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.header__phone {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.header__schedule {
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* --- Бургер (нужен для адаптива; в desktop-макете скрыт) ---------------- */
+
+.header__burger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+}
+</style>
+<style>
+/* ==========================================================================
+   Подвал — Figma node 7:1480
+   Высота 438 = 81 (верхний отступ) + 317 (контент) + 40 (нижний отступ)
+   ========================================================================== */
+
+.footer {
+  padding-block: 81px 40px;
+  background-color: var(--color-surface-muted);
+  border-top: 1px solid var(--color-border);
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+/* --- Колонки ------------------------------------------------------------
+   Ширины колонок в макете: 515.19 / 241.61 / 241.59 / 241.61 при зазоре 32.
+   Записаны через fr, чтобы пропорции сохранялись при сужении контейнера.
+   ------------------------------------------------------------------------ */
+
+.footer__columns {
+  display: grid;
+  grid-template-columns: 515.19fr 241.61fr 241.59fr 241.61fr;
+  gap: var(--grid-gap);
+}
+
+.footer__about {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.footer__description {
+  max-width: 384px;
+  color: var(--color-text-muted);
+}
+
+.footer__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-block-start: 8px;
+}
+
+.footer__phone {
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.footer__email {
+  color: var(--color-text-body);
+}
+
+.footer__phone:hover,
+.footer__email:hover {
+  color: var(--color-brand);
+}
+
+/* --- Колонка ссылок ----------------------------------------------------- */
+
+.footer__column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer__heading {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.footer__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer__link {
+  color: var(--color-text-body);
+}
+
+.footer__link:hover {
+  color: var(--color-brand);
+}
+
+/* --- Нижняя полоса ------------------------------------------------------ */
+
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--grid-gap);
+  padding-block-start: 33px;
+  border-top: 1px solid var(--color-border);
+}
+
+.footer__copyright {
+  color: var(--color-text-muted);
+}
+
+.footer__social {
+  display: flex;
+  gap: 16px;
+}
+
+/* В макете кружки нарисованы без иконок — см. блокер 5.3 в docs/AUDIT.md */
+.footer__social-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-border);
+  transition: background-color var(--duration-fast) var(--ease);
+}
+
+.footer__social-item:hover {
+  background-color: #cbd5e1;
+}
+</style>
+<style>
+/* ==========================================================================
+   Герой главной — Figma node 1:8
+   Секция 2543 × 807.5; контент 1336 × 615.5 с отступом сверху 80.
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  padding-block: 80px 112px;
+  background-color: #f8f9ff;
+  overflow: hidden;
+}
+
+/* Размытые градиентные пятна фона (1:9, 1:10) */
+.hero__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(64px);
+  pointer-events: none;
+}
+
+.hero__blob--right {
+  inset-block-start: -48px;
+  inset-inline-end: -200px;
+  width: 600px;
+  height: 600px;
+  background-image: linear-gradient(
+    135deg,
+    rgba(233, 212, 255, 0.4) 0%,
+    rgba(224, 231, 255, 0.4) 100%
+  );
+}
+
+.hero__blob--left {
+  inset-block-start: 474px;
+  inset-inline-start: -167px;
+  width: 500px;
+  height: 500px;
+  background-image: linear-gradient(
+    45deg,
+    rgba(190, 219, 255, 0.4) 0%,
+    rgba(206, 250, 254, 0.4) 100%
+  );
+}
+
+.hero__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 652fr 652fr;
+  gap: var(--grid-gap);
+  align-items: start;
+}
+
+/* --- Левая колонка ------------------------------------------------------ */
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  background-color: rgba(243, 232, 255, 0.8);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-semibold);
+  color: #8200db;
+  white-space: nowrap;
+}
+
+.hero__title {
+  max-width: 618px;
+  margin-block-start: 26px;
+  font-size: 60px;
+  line-height: 69px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -1.5px;
+  color: var(--color-text);
+}
+
+.hero__title-accent {
+  color: var(--color-brand);
+}
+
+.hero__text {
+  max-width: 576px;
+  margin-block-start: 24px;
+  font-size: 20px;
+  line-height: 32.5px;
+  color: var(--color-text-body);
+}
+
+.hero__text-strong {
+  display: block;
+  margin-block-start: 40.5px;
+  font-weight: var(--fw-medium);
+  color: #1d293d;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 16px;
+  margin-block-start: 32px;
+}
+
+/* Кнопки героя — увеличенная тень относительно кнопок шапки */
+.hero__actions .btn--primary {
+  box-shadow: 0 20px 12.5px rgba(123, 97, 255, 0.2),
+    0 8px 5px rgba(123, 97, 255, 0.2);
+}
+
+.hero__actions .btn--outline {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding-inline: 33px;
+}
+
+.hero__actions .btn--outline:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* --- Строка преимуществ ------------------------------------------------- */
+
+.hero__stats {
+  display: flex;
+  align-items: center;
+  gap: var(--grid-gap);
+  margin-block-start: 40px;
+  padding-block-start: 32px;
+  border-top: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+.hero__stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hero__stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-brand);
+}
+
+.hero__stat-text {
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+/* --- Правая колонка ----------------------------------------------------- */
+
+.hero__media {
+  position: relative;
+  height: 600px;
+  margin-block-start: 7.75px;
+}
+
+.hero__frame {
+  position: absolute;
+  inset-block-start: 17px;
+  inset-inline-start: 70px;
+  width: 512px;
+  height: 566px;
+  border: 8px solid #ffffff;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(198, 210, 255, 0.5);
+}
+
+.hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__play-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(49, 44, 133, 0.1);
+}
+
+.hero__play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-pill);
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform var(--duration-base) var(--ease);
+}
+
+.hero__play:hover {
+  transform: scale(1.06);
+}
+
+/* --- Плавающие карточки ------------------------------------------------- */
+
+.hero__card {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 17px;
+  border: 1px solid var(--color-border-light);
+  border-radius: 16px;
+  background-color: var(--color-surface);
+  box-shadow: 0 20px 12.5px rgba(0, 0, 0, 0.1), 0 8px 5px rgba(0, 0, 0, 0.1);
+}
+
+.hero__card--students {
+  inset-block-start: 42.25px;
+  inset-inline-start: -47.5px;
+}
+
+.hero__card--attestation {
+  inset-block-start: 387.76px;
+  inset-inline-start: 501.93px;
+  width: 182px;
+}
+
+.hero__card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+}
+
+.hero__card-icon--blue {
+  background-color: #dbeafe;
+}
+
+.hero__card-icon--green {
+  background-color: #dcfce7;
+}
+
+.hero__card-label {
+  display: block;
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-muted);
+}
+
+.hero__card-value {
+  display: block;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+  white-space: nowrap;
+}
+</style>
+<style>
+/* ==========================================================================
+   Benefits — Figma node 1:76
+   Секция 2543 × 831; контент 1336 в контейнере 1400 с отступом 80 сверху/снизу.
+   Заголовок (768) и сетка карточек (1336, 4×2, зазор 24) выровнены по общему
+   контейнеру страницы 1400/32.
+   ========================================================================== */
+
+.benefits {
+  padding-block: 80px;
+  background-color: var(--color-surface);
+}
+
+.benefits__header {
+  max-width: 768px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.benefits__title {
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.9px;
+  color: var(--color-text);
+}
+
+.benefits__text {
+  margin-block-start: 16px;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-text-body);
+}
+
+.benefits__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-block-start: 64px;
+}
+
+.benefits__card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border-light);
+  border-radius: 24px;
+  background-color: var(--color-surface);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.04);
+}
+
+.benefits__card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 32px 32px 0;
+}
+
+.benefits__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+}
+
+.benefits__icon img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Цвета плашек — по одному оттенку на карточку, как в макете */
+.benefits__icon--indigo {
+  background-color: #e0e7ff;
+}
+
+.benefits__icon--purple {
+  background-color: #f3e8ff;
+}
+
+.benefits__icon--pink {
+  background-color: #fce7f3;
+}
+
+.benefits__icon--amber {
+  background-color: #fef3c6;
+}
+
+.benefits__icon--blue {
+  background-color: #dbeafe;
+}
+
+.benefits__icon--green {
+  background-color: #d0fae5;
+}
+
+.benefits__icon--cyan {
+  background-color: #cefafe;
+}
+
+.benefits__icon--rose {
+  background-color: #ffe4e6;
+}
+
+.benefits__card-title {
+  /* Figma использует более тёмный оттенок, чем базовый --color-text */
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.5px;
+  color: #020618;
+}
+
+.benefits__card-text {
+  padding: 0 32px 32px;
+  font-size: var(--fs-body);
+  line-height: 22.75px;
+  color: var(--color-text-body);
+}
+</style>
+<style>
+/* ===== только для превью, в боевую вёрстку не идёт ===== */
+.asset-pending{
+  display:inline-block;border:1px dashed rgba(15,23,43,.35);
+  border-radius:3px;background:rgba(15,23,43,.03);
+}
+.logo__mark .asset-pending,.hero__stat-icon .asset-pending,.benefits__icon .asset-pending{
+  border-color:rgba(255,255,255,.85);background:rgba(255,255,255,.12);
+}
+.btn .asset-pending{border-color:currentColor;opacity:.55;background:none}
+.asset-pending--photo{
+  display:flex;align-items:center;justify-content:center;
+  width:100%;height:100%;padding:16px;text-align:center;
+  font-size:12px;line-height:16px;color:#62748e;
+}
+</style>
+</head>
+<body>
+
+  <a class="visually-hidden" href="#main">Перейти к содержанию</a>
+
+  <!-- ======================= Шапка (Figma 7:1479) ======================= -->
+  <header class="header">
+    <div class="container header__inner">
+
+      <a class="logo" href="index.html">
+        <span class="logo__mark">
+          <!-- Требуется экспорт из Figma: node 74:1250, 33×24 -->
+          <span class="asset-pending" style="width:33px;height:24px"></span>
+        </span>
+        <span class="logo__text">
+          <span class="logo__name">Вектор семьи</span>
+          <span class="logo__tagline">онлайн-школа</span>
+        </span>
+      </a>
+
+      <nav class="header__nav" aria-label="Основная навигация">
+        <ul class="header__nav-list" data-menu>
+          <li><a class="header__nav-link" href="pages/courses.html">Курсы</a></li>
+          <li><a class="header__nav-link" href="pages/attestation.html">Аттестация</a></li>
+          <li><a class="header__nav-link" href="pages/about.html">О школе</a></li>
+          <li><a class="header__nav-link" href="pages/parents.html">Для родителей</a></li>
+          <li><a class="header__nav-link" href="pages/blog.html">Блог</a></li>
+          <li><a class="header__nav-link" href="pages/contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__aside">
+        <div class="header__contacts">
+          <a class="header__phone" href="tel:+78001234567">8 (800) 123-45-67</a>
+          <span class="header__schedule">Ежедневно с 9:00 до 21:00</span>
+        </div>
+
+        <div class="header__actions">
+          <!-- Целевой экран для «Войти» в макете не определён — см. блокер 5.6 -->
+          <a class="btn btn--secondary" href="#">
+            <span class="asset-pending" style="width:16px;height:16px"></span>
+            Войти
+          </a>
+          <button class="btn btn--primary" type="button" data-modal-open="consultation">
+            Записаться
+            <span class="asset-pending" style="width:16px;height:16px"></span>
+          </button>
+        </div>
+
+        <button class="header__burger" type="button"
+                aria-expanded="false" aria-controls="main-menu"
+                data-menu-toggle>
+          <span class="visually-hidden">Открыть меню</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Распорка под фиксированную шапку (в Figma — «Placeholder for Header») -->
+  <div class="header__spacer" aria-hidden="true"></div>
+
+  <main id="main">
+
+    <!-- ===================== Герой (Figma 1:8) ====================== -->
+    <section class="hero">
+      <span class="hero__blob hero__blob--right" aria-hidden="true"></span>
+      <span class="hero__blob hero__blob--left" aria-hidden="true"></span>
+
+      <div class="container hero__inner">
+
+        <div class="hero__content">
+          <p class="hero__badge"><span aria-hidden="true">🎉</span> Онлайн-школа с 1 по 11 класс</p>
+
+          <h1 class="hero__title">
+            Учимся дома, растём уверенными <span class="hero__title-accent">вместе!</span>
+          </h1>
+
+          <p class="hero__text">
+            Живые онлайн-уроки с преподавателями, официальная аттестация и поддержка на каждом этапе обучения.
+            <span class="hero__text-strong">Ребёнок учится дома, но не остаётся один.</span>
+          </p>
+
+          <div class="hero__actions">
+            <button class="btn btn--primary btn--lg" type="button" data-modal-open="consultation">
+              Записаться на обучение
+              <span class="asset-pending" style="width:20px;height:20px"></span>
+            </button>
+            <button class="btn btn--outline btn--lg" type="button" data-modal-open="consultation">
+              Получить консультацию
+            </button>
+          </div>
+
+          <ul class="hero__stats">
+            <li class="hero__stat">
+              <span class="hero__stat-icon">
+                <span class="asset-pending" style="width:24px;height:24px"></span>
+              </span>
+              <span class="hero__stat-text">Довольные ученики</span>
+            </li>
+            <li class="hero__stat">
+              <span class="hero__stat-icon">
+                <span class="asset-pending" style="width:24px;height:24px"></span>
+              </span>
+              <span class="hero__stat-text">Опытные преподаватели</span>
+            </li>
+            <li class="hero__stat">
+              <span class="hero__stat-icon">
+                <span class="asset-pending" style="width:24px;height:24px"></span>
+              </span>
+              <span class="hero__stat-text">Успешные аттестации</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hero__media">
+          <div class="hero__frame">
+            <span class="asset-pending asset-pending--photo">Счастливая ученица на онлайн уроке<br>assets/images/hero-student.jpg</span>
+            <div class="hero__play-layer">
+              <button class="hero__play" type="button">
+                <span class="visually-hidden">Смотреть видео о школе</span>
+                <span class="asset-pending" style="width:31px;height:30px"></span>
+              </button>
+            </div>
+          </div>
+
+          <div class="hero__card hero__card--students">
+            <span class="hero__card-icon hero__card-icon--blue">
+              <span class="asset-pending" style="width:20px;height:20px"></span>
+            </span>
+            <span>
+              <span class="hero__card-label">Присоединяйтесь к</span>
+              <span class="hero__card-value">более 2 000 учеников</span>
+            </span>
+          </div>
+
+          <div class="hero__card hero__card--attestation">
+            <span class="hero__card-icon hero__card-icon--green">
+              <span class="asset-pending" style="width:20px;height:20px"></span>
+            </span>
+            <span>
+              <span class="hero__card-value">Официальная</span>
+              <span class="hero__card-label">аттестация</span>
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =================== Benefits (Figma 1:76) ===================== -->
+    <section class="benefits" id="benefits">
+      <div class="container">
+        <div class="benefits__header reveal">
+          <h2 class="benefits__title">Что получает семья</h2>
+          <p class="benefits__text">
+            Мы продумали каждую деталь образовательного процесса, чтобы обучение было эффективным для ребёнка и спокойным для родителей.
+          </p>
+        </div>
+
+        <ul class="benefits__grid">
+          <li class="benefits__card reveal">
+            <div class="benefits__card-header">
+              <span class="benefits__icon benefits__icon--indigo">
+                <!-- Требуется экспорт из Figma: node 1:87, 24×24 -->
+                <span class="asset-pending" style="width:24px;height:24px"></span>
+              </span>
+              <h3 class="benefits__card-title">Живые уроки</h3>
+            </div>
+            <p class="benefits__card-text">Занятия в реальном времени, где можно задавать вопросы.</p>
+          </li>
+
+          <li class="benefits__card reveal">
+            <div class="benefits__card-header">
+              <span class="benefits__icon benefits__icon--purple">
+                <!-- Требуется экспорт из Figma: node 1:100, 24×24 -->
+                <span class="asset-pending" style="width:24px;height:24px"></span>
+              </span>
+              <h3 class="benefits__card-title">Опытные преподаватели</h3>
+            </div>
+            <p class="benefits__card-text">Влюбляют в свой предмет и умеют объяснять сложное просто.</p>
+          </li>
+
+          <li class="benefits__card reveal">
+            <div class="benefits__card-header">
+              <span class="benefits__icon benefits__icon--pink">
+                <!-- Требуется экспорт из Figma: node 1:112, 24×24 -->
+                <span class="asset-pending" style="width:24px;height:24px"></span>
+              </span>
+              <h3 class="benefits__card-title">Личное сопровождение</h3>
+            </div>
+            <p class="benefits__card-text">Куратор всегда на связи и помогает с любыми вопросами.</p>
+          </li>
+
+          <li class="benefits__card reveal">
+            <div class="benefits__card-header">
+              <span class="benefits__icon benefits__icon--amber">
+                <!-- Требуется экспорт из Figma: node 1:125, 24×24 -->
+                <span class="asset-pending" style="width:24px;height:24px"></span>
+              </span>
+              <h3 class="benefits__card-title">Официальная аттестация</h3>
+            </div>
+            <p class="benefits__card-text">Прикрепление к школе-партнеру и аттестат гос. образца.</p>
+          </li>
+
+          <li class="benefits__card reveal">
+            <div class="benefits__card-header">
+              <span class="benefits__icon benefits__icon--blue">
+                <!-- Требуется экспорт из Figma: node 1:138, 24×24 -->
+                <span class="asset-pending" style="width:24px;height:24px"></span>
+              </span>
+              <h3 class="benefits__card-title">Контроль прогресса</h3>
+            </div>
+            <p class="benefits__card-text">Регулярные срезы знаний и понятная статистика успеваемости.</p>
+          </li>
+
+          <li class="benefits__card reveal">
+            <div class="benefits__card-header">
+              <span class="benefits__icon benefits__icon--green">
+                <!-- Требуется экспорт из Figma: node 1:149, 24×24 -->
+                <span class="asset-pending" style="width:24px;height:24px"></span>
+              </span>
+              <h3 class="benefits__card-title">Поддержка родителей</h3>
+            </div>
+            <p class="benefits__card-text">Снимаем с вас роль учителя — мы берем обучение на себя.</p>
+          </li>
+
+          <li class="benefits__card reveal">
+            <div class="benefits__card-header">
+              <span class="benefits__icon benefits__icon--cyan">
+                <!-- Требуется экспорт из Figma: node 1:162, 24×24 -->
+                <span class="asset-pending" style="width:24px;height:24px"></span>
+              </span>
+              <h3 class="benefits__card-title">Понятная система</h3>
+            </div>
+            <p class="benefits__card-text">Удобная платформа со всем необходимым в одном месте.</p>
+          </li>
+
+          <li class="benefits__card reveal">
+            <div class="benefits__card-header">
+              <span class="benefits__icon benefits__icon--rose">
+                <!-- Требуется экспорт из Figma: node 1:175, 24×24 -->
+                <span class="asset-pending" style="width:24px;height:24px"></span>
+              </span>
+              <h3 class="benefits__card-title">Без перегрузки</h3>
+            </div>
+            <p class="benefits__card-text">Адаптируем нагрузку так, чтобы ребенок учился с удовольствием.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!--
+      Следующие секции главной (Figma 1:7 «Main Content»):
+        OnlineClasses   1:194
+        TimelineFormat  1:257
+        AttestationExam 1:398
+        ParentsTeachers 1:579
+        ResultsFaq      1:740
+    -->
+
+  </main>
+
+  <!-- ======================= Подвал (Figma 7:1480) ====================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+
+      <div class="footer__columns">
+
+        <div class="footer__about">
+          <a class="logo" href="index.html">
+            <span class="logo__mark">
+              <span class="asset-pending" style="width:33px;height:24px"></span>
+            </span>
+            <span class="logo__text">
+              <span class="logo__name">Вектор семьи</span>
+              <span class="logo__tagline">онлайн-школа</span>
+            </span>
+          </a>
+
+          <p class="footer__description">
+            Современная онлайн-школа с человеческим лицом. Учим детей, бережем нервы родителей.
+          </p>
+
+          <div class="footer__contacts">
+            <a class="footer__phone" href="tel:+78001234567">8 (800) 123-45-67</a>
+            <a class="footer__email" href="mailto:hello@tochkarosta.ru">hello@tochkarosta.ru</a>
+          </div>
+        </div>
+
+        <!-- Адреса ссылок этой и следующих колонок в макете не заданы — блокер 5.5 -->
+        <div class="footer__column">
+          <h2 class="footer__heading">Обучение</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="#">Начальная школа 1-4 кл.</a></li>
+            <li><a class="footer__link" href="#">Средняя школа 5-9 кл.</a></li>
+            <li><a class="footer__link" href="#">Старшая школа 10-11 кл.</a></li>
+            <li><a class="footer__link" href="#">Подготовка к ОГЭ/ЕГЭ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h2 class="footer__heading">Информация</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="pages/about.html">Об онлайн-школе</a></li>
+            <li><a class="footer__link" href="#">Преподаватели</a></li>
+            <li><a class="footer__link" href="pages/attestation.html">Аттестация</a></li>
+            <li><a class="footer__link" href="#">Отзывы</a></li>
+            <li><a class="footer__link" href="pages/blog.html">Блог</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h2 class="footer__heading">Документы</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="#">Оферта</a></li>
+            <li><a class="footer__link" href="#">Политика конфиденциальности</a></li>
+            <li><a class="footer__link" href="#">Лицензия</a></li>
+            <li><a class="footer__link" href="#">Реквизиты</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">© 2026 Онлайн-школа «Точка роста». Все права защищены.</p>
+
+        <!-- В макете три круга без иконок и без ссылок — блокер 5.3 -->
+        <ul class="footer__social">
+          <li><span class="footer__social-item"></span></li>
+          <li><span class="footer__social-item"></span></li>
+          <li><span class="footer__social-item"></span></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+/* ==========================================================================
+   Точка входа. Модули подключаются только если на странице есть их разметка.
+   Без зависимостей и сторонних библиотек.
+   ========================================================================== */
+
+(function () {
+  'use strict';
+
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* --- Мобильное меню --------------------------------------------------- */
+
+  function initMobileMenu() {
+    var burger = document.querySelector('[data-menu-toggle]');
+    var menu = document.querySelector('[data-menu]');
+    if (!burger || !menu) return;
+
+    function setOpen(open) {
+      burger.setAttribute('aria-expanded', String(open));
+      menu.classList.toggle('is-open', open);
+      document.body.classList.toggle('is-locked', open);
+    }
+
+    burger.addEventListener('click', function () {
+      setOpen(burger.getAttribute('aria-expanded') !== 'true');
+    });
+
+    menu.addEventListener('click', function (event) {
+      if (event.target.closest('a')) setOpen(false);
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') setOpen(false);
+    });
+  }
+
+  /* --- Плавная прокрутка к якорям --------------------------------------- */
+
+  function initAnchors() {
+    document.addEventListener('click', function (event) {
+      var link = event.target.closest('a[href^="#"]');
+      if (!link) return;
+
+      var id = link.getAttribute('href');
+      if (id.length < 2) return;
+
+      var target = document.querySelector(id);
+      if (!target) return;
+
+      event.preventDefault();
+      target.scrollIntoView({
+        behavior: reducedMotion.matches ? 'auto' : 'smooth',
+        block: 'start'
+      });
+      target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
+    });
+  }
+
+  /* --- Появление блоков при прокрутке ----------------------------------- */
+
+  function initReveal() {
+    var items = document.querySelectorAll('.reveal');
+    if (!items.length) return;
+
+    if (reducedMotion.matches || !('IntersectionObserver' in window)) {
+      items.forEach(function (item) {
+        item.classList.add('is-visible');
+      });
+      return;
+    }
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: '0px 0px -10% 0px', threshold: 0.1 }
+    );
+
+    items.forEach(function (item) {
+      observer.observe(item);
+    });
+  }
+
+  /* --- Модальные окна ---------------------------------------------------- */
+
+  var FOCUSABLE =
+    'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+  function initModals() {
+    var lastFocused = null;
+
+    function open(modal) {
+      lastFocused = document.activeElement;
+      modal.hidden = false;
+      document.body.classList.add('is-locked');
+      requestAnimationFrame(function () {
+        modal.classList.add('is-open');
+      });
+      var first = modal.querySelector(FOCUSABLE);
+      if (first) first.focus();
+    }
+
+    function close(modal) {
+      modal.classList.remove('is-open');
+      document.body.classList.remove('is-locked');
+      window.setTimeout(function () {
+        modal.hidden = true;
+      }, reducedMotion.matches ? 0 : 250);
+      if (lastFocused) lastFocused.focus();
+    }
+
+    document.addEventListener('click', function (event) {
+      var opener = event.target.closest('[data-modal-open]');
+      if (opener) {
+        var modal = document.getElementById(
+          opener.getAttribute('data-modal-open')
+        );
+        if (modal) {
+          event.preventDefault();
+          open(modal);
+        }
+        return;
+      }
+
+      var closer = event.target.closest('[data-modal-close]');
+      if (closer) {
+        var parent = closer.closest('[data-modal]');
+        if (parent) close(parent);
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      var openModal = document.querySelector('[data-modal].is-open');
+      if (!openModal) return;
+
+      if (event.key === 'Escape') {
+        close(openModal);
+        return;
+      }
+
+      if (event.key !== 'Tab') return;
+
+      var items = Array.prototype.slice.call(
+        openModal.querySelectorAll(FOCUSABLE)
+      );
+      if (!items.length) return;
+
+      var first = items[0];
+      var last = items[items.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+  }
+
+  /* --- Маска телефона ---------------------------------------------------- */
+
+  function initPhoneMask() {
+    var inputs = document.querySelectorAll('input[data-phone]');
+    if (!inputs.length) return;
+
+    function format(value) {
+      var digits = value.replace(/\D/g, '');
+      if (digits[0] === '8') digits = '7' + digits.slice(1);
+      if (digits[0] !== '7') digits = '7' + digits;
+      digits = digits.slice(0, 11);
+
+      var out = '+7';
+      if (digits.length > 1) out += ' (' + digits.slice(1, 4);
+      if (digits.length >= 5) out += ') ' + digits.slice(4, 7);
+      if (digits.length >= 8) out += '-' + digits.slice(7, 9);
+      if (digits.length >= 10) out += '-' + digits.slice(9, 11);
+      return out;
+    }
+
+    inputs.forEach(function (input) {
+      input.addEventListener('input', function () {
+        input.value = format(input.value);
+      });
+      input.addEventListener('focus', function () {
+        if (!input.value) input.value = '+7 (';
+      });
+    });
+  }
+
+  /* --- Клиентская валидация форм ----------------------------------------
+     Реальная отправка не подключается (п.10 ТЗ).
+     ---------------------------------------------------------------------- */
+
+  function initForms() {
+    var forms = document.querySelectorAll('form[data-validate]');
+    if (!forms.length) return;
+
+    var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    function fieldError(field) {
+      if (field.type === 'checkbox') {
+        return field.required && !field.checked
+          ? 'Отметьте это поле, чтобы продолжить'
+          : '';
+      }
+
+      var value = field.value.trim();
+
+      if (field.required && !value) return 'Заполните это поле';
+      if (!value) return '';
+
+      if (field.dataset.phone !== undefined) {
+        return value.replace(/\D/g, '').length === 11
+          ? ''
+          : 'Введите номер полностью';
+      }
+
+      if (field.type === 'email') {
+        return EMAIL.test(value) ? '' : 'Проверьте адрес электронной почты';
+      }
+
+      return '';
+    }
+
+    function setError(field, message) {
+      var wrapper = field.closest('[data-field]') || field.parentElement;
+      var box = wrapper.querySelector('[data-error]');
+
+      field.classList.toggle('is-invalid', Boolean(message));
+      field.setAttribute('aria-invalid', message ? 'true' : 'false');
+
+      if (box) {
+        box.textContent = message;
+        box.hidden = !message;
+      }
+    }
+
+    forms.forEach(function (form) {
+      var fields = Array.prototype.slice.call(
+        form.querySelectorAll('input, textarea, select')
+      );
+
+      fields.forEach(function (field) {
+        field.addEventListener('blur', function () {
+          setError(field, fieldError(field));
+        });
+        field.addEventListener('input', function () {
+          if (field.classList.contains('is-invalid')) {
+            setError(field, fieldError(field));
+          }
+        });
+      });
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        var firstInvalid = null;
+
+        fields.forEach(function (field) {
+          var message = fieldError(field);
+          setError(field, message);
+          if (message && !firstInvalid) firstInvalid = field;
+        });
+
+        if (firstInvalid) {
+          firstInvalid.focus();
+          return;
+        }
+
+        var submit = form.querySelector('[type="submit"]');
+        if (submit) {
+          submit.disabled = true;
+          submit.classList.add('is-loading');
+        }
+
+        var status = form.querySelector('[data-form-status]');
+        if (status) {
+          status.hidden = false;
+          status.textContent = 'Данные заполнены верно. Отправка не подключена.';
+        }
+      });
+    });
+  }
+
+  /* --- Запуск ------------------------------------------------------------ */
+
+  function init() {
+    initMobileMenu();
+    initAnchors();
+    initReveal();
+    initModals();
+    initPhoneMask();
+    initForms();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>

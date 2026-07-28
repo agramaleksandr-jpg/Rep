@@ -1,0 +1,119 @@
+/* ==========================================================================
+   Benefits — Figma node 1:76
+   Секция 2543 × 831; контент 1336 в контейнере 1400 с отступом 80 сверху/снизу.
+   Заголовок (768) и сетка карточек (1336, 4×2, зазор 24) выровнены по общему
+   контейнеру страницы 1400/32.
+   ========================================================================== */
+
+.benefits {
+  padding-block: 80px;
+  background-color: var(--color-surface);
+}
+
+.benefits__header {
+  max-width: 768px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.benefits__title {
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.9px;
+  color: var(--color-text);
+}
+
+.benefits__text {
+  margin-block-start: 16px;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-text-body);
+}
+
+.benefits__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-block-start: 64px;
+}
+
+.benefits__card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border-light);
+  border-radius: 24px;
+  background-color: var(--color-surface);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.04);
+}
+
+.benefits__card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 32px 32px 0;
+}
+
+.benefits__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+}
+
+.benefits__icon img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Цвета плашек — по одному оттенку на карточку, как в макете */
+.benefits__icon--indigo {
+  background-color: #e0e7ff;
+}
+
+.benefits__icon--purple {
+  background-color: #f3e8ff;
+}
+
+.benefits__icon--pink {
+  background-color: #fce7f3;
+}
+
+.benefits__icon--amber {
+  background-color: #fef3c6;
+}
+
+.benefits__icon--blue {
+  background-color: #dbeafe;
+}
+
+.benefits__icon--green {
+  background-color: #d0fae5;
+}
+
+.benefits__icon--cyan {
+  background-color: #cefafe;
+}
+
+.benefits__icon--rose {
+  background-color: #ffe4e6;
+}
+
+.benefits__card-title {
+  /* Figma использует более тёмный оттенок, чем базовый --color-text */
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.5px;
+  color: #020618;
+}
+
+.benefits__card-text {
+  padding: 0 32px 32px;
+  font-size: var(--fs-body);
+  line-height: 22.75px;
+  color: var(--color-text-body);
+}
