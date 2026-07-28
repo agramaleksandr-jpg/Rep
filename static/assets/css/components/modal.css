@@ -1,0 +1,203 @@
+/* ==========================================================================
+   Модальное окно консультации — Figma node 7:1254 (Dialog)
+   Открытие/закрытие, ловушка фокуса и Escape — в main.js. Затемнение
+   фона — rgba(0,0,0,.5), как в макете (node 7:1253).
+   ========================================================================== */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease);
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal.is-open {
+  opacity: 1;
+}
+
+.modal__dialog {
+  position: relative;
+  width: 100%;
+  max-width: 425px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: 32px;
+  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+  transform: translateY(16px);
+  transition: transform var(--duration-base) var(--ease);
+}
+
+.modal.is-open .modal__dialog {
+  transform: none;
+}
+
+.modal__close {
+  position: absolute;
+  inset-block-start: 24px;
+  inset-inline-end: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: var(--color-text-muted);
+}
+
+.modal__close:hover {
+  background-color: var(--color-surface-muted);
+}
+
+.modal__header {
+  text-align: center;
+}
+
+.modal__title {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.6px;
+  color: var(--color-text);
+}
+
+.modal__subtitle {
+  margin-block-start: 16px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: var(--color-text-muted);
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-block-start: 24px;
+}
+
+.modal__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal__label {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-secondary-btn);
+}
+
+.modal__input {
+  height: 48px;
+  padding-inline: 12px;
+  background-color: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  font-size: var(--fs-body);
+  color: var(--color-text);
+}
+
+.modal__input::placeholder {
+  color: #717182;
+}
+
+.modal__input.is-invalid,
+.modal__select.is-invalid {
+  border-color: #e7000b;
+}
+
+.modal__select-wrap {
+  position: relative;
+}
+
+.modal__select {
+  width: 100%;
+  height: 48px;
+  padding-inline: 12px 36px;
+  appearance: none;
+  background-color: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+}
+
+.modal__select:invalid {
+  color: #717182;
+}
+
+.modal__select-icon {
+  position: absolute;
+  inset-inline-end: 13px;
+  inset-block-start: 16px;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+.modal__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.modal__consent input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-block-start: 2px;
+  border: 1px solid #767676;
+  border-radius: 2px;
+}
+
+.modal__consent-text {
+  font-size: 11px;
+  line-height: 13.75px;
+  color: var(--color-text-muted);
+}
+
+.modal__consent-text a {
+  color: #2b7fff;
+}
+
+.modal__submit {
+  width: 100%;
+  justify-content: center;
+  box-shadow: var(--shadow-brand);
+}
+
+.modal__error {
+  margin-block-start: 4px;
+  font-size: var(--fs-small);
+  line-height: 16px;
+  color: #e7000b;
+}
+
+.modal__error[hidden] {
+  display: none;
+}
+
+.modal__status {
+  margin-block-start: 16px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: #00a63e;
+  text-align: center;
+}
+
+.modal__status[hidden] {
+  display: none;
+}

@@ -2297,6 +2297,652 @@ button {
   color: var(--color-text-body);
 }
 </style>
+<style>
+/* ==========================================================================
+   ResultsFaq — Figma node 1:740
+   Пять подсекций: 1:741 (пробный урок + рассылка + аккредитация),
+   1:787 (отзывы), 36:4353 (частые вопросы), 1:887 (CTA-баннер),
+   1:901 (SEO-текст перед подвалом).
+   ========================================================================== */
+
+/* --- Промо: пробный урок / рассылка / аккредитация -------------------------- */
+
+.results-faq__promo {
+  padding-block: 64px;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.results-faq__promo-grid {
+  display: flex;
+  gap: 32px;
+}
+
+.results-faq__trial,
+.results-faq__newsletter {
+  position: relative;
+  flex: 1 1 0;
+  overflow: hidden;
+  padding: 48px;
+  border-radius: 32px;
+}
+
+.results-faq__trial {
+  background-image: linear-gradient(155deg, #eef2ff 0%, #faf5ff 100%);
+}
+
+.results-faq__trial-play {
+  position: absolute;
+  inset-block-start: 24px;
+  inset-inline-end: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 128px;
+  height: 128px;
+  background-color: var(--color-surface);
+  border: 8px solid #f3e8ff;
+  border-radius: 50%;
+  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+}
+
+.results-faq__promo-title {
+  max-width: 448px;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.results-faq__promo-text {
+  max-width: 448px;
+  margin-block-start: 12px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-text-body);
+}
+
+.results-faq__trial .btn {
+  margin-block-start: 24px;
+  height: 48px;
+  padding-inline: 24px;
+  font-size: var(--fs-body);
+}
+
+.results-faq__newsletter {
+  background-color: var(--color-surface-muted);
+  border: 1px solid var(--color-border-light);
+}
+
+.results-faq__newsletter-form {
+  display: flex;
+  gap: 12px;
+  margin-block-start: 24px;
+}
+
+.results-faq__newsletter-field {
+  position: relative;
+  flex: 1 1 auto;
+}
+
+.results-faq__newsletter-field .asset-pending {
+  position: absolute;
+  inset-inline-start: 16px;
+  inset-block-start: 14px;
+  width: 20px;
+  height: 20px;
+  z-index: 1;
+}
+
+.results-faq__newsletter-input {
+  width: 100%;
+  height: 48px;
+  padding-inline: 48px 16px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  font-size: 16px;
+  color: var(--color-text);
+}
+
+.results-faq__newsletter-input::placeholder {
+  color: rgba(15, 23, 43, 0.5);
+}
+
+.results-faq__newsletter-submit {
+  flex-shrink: 0;
+  height: 48px;
+  padding-inline: 32px;
+}
+
+.results-faq__newsletter-note {
+  margin-block-start: 16px;
+  font-size: var(--fs-small);
+  line-height: 16px;
+  color: #90a1b9;
+}
+
+.results-faq__accred {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-block-start: 32px;
+  padding: 49px;
+  background-color: var(--color-surface-muted);
+  border: 1px solid var(--color-border-light);
+  border-radius: 32px;
+}
+
+.results-faq__accred-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.results-faq__accred-text {
+  max-width: 587px;
+  margin-block-start: 12px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-text-body);
+}
+
+/* Текстовые «логотипы» школ-партнёров — в макете без реальных логотипов */
+.results-faq__accred-logos {
+  display: flex;
+  flex-shrink: 0;
+  gap: 32px;
+  opacity: 0.5;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+/* --- Отзывы ------------------------------------------------------------------ */
+
+.results-faq__reviews {
+  padding-block: 80px;
+  background-color: var(--color-surface);
+}
+
+.results-faq__header {
+  max-width: 768px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.results-faq__title {
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.9px;
+  color: var(--color-text);
+}
+
+.results-faq__reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-block-start: 32px;
+}
+
+.results-faq__review {
+  padding: 33px 33px 32px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: 32px;
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.results-faq__review-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.results-faq__review-avatar {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-border);
+}
+
+.results-faq__review-name {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.results-faq__review-stars {
+  display: flex;
+  gap: 4px;
+  margin-block-start: 4px;
+}
+
+
+.results-faq__review-text {
+  margin-block-start: 16px;
+  font-size: var(--fs-body);
+  line-height: 22.75px;
+  color: var(--color-text-body);
+}
+
+/* --- Частые вопросы ----------------------------------------------------------- */
+
+.results-faq__faq {
+  padding-block: 80px;
+  background-color: var(--color-surface-muted);
+}
+
+.results-faq__faq-text {
+  margin-block-start: 16px;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-text-body);
+}
+
+.results-faq__faq-panel {
+  display: flex;
+  gap: 24px;
+  margin-block-start: 40px;
+  padding: 25px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+}
+
+.results-faq__faq-col {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.results-faq__faq-item {
+  overflow: hidden;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.results-faq__faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 56px;
+  padding-inline: 24px;
+  font-size: 16px;
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+  cursor: pointer;
+  list-style: none;
+}
+
+.results-faq__faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.results-faq__faq-chevron {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  transition: transform var(--duration-base) var(--ease);
+}
+
+.results-faq__faq-item[open] .results-faq__faq-chevron {
+  transform: rotate(180deg);
+}
+
+.results-faq__faq-answer {
+  padding: 0 24px 16px;
+  font-size: var(--fs-body);
+  line-height: 22.75px;
+  color: var(--color-text-body);
+}
+
+/* --- CTA-баннер ---------------------------------------------------------------- */
+
+.results-faq__cta-wrap {
+  position: relative;
+  overflow: hidden;
+  padding-block: 96px;
+}
+
+.results-faq__cta-tint {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  background-image: linear-gradient(
+    165deg,
+    #7b61ff 0%,
+    #796bff 7.14%,
+    #7674ff 14.29%,
+    #737cff 21.43%,
+    #7085ff 28.57%,
+    #6c8dff 35.71%,
+    #6895ff 42.86%,
+    #639dff 50%,
+    #5da5ff 57.14%,
+    #57acff 64.29%,
+    #4fb4ff 71.43%,
+    #46bbff 78.57%,
+    #3ac2ff 85.71%,
+    #28caff 92.86%,
+    #00d1ff 100%
+  );
+  pointer-events: none;
+}
+
+.results-faq__cta {
+  position: relative;
+  overflow: hidden;
+  max-width: 1336px;
+  margin-inline: auto;
+  padding: 80px 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  background-color: #1a1d2b;
+  border-radius: 48px;
+  text-align: center;
+}
+
+.results-faq__cta-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+}
+
+.results-faq__cta-bg .asset-pending--photo {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.results-faq__cta-title {
+  position: relative;
+  max-width: 700px;
+  font-size: 36px;
+  line-height: 44px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.9px;
+  color: #ffffff;
+}
+
+.results-faq__cta-text {
+  position: relative;
+  max-width: 700px;
+  font-size: 20px;
+  line-height: 32.5px;
+  color: #cad5e2;
+}
+
+.results-faq__cta-actions {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.results-faq__cta-actions .btn--outline {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.results-faq__cta-actions .btn--outline:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+/* --- SEO-текст перед подвалом ---------------------------------------------------- */
+
+.results-faq__intro {
+  padding-block: 65px;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.results-faq__intro-title {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text-secondary-btn);
+}
+
+.results-faq__intro-text {
+  margin-block-start: 8px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: var(--color-text-muted);
+}
+
+.results-faq__intro-link {
+  display: inline-block;
+  margin-block-start: 8px;
+  font-size: var(--fs-body);
+  color: var(--color-brand);
+}
+
+.results-faq__intro-link:hover {
+  color: #6a4dff;
+}
+</style>
+<style>
+/* ==========================================================================
+   Модальное окно консультации — Figma node 7:1254 (Dialog)
+   Открытие/закрытие, ловушка фокуса и Escape — в main.js. Затемнение
+   фона — rgba(0,0,0,.5), как в макете (node 7:1253).
+   ========================================================================== */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease);
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal.is-open {
+  opacity: 1;
+}
+
+.modal__dialog {
+  position: relative;
+  width: 100%;
+  max-width: 425px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: 32px;
+  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+  transform: translateY(16px);
+  transition: transform var(--duration-base) var(--ease);
+}
+
+.modal.is-open .modal__dialog {
+  transform: none;
+}
+
+.modal__close {
+  position: absolute;
+  inset-block-start: 24px;
+  inset-inline-end: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: var(--color-text-muted);
+}
+
+.modal__close:hover {
+  background-color: var(--color-surface-muted);
+}
+
+.modal__header {
+  text-align: center;
+}
+
+.modal__title {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.6px;
+  color: var(--color-text);
+}
+
+.modal__subtitle {
+  margin-block-start: 16px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: var(--color-text-muted);
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-block-start: 24px;
+}
+
+.modal__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal__label {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-secondary-btn);
+}
+
+.modal__input {
+  height: 48px;
+  padding-inline: 12px;
+  background-color: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  font-size: var(--fs-body);
+  color: var(--color-text);
+}
+
+.modal__input::placeholder {
+  color: #717182;
+}
+
+.modal__input.is-invalid,
+.modal__select.is-invalid {
+  border-color: #e7000b;
+}
+
+.modal__select-wrap {
+  position: relative;
+}
+
+.modal__select {
+  width: 100%;
+  height: 48px;
+  padding-inline: 12px 36px;
+  appearance: none;
+  background-color: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+}
+
+.modal__select:invalid {
+  color: #717182;
+}
+
+.modal__select-icon {
+  position: absolute;
+  inset-inline-end: 13px;
+  inset-block-start: 16px;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+.modal__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.modal__consent input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-block-start: 2px;
+  border: 1px solid #767676;
+  border-radius: 2px;
+}
+
+.modal__consent-text {
+  font-size: 11px;
+  line-height: 13.75px;
+  color: var(--color-text-muted);
+}
+
+.modal__consent-text a {
+  color: #2b7fff;
+}
+
+.modal__submit {
+  width: 100%;
+  justify-content: center;
+  box-shadow: var(--shadow-brand);
+}
+
+.modal__error {
+  margin-block-start: 4px;
+  font-size: var(--fs-small);
+  line-height: 16px;
+  color: #e7000b;
+}
+
+.modal__error[hidden] {
+  display: none;
+}
+
+.modal__status {
+  margin-block-start: 16px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: #00a63e;
+  text-align: center;
+}
+
+.modal__status[hidden] {
+  display: none;
+}
+</style>
 </head>
 <body>
 
@@ -3128,10 +3774,213 @@ button {
       </div>
     </section>
 
-    <!--
-      Следующие секции главной (Figma 1:7 «Main Content»):
-        ResultsFaq      1:740
-    -->
+    <!-- =================== ResultsFaq (Figma 1:740) ===================== -->
+    <section class="results-faq" id="results-faq">
+
+      <div class="results-faq__promo">
+        <div class="container">
+          <div class="results-faq__promo-grid reveal">
+            <div class="results-faq__trial">
+              <span class="results-faq__trial-play">
+                <!-- Требуется экспорт из Figma: node 1:747, 64×64 -->
+                <span class="asset-pending" style="width:64px;height:64px"></span>
+              </span>
+              <h3 class="results-faq__promo-title">Бесплатный пробный урок</h3>
+              <p class="results-faq__promo-text">
+                Познакомьтесь со школой, преподавателем и форматом обучения. Это отличная возможность понять, подходит ли вам такой формат.
+              </p>
+              <button class="btn btn--primary" type="button" data-modal-open="consultation">Записаться бесплатно</button>
+            </div>
+
+            <div class="results-faq__newsletter">
+              <h3 class="results-faq__promo-title">Полезные материалы для родителей</h3>
+              <p class="results-faq__promo-text">
+                Подпишитесь на нашу рассылку, чтобы получать советы психологов, методистов и новости об образовании.
+              </p>
+              <form class="results-faq__newsletter-form" data-validate>
+                <label class="visually-hidden" for="newsletter-email">Ваш e-mail</label>
+                <span class="results-faq__newsletter-field">
+                  <!-- Требуется экспорт из Figma: node 1:764, 20×20 -->
+                  <span class="asset-pending" style="width:20px;height:20px"></span>
+                  <input class="results-faq__newsletter-input" type="email" id="newsletter-email" name="email" placeholder="Ваш e-mail" required>
+                </span>
+                <button class="btn btn--primary results-faq__newsletter-submit" type="submit">Подписаться</button>
+              </form>
+              <p class="results-faq__newsletter-note">Никакого спама. Отписаться можно в один клик.</p>
+            </div>
+          </div>
+
+          <div class="results-faq__accred reveal">
+            <div>
+              <p class="results-faq__accred-title">
+                <!-- Требуется экспорт из Figma: node 1:774, 32×32 -->
+                <span class="asset-pending" style="width:32px;height:32px"></span>
+                Государственная аккредитация
+              </p>
+              <p class="results-faq__accred-text">
+                Мы сотрудничаем с школой имеющей все необходимые образовательные лицензии. Ваш ребенок получит официальный аттестат.
+              </p>
+            </div>
+            <!-- В макете это текстовые названия школ-партнёров без логотипов -->
+            <div class="results-faq__accred-logos" aria-hidden="true">
+              <span>Школа №1</span>
+              <span>Академия</span>
+              <span>Гимназия+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="results-faq__reviews">
+        <div class="container">
+          <div class="results-faq__header reveal">
+            <h2 class="results-faq__title">Что говорят родители</h2>
+          </div>
+
+          <ul class="results-faq__reviews-grid reveal">
+            <li class="results-faq__review">
+              <div class="results-faq__review-head">
+                <span class="results-faq__review-avatar" aria-hidden="true"></span>
+                <span>
+                  <span class="results-faq__review-name" style="display:block">Анна, мама 7 класса</span>
+                  <span class="results-faq__review-stars" aria-hidden="true">
+                    <span class="asset-pending" style="width:12px;height:12px"></span>
+                    <span class="asset-pending" style="width:12px;height:12px"></span>
+                    <span class="asset-pending" style="width:12px;height:12px"></span>
+                    <span class="asset-pending" style="width:12px;height:12px"></span>
+                    <span class="asset-pending" style="width:12px;height:12px"></span>
+                  </span>
+                </span>
+              </div>
+              <p class="results-faq__review-text">«Очень довольны обучением! Ребенок стал увереннее, нагрузка комфортная, учителя всегда на связи. Больше нет слез из-за домашки, как было в обычной школе.»</p>
+            </li>
+            <li class="results-faq__review">
+              <div class="results-faq__review-head">
+                <span class="results-faq__review-avatar" aria-hidden="true"></span>
+                <span>
+                  <span class="results-faq__review-name" style="display:block">Анна, мама 7 класса</span>
+                  <span class="results-faq__review-stars" aria-hidden="true">
+                    <span class="asset-pending" style="width:12px;height:12px"></span>
+                    <span class="asset-pending" style="width:12px;height:12px"></span>
+                    <span class="asset-pending" style="width:12px;height:12px"></span>
+                    <span class="asset-pending" style="width:12px;height:12px"></span>
+                    <span class="asset-pending" style="width:12px;height:12px"></span>
+                  </span>
+                </span>
+              </div>
+              <p class="results-faq__review-text">«Очень довольны обучением! Ребенок стал увереннее, нагрузка комфортная, учителя всегда на связи. Больше нет слез из-за домашки, как было в обычной школе.»</p>
+            </li>
+            <li class="results-faq__review">
+              <div class="results-faq__review-head">
+                <span class="results-faq__review-avatar" aria-hidden="true"></span>
+                <span>
+                  <span class="results-faq__review-name" style="display:block">Анна, мама 7 класса</span>
+                  <span class="results-faq__review-stars" aria-hidden="true">
+                    <span class="asset-pending" style="width:12px;height:12px"></span>
+                    <span class="asset-pending" style="width:12px;height:12px"></span>
+                    <span class="asset-pending" style="width:12px;height:12px"></span>
+                    <span class="asset-pending" style="width:12px;height:12px"></span>
+                    <span class="asset-pending" style="width:12px;height:12px"></span>
+                  </span>
+                </span>
+              </div>
+              <p class="results-faq__review-text">«Очень довольны обучением! Ребенок стал увереннее, нагрузка комфортная, учителя всегда на связи. Больше нет слез из-за домашки, как было в обычной школе.»</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="results-faq__faq">
+        <div class="container">
+          <div class="results-faq__header reveal">
+            <h2 class="results-faq__title">Частые вопросы</h2>
+            <p class="results-faq__faq-text">Отвечаем на главные вопросы родителей о семейном образовании и нашей школе.</p>
+          </div>
+
+          <div class="results-faq__faq-panel reveal">
+            <div class="results-faq__faq-col">
+              <details class="results-faq__faq-item" open>
+                <summary>
+                  Можно ли перейти к вам в течение года?
+                  <span class="results-faq__faq-chevron asset-pending" aria-hidden="true"></span>
+                </summary>
+                <p class="results-faq__faq-answer">Да, вы можете присоединиться к нам в любой момент. Мы поможем плавно влиться в учебный процесс.</p>
+              </details>
+              <!-- Ответы для вопросов ниже не добавлены в макет (свёрнутые состояния без контента) — блокер 5.13 -->
+              <details class="results-faq__faq-item">
+                <summary>
+                  Как родитель видит прогресс?
+                  <span class="results-faq__faq-chevron asset-pending" aria-hidden="true"></span>
+                </summary>
+                <p class="results-faq__faq-answer">Ответ на этот вопрос ещё не добавлен в макет Figma.</p>
+              </details>
+              <details class="results-faq__faq-item">
+                <summary>
+                  Есть ли пробное занятие?
+                  <span class="results-faq__faq-chevron asset-pending" aria-hidden="true"></span>
+                </summary>
+                <p class="results-faq__faq-answer">Ответ на этот вопрос ещё не добавлен в макет Figma.</p>
+              </details>
+            </div>
+            <div class="results-faq__faq-col">
+              <details class="results-faq__faq-item">
+                <summary>
+                  Как проходит аттестация?
+                  <span class="results-faq__faq-chevron asset-pending" aria-hidden="true"></span>
+                </summary>
+                <p class="results-faq__faq-answer">Ответ на этот вопрос ещё не добавлен в макет Figma.</p>
+              </details>
+              <details class="results-faq__faq-item">
+                <summary>
+                  Сколько детей в группе?
+                  <span class="results-faq__faq-chevron asset-pending" aria-hidden="true"></span>
+                </summary>
+                <p class="results-faq__faq-answer">Ответ на этот вопрос ещё не добавлен в макет Figma.</p>
+              </details>
+              <details class="results-faq__faq-item">
+                <summary>
+                  Официально ли это?
+                  <span class="results-faq__faq-chevron asset-pending" aria-hidden="true"></span>
+                </summary>
+                <p class="results-faq__faq-answer">Ответ на этот вопрос ещё не добавлен в макет Figma.</p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="results-faq__cta-wrap">
+        <span class="results-faq__cta-tint" aria-hidden="true"></span>
+        <div class="container">
+          <div class="results-faq__cta reveal">
+            <span class="results-faq__cta-bg" aria-hidden="true">
+              <span class="asset-pending asset-pending--photo">&nbsp;</span>
+            </span>
+            <h2 class="results-faq__cta-title">Начните обучение без стресса уже сейчас</h2>
+            <p class="results-faq__cta-text">
+              Оставьте заявку на бесплатную консультацию. Мы ответим на все вопросы, поможем определить уровень знаний ребенка и подберем подходящую программу.
+            </p>
+            <div class="results-faq__cta-actions">
+              <button class="btn btn--primary btn--lg" type="button" data-modal-open="consultation">Записаться на консультацию</button>
+              <button class="btn btn--outline btn--lg" type="button" data-modal-open="consultation">Узнать подробнее</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="results-faq__intro">
+        <div class="container">
+          <h2 class="results-faq__intro-title">Онлайн-школа «Точка роста» — ваш проводник в мире семейного образования</h2>
+          <p class="results-faq__intro-text">
+            Переход на <strong>домашнее обучение</strong> становится все более популярным выбором осознанных родителей. Наша <strong>онлайн-школа</strong> предлагает комплексный подход к <strong>семейному образованию</strong> для учеников 1-11 классов. Мы не просто предоставляем доступ к видеоурокам, мы организуем полноценный образовательный процесс с живыми уроками в мини-группах.
+          </p>
+          <p class="results-faq__intro-text">
+            Особое внимание уделяется <strong>подготовке к ОГЭ и ЕГЭ</strong>, а также официальной <strong>аттестации</strong>. Сотрудничество с аккредитованными школами-партнерами гарантирует получение документов государственного образца по окончании <strong>обучения 1-11 класс</strong>.
+          </p>
+          <a class="results-faq__intro-link" href="#">Подробнее</a>
+        </div>
+      </div>
+    </section>
 
   </main>
 
@@ -3209,6 +4058,71 @@ button {
 
     </div>
   </footer>
+
+  <!-- ==================== Модалка консультации (Figma 7:1254) ================= -->
+  <div class="modal" id="consultation" data-modal hidden>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="consultation-title">
+      <button class="modal__close" type="button" data-modal-close aria-label="Закрыть">
+        <!-- Требуется экспорт из Figma: node 7:1283, 16×16 -->
+        <span class="asset-pending" style="width:16px;height:16px"></span>
+      </button>
+
+      <div class="modal__header">
+        <h2 class="modal__title" id="consultation-title">Записаться на консультацию</h2>
+        <p class="modal__subtitle">Оставьте свои данные, и мы поможем подобрать подходящую программу для вашего ребенка</p>
+      </div>
+
+      <form class="modal__form" data-validate novalidate>
+        <div class="modal__field" data-field>
+          <label class="modal__label" for="consultation-name">Как к вам обращаться?</label>
+          <input class="modal__input" type="text" id="consultation-name" name="name" placeholder="Ваше имя" required>
+          <span class="modal__error" data-error hidden></span>
+        </div>
+
+        <div class="modal__field" data-field>
+          <label class="modal__label" for="consultation-phone">Номер телефона</label>
+          <input class="modal__input" type="tel" id="consultation-phone" name="phone" placeholder="+7 (999) 000-00-00" data-phone required>
+          <span class="modal__error" data-error hidden></span>
+        </div>
+
+        <div class="modal__field" data-field>
+          <label class="modal__label" for="consultation-grade">В какой класс пойдет ребенок?</label>
+          <span class="modal__select-wrap">
+            <select class="modal__select" id="consultation-grade" name="grade" required>
+              <option value="" selected disabled hidden>Выберите класс</option>
+              <option value="1">1 класс</option>
+              <option value="2">2 класс</option>
+              <option value="3">3 класс</option>
+              <option value="4">4 класс</option>
+              <option value="5">5 класс</option>
+              <option value="6">6 класс</option>
+              <option value="7">7 класс</option>
+              <option value="8">8 класс</option>
+              <option value="9">9 класс</option>
+              <option value="10">10 класс</option>
+              <option value="11">11 класс</option>
+            </select>
+            <!-- Требуется экспорт из Figma: node 7:1276, 16×16 -->
+            <span class="asset-pending modal__select-icon"></span>
+          </span>
+          <span class="modal__error" data-error hidden></span>
+        </div>
+
+        <div class="modal__field" data-field>
+          <label class="modal__consent">
+            <input type="checkbox" name="consent" required>
+            <span class="modal__consent-text">
+              Нажимая на кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a> и <a href="#">обработкой персональных данных</a>
+            </span>
+          </label>
+          <span class="modal__error" data-error hidden></span>
+        </div>
+
+        <button class="btn btn--primary modal__submit" type="submit">Оставить заявку</button>
+        <p class="modal__status" data-form-status hidden></p>
+      </form>
+    </div>
+  </div>
 
   <script>
 /* ==========================================================================

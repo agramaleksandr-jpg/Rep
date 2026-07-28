@@ -97,3 +97,25 @@ Figma отдаёт ассеты временными ссылками (≈7 дн
       `assets/icons/fit-*.svg`
 * [ ] 3 фото преподавателей, 424×527.5 каждое →
       `assets/images/teacher-1.jpg`, `teacher-2.jpg`, `teacher-3.jpg`
+
+## ResultsFaq (`1:740`) — добавлено в этой сессии
+
+* [ ] `1:747` — иконка play в кружке пробного урока, 64×64 →
+      `assets/icons/results-play.svg`
+* [ ] `1:764` — иконка конверта в поле e-mail, 20×20 →
+      `assets/icons/results-mail.svg`
+* [ ] `1:774` — иконка аккредитации (щит/галочка), 32×32 →
+      `assets/icons/results-shield.svg`
+* [ ] `1:799` (переиспользуется 5×) — иконка звезды рейтинга, 12×12 →
+      `assets/icons/results-star.svg`
+* [ ] иконка шеврона аккордеона FAQ, 20×20 (переиспользуется 6×) →
+      `assets/icons/faq-chevron.svg`
+* [ ] `1:891` — decorative-фото в тёмной CTA-карточке (10% непрозрачности),
+      1337×463 → `assets/images/cta-bg.jpg`
+
+## Модалка консультации (`7:1254`) — добавлено в этой сессии
+
+* [ ] `7:1276` — иконка шеврона в селекте «класс», 16×16 →
+      `assets/icons/modal-chevron.svg`
+* [ ] `7:1283` — иконка закрытия (X, составлена из `7:1284`/`7:1285`),
+      16×16 → `assets/icons/modal-close.svg`
