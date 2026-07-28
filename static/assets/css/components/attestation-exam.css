@@ -1,0 +1,346 @@
+/* ==========================================================================
+   AttestationExam — Figma node 1:398
+   Две подсекции: 1:399 (тёмная карточка «Официальная аттестация») и
+   1:471 (светлая, «Подготовка к ОГЭ и ЕГЭ»). Контейнер 1400/32, как и в
+   остальных секциях главной.
+   ========================================================================== */
+
+.attestation-exam__hero {
+  padding-block: 80px;
+  background-color: var(--color-surface);
+}
+
+.attestation-exam__card {
+  position: relative;
+  overflow: hidden;
+  padding: 64px;
+  background-color: #1a1d2b;
+  border-radius: 40px;
+}
+
+.attestation-exam__glow {
+  position: absolute;
+  width: 384px;
+  height: 384px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.attestation-exam__glow--purple {
+  inset-block-start: -192px;
+  inset-inline-end: -160px;
+  background-color: var(--color-brand);
+}
+
+.attestation-exam__glow--blue {
+  inset-block-start: 189px;
+  inset-inline-start: -128px;
+  background-color: #2b7fff;
+}
+
+.attestation-exam__card-grid {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+}
+
+/* --- Левая колонка -------------------------------------------------------- */
+
+.attestation-exam__intro {
+  flex: 1 1 580px;
+}
+
+.attestation-exam__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 16px;
+  border-radius: var(--radius-pill);
+  background-color: rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: var(--fw-semibold);
+  color: #ffffff;
+}
+
+.attestation-exam__badge img {
+  width: 16px;
+  height: 16px;
+}
+
+.attestation-exam__title {
+  margin-block-start: 24px;
+  font-size: 48px;
+  line-height: 48px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -1.2px;
+  color: #ffffff;
+}
+
+.attestation-exam__text {
+  margin-block-start: 24px;
+  max-width: 580px;
+  font-size: 18px;
+  line-height: 29.25px;
+  color: #cad5e2;
+}
+
+.attestation-exam__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-block-start: 40px;
+}
+
+.attestation-exam__fact {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.attestation-exam__fact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.attestation-exam__fact-icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.attestation-exam__fact-title {
+  font-size: var(--fs-lead);
+  font-weight: var(--fw-semibold);
+  color: #ffffff;
+}
+
+.attestation-exam__fact-text {
+  margin-block-start: 4px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: #90a1b9;
+}
+
+/* --- Правая колонка: «Как это работает» ----------------------------------- */
+
+.attestation-exam__how {
+  flex: 1 1 580px;
+  margin-block-start: 23.75px;
+  padding: 33px 33px 32px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 32px;
+}
+
+.attestation-exam__how-title {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: var(--fw-bold);
+  color: #ffffff;
+}
+
+.attestation-exam__how-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-block-start: 24px;
+}
+
+.attestation-exam__how-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.attestation-exam__how-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-brand);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-bold);
+  color: #ffffff;
+}
+
+.attestation-exam__how-item-title {
+  font-size: var(--fs-lead);
+  font-weight: var(--fw-semibold);
+  color: #ffffff;
+}
+
+.attestation-exam__how-item-text {
+  margin-block-start: 4px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: #90a1b9;
+}
+
+/* --- Подготовка к ОГЭ/ЕГЭ -------------------------------------------------- */
+
+.attestation-exam__exams {
+  padding-block: 80px;
+  background-color: var(--color-surface-muted);
+}
+
+.attestation-exam__header {
+  max-width: 768px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.attestation-exam__exams-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 5px 13px;
+  border-radius: var(--radius-pill);
+  background-color: #e0e7ff;
+  font-size: var(--fs-small);
+  line-height: 16px;
+  font-weight: var(--fw-semibold);
+  color: #432dd7;
+}
+
+.attestation-exam__exams-title {
+  margin-block-start: 32px;
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.9px;
+  color: var(--color-text);
+}
+
+.attestation-exam__exams-text {
+  margin-block-start: 16px;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-text-body);
+}
+
+/* --- Сетка предметов -------------------------------------------------------- */
+
+.attestation-exam__subjects {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-block-start: 32px;
+}
+
+.attestation-exam__subject {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.attestation-exam__subject-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+}
+
+.attestation-exam__subject-icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.attestation-exam__subject-name {
+  font-size: var(--fs-lead);
+  font-weight: var(--fw-semibold);
+  color: #1d293d;
+}
+
+/* Цвета плашек предметов — по одному оттенку на карточку, как в макете */
+.attestation-exam__subject-icon--blue {
+  background-color: #dbeafe;
+}
+.attestation-exam__subject-icon--amber {
+  background-color: #fef3c6;
+}
+.attestation-exam__subject-icon--purple {
+  background-color: #f3e8ff;
+}
+.attestation-exam__subject-icon--green {
+  background-color: #d0fae5;
+}
+.attestation-exam__subject-icon--emerald {
+  background-color: #dcfce7;
+}
+.attestation-exam__subject-icon--orange {
+  background-color: #ffedd4;
+}
+.attestation-exam__subject-icon--stone {
+  background-color: #f5f5f4;
+}
+.attestation-exam__subject-icon--pink {
+  background-color: #fce7f3;
+}
+
+/* --- Три карточки формата подготовки ---------------------------------------- */
+
+.attestation-exam__features {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  margin-block-start: 24px;
+}
+
+.attestation-exam__feature {
+  flex: 1 1 0;
+  padding: 32px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: 24px;
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.attestation-exam__feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-brand);
+}
+
+.attestation-exam__feature-icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.attestation-exam__feature-title {
+  margin-block-start: 12px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.attestation-exam__feature-text {
+  margin-block-start: 12px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: var(--color-text-body);
+}

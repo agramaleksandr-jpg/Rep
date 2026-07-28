@@ -1627,6 +1627,354 @@ button {
   height: 100%;
 }
 </style>
+<style>
+/* ==========================================================================
+   AttestationExam — Figma node 1:398
+   Две подсекции: 1:399 (тёмная карточка «Официальная аттестация») и
+   1:471 (светлая, «Подготовка к ОГЭ и ЕГЭ»). Контейнер 1400/32, как и в
+   остальных секциях главной.
+   ========================================================================== */
+
+.attestation-exam__hero {
+  padding-block: 80px;
+  background-color: var(--color-surface);
+}
+
+.attestation-exam__card {
+  position: relative;
+  overflow: hidden;
+  padding: 64px;
+  background-color: #1a1d2b;
+  border-radius: 40px;
+}
+
+.attestation-exam__glow {
+  position: absolute;
+  width: 384px;
+  height: 384px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.attestation-exam__glow--purple {
+  inset-block-start: -192px;
+  inset-inline-end: -160px;
+  background-color: var(--color-brand);
+}
+
+.attestation-exam__glow--blue {
+  inset-block-start: 189px;
+  inset-inline-start: -128px;
+  background-color: #2b7fff;
+}
+
+.attestation-exam__card-grid {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+}
+
+/* --- Левая колонка -------------------------------------------------------- */
+
+.attestation-exam__intro {
+  flex: 1 1 580px;
+}
+
+.attestation-exam__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 16px;
+  border-radius: var(--radius-pill);
+  background-color: rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: var(--fw-semibold);
+  color: #ffffff;
+}
+
+.attestation-exam__badge img {
+  width: 16px;
+  height: 16px;
+}
+
+.attestation-exam__title {
+  margin-block-start: 24px;
+  font-size: 48px;
+  line-height: 48px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -1.2px;
+  color: #ffffff;
+}
+
+.attestation-exam__text {
+  margin-block-start: 24px;
+  max-width: 580px;
+  font-size: 18px;
+  line-height: 29.25px;
+  color: #cad5e2;
+}
+
+.attestation-exam__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-block-start: 40px;
+}
+
+.attestation-exam__fact {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.attestation-exam__fact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.attestation-exam__fact-icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.attestation-exam__fact-title {
+  font-size: var(--fs-lead);
+  font-weight: var(--fw-semibold);
+  color: #ffffff;
+}
+
+.attestation-exam__fact-text {
+  margin-block-start: 4px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: #90a1b9;
+}
+
+/* --- Правая колонка: «Как это работает» ----------------------------------- */
+
+.attestation-exam__how {
+  flex: 1 1 580px;
+  margin-block-start: 23.75px;
+  padding: 33px 33px 32px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 32px;
+}
+
+.attestation-exam__how-title {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: var(--fw-bold);
+  color: #ffffff;
+}
+
+.attestation-exam__how-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-block-start: 24px;
+}
+
+.attestation-exam__how-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.attestation-exam__how-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-brand);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-bold);
+  color: #ffffff;
+}
+
+.attestation-exam__how-item-title {
+  font-size: var(--fs-lead);
+  font-weight: var(--fw-semibold);
+  color: #ffffff;
+}
+
+.attestation-exam__how-item-text {
+  margin-block-start: 4px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: #90a1b9;
+}
+
+/* --- Подготовка к ОГЭ/ЕГЭ -------------------------------------------------- */
+
+.attestation-exam__exams {
+  padding-block: 80px;
+  background-color: var(--color-surface-muted);
+}
+
+.attestation-exam__header {
+  max-width: 768px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.attestation-exam__exams-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 5px 13px;
+  border-radius: var(--radius-pill);
+  background-color: #e0e7ff;
+  font-size: var(--fs-small);
+  line-height: 16px;
+  font-weight: var(--fw-semibold);
+  color: #432dd7;
+}
+
+.attestation-exam__exams-title {
+  margin-block-start: 32px;
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.9px;
+  color: var(--color-text);
+}
+
+.attestation-exam__exams-text {
+  margin-block-start: 16px;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-text-body);
+}
+
+/* --- Сетка предметов -------------------------------------------------------- */
+
+.attestation-exam__subjects {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-block-start: 32px;
+}
+
+.attestation-exam__subject {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.attestation-exam__subject-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+}
+
+.attestation-exam__subject-icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.attestation-exam__subject-name {
+  font-size: var(--fs-lead);
+  font-weight: var(--fw-semibold);
+  color: #1d293d;
+}
+
+/* Цвета плашек предметов — по одному оттенку на карточку, как в макете */
+.attestation-exam__subject-icon--blue {
+  background-color: #dbeafe;
+}
+.attestation-exam__subject-icon--amber {
+  background-color: #fef3c6;
+}
+.attestation-exam__subject-icon--purple {
+  background-color: #f3e8ff;
+}
+.attestation-exam__subject-icon--green {
+  background-color: #d0fae5;
+}
+.attestation-exam__subject-icon--emerald {
+  background-color: #dcfce7;
+}
+.attestation-exam__subject-icon--orange {
+  background-color: #ffedd4;
+}
+.attestation-exam__subject-icon--stone {
+  background-color: #f5f5f4;
+}
+.attestation-exam__subject-icon--pink {
+  background-color: #fce7f3;
+}
+
+/* --- Три карточки формата подготовки ---------------------------------------- */
+
+.attestation-exam__features {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  margin-block-start: 24px;
+}
+
+.attestation-exam__feature {
+  flex: 1 1 0;
+  padding: 32px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: 24px;
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.attestation-exam__feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-brand);
+}
+
+.attestation-exam__feature-icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.attestation-exam__feature-title {
+  margin-block-start: 12px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.attestation-exam__feature-text {
+  margin-block-start: 12px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: var(--color-text-body);
+}
+</style>
 </head>
 <body>
 
@@ -2132,9 +2480,174 @@ button {
       </div>
     </section>
 
+    <!-- ================ AttestationExam (Figma 1:398) ================== -->
+    <section class="attestation-exam" id="attestation-exam">
+      <div class="attestation-exam__hero">
+        <div class="container">
+          <div class="attestation-exam__card reveal">
+            <span class="attestation-exam__glow attestation-exam__glow--purple" aria-hidden="true"></span>
+            <span class="attestation-exam__glow attestation-exam__glow--blue" aria-hidden="true"></span>
+
+            <div class="attestation-exam__card-grid">
+              <div class="attestation-exam__intro">
+                <span class="attestation-exam__badge">
+                  <!-- Требуется экспорт из Figma: node 1:407, 16×16 -->
+                  <span class="asset-pending" style="width:16px;height:16px"></span>
+                  Официально и безопасно
+                </span>
+
+                <h2 class="attestation-exam__title">Официальная аттестация</h2>
+
+                <p class="attestation-exam__text">
+                  Мы берем на себя всю бюрократию. Ваш ребенок прикрепляется к нашей лицензированной школе. Сдача аттестации проходит онлайн в комфортной обстановке, а по окончании выдается аттестат государственного образца.
+                </p>
+
+                <div class="attestation-exam__facts">
+                  <div class="attestation-exam__fact">
+                    <span class="attestation-exam__fact-icon">
+                      <!-- Требуется экспорт из Figma: node 1:418, 20×20 -->
+                      <span class="asset-pending" style="width:20px;height:20px"></span>
+                    </span>
+                    <span>
+                      <span class="attestation-exam__fact-title" style="display:block">Гос. аттестат</span>
+                      <span class="attestation-exam__fact-text" style="display:block">Такой же, как в обычной школе</span>
+                    </span>
+                  </div>
+                  <div class="attestation-exam__fact">
+                    <span class="attestation-exam__fact-icon">
+                      <!-- Требуется экспорт из Figma: node 1:430, 20×20 -->
+                      <span class="asset-pending" style="width:20px;height:20px"></span>
+                    </span>
+                    <span>
+                      <span class="attestation-exam__fact-title" style="display:block">Школа-партнер</span>
+                      <span class="attestation-exam__fact-text" style="display:block">С лицензией и аккредитацией</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="attestation-exam__how">
+                <h3 class="attestation-exam__how-title">Как это работает:</h3>
+                <ol class="attestation-exam__how-list">
+                  <li class="attestation-exam__how-item">
+                    <span class="attestation-exam__how-num" aria-hidden="true">1</span>
+                    <span>
+                      <span class="attestation-exam__how-item-title" style="display:block">Прикрепление</span>
+                      <span class="attestation-exam__how-item-text" style="display:block">Помогаем собрать и подать документы в школу-партнер.</span>
+                    </span>
+                  </li>
+                  <li class="attestation-exam__how-item">
+                    <span class="attestation-exam__how-num" aria-hidden="true">2</span>
+                    <span>
+                      <span class="attestation-exam__how-item-title" style="display:block">Сопровождение</span>
+                      <span class="attestation-exam__how-item-text" style="display:block">Наш куратор следит за сроками и готовит к сдаче.</span>
+                    </span>
+                  </li>
+                  <li class="attestation-exam__how-item">
+                    <span class="attestation-exam__how-num" aria-hidden="true">3</span>
+                    <span>
+                      <span class="attestation-exam__how-item-title" style="display:block">Сдача и результат</span>
+                      <span class="attestation-exam__how-item-text" style="display:block">Ребенок сдает тесты онлайн и получает оценки в личное дело.</span>
+                    </span>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="attestation-exam__exams">
+        <div class="container">
+          <div class="attestation-exam__header reveal">
+            <span class="attestation-exam__exams-badge">8-11 классы</span>
+            <h2 class="attestation-exam__exams-title">Подготовка к ОГЭ и ЕГЭ</h2>
+            <p class="attestation-exam__exams-text">
+              Глубокая проработка каждого задания, регулярные пробники и психологическая поддержка. Без стресса и паники.
+            </p>
+          </div>
+
+          <ul class="attestation-exam__subjects reveal">
+            <li class="attestation-exam__subject">
+              <span class="attestation-exam__subject-icon attestation-exam__subject-icon--blue">
+                <span class="asset-pending" style="width:20px;height:20px"></span>
+              </span>
+              <span class="attestation-exam__subject-name">Математика</span>
+            </li>
+            <li class="attestation-exam__subject">
+              <span class="attestation-exam__subject-icon attestation-exam__subject-icon--amber">
+                <span class="asset-pending" style="width:20px;height:20px"></span>
+              </span>
+              <span class="attestation-exam__subject-name">Русский язык</span>
+            </li>
+            <li class="attestation-exam__subject">
+              <span class="attestation-exam__subject-icon attestation-exam__subject-icon--purple">
+                <span class="asset-pending" style="width:20px;height:20px"></span>
+              </span>
+              <span class="attestation-exam__subject-name">Физика</span>
+            </li>
+            <li class="attestation-exam__subject">
+              <span class="attestation-exam__subject-icon attestation-exam__subject-icon--green">
+                <span class="asset-pending" style="width:20px;height:20px"></span>
+              </span>
+              <span class="attestation-exam__subject-name">Химия</span>
+            </li>
+            <li class="attestation-exam__subject">
+              <span class="attestation-exam__subject-icon attestation-exam__subject-icon--emerald">
+                <span class="asset-pending" style="width:20px;height:20px"></span>
+              </span>
+              <span class="attestation-exam__subject-name">Биология</span>
+            </li>
+            <li class="attestation-exam__subject">
+              <span class="attestation-exam__subject-icon attestation-exam__subject-icon--orange">
+                <span class="asset-pending" style="width:20px;height:20px"></span>
+              </span>
+              <span class="attestation-exam__subject-name">Обществознание</span>
+            </li>
+            <li class="attestation-exam__subject">
+              <span class="attestation-exam__subject-icon attestation-exam__subject-icon--stone">
+                <span class="asset-pending" style="width:20px;height:20px"></span>
+              </span>
+              <span class="attestation-exam__subject-name">История</span>
+            </li>
+            <li class="attestation-exam__subject">
+              <span class="attestation-exam__subject-icon attestation-exam__subject-icon--pink">
+                <span class="asset-pending" style="width:20px;height:20px"></span>
+              </span>
+              <span class="attestation-exam__subject-name">Английский язык</span>
+            </li>
+          </ul>
+
+          <div class="attestation-exam__features reveal">
+            <div class="attestation-exam__feature">
+              <span class="attestation-exam__feature-icon">
+                <!-- Требуется экспорт из Figma: node 32:292, 20×20 (двойная галочка) -->
+                <span class="asset-pending" style="width:20px;height:20px"></span>
+              </span>
+              <h3 class="attestation-exam__feature-title">Регулярные пробники</h3>
+              <p class="attestation-exam__feature-text">Ежемесячное написание тренировочных вариантов с детальным разбором ошибок от экспертов.</p>
+            </div>
+            <div class="attestation-exam__feature">
+              <span class="attestation-exam__feature-icon">
+                <span class="asset-pending" style="width:20px;height:20px"></span>
+              </span>
+              <h3 class="attestation-exam__feature-title">Индивидуальный план</h3>
+              <p class="attestation-exam__feature-text">Выявляем пробелы в знаниях и фокусируемся на тех заданиях, которые вызывают сложности.</p>
+            </div>
+            <div class="attestation-exam__feature">
+              <span class="attestation-exam__feature-icon">
+                <span class="asset-pending" style="width:20px;height:20px"></span>
+              </span>
+              <h3 class="attestation-exam__feature-title">Поддержка психолога</h3>
+              <p class="attestation-exam__feature-text">Учим справляться со стрессом, правильно распределять время на экзамене и верить в себя.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!--
       Следующие секции главной (Figma 1:7 «Main Content»):
-        AttestationExam 1:398
         ParentsTeachers 1:579
         ResultsFaq      1:740
     -->
