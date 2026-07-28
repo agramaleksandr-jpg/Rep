@@ -145,3 +145,39 @@ button {
     transform: none;
   }
 }
+
+/* --- Заглушка недостающих ассетов (см. static/ASSETS-TODO.md) ----------- */
+
+.asset-pending {
+  display: inline-block;
+  border: 1px dashed rgba(15, 23, 43, 0.35);
+  border-radius: 3px;
+  background-color: rgba(15, 23, 43, 0.03);
+}
+
+.logo__mark .asset-pending,
+.hero__stat-icon .asset-pending,
+.benefits__icon .asset-pending,
+.online-classes__feature-icon .asset-pending {
+  border-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.btn .asset-pending {
+  border-color: currentColor;
+  opacity: 0.55;
+  background: none;
+}
+
+.asset-pending--photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-muted);
+}

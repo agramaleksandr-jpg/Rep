@@ -86,6 +86,55 @@
     });
   }
 
+  /* --- Табы (OnlineClasses и подобные) ------------------------------------ */
+
+  function initTabs() {
+    var roots = document.querySelectorAll('[data-tabs]');
+    if (!roots.length) return;
+
+    roots.forEach(function (root) {
+      var tabs = Array.prototype.slice.call(
+        root.querySelectorAll('[role="tab"]')
+      );
+      if (!tabs.length) return;
+
+      function selectTab(tab, focus) {
+        tabs.forEach(function (item) {
+          var selected = item === tab;
+          item.setAttribute('aria-selected', String(selected));
+          item.tabIndex = selected ? 0 : -1;
+
+          var panel = document.getElementById(
+            item.getAttribute('aria-controls')
+          );
+          if (panel) panel.hidden = !selected;
+        });
+        if (focus) tab.focus();
+      }
+
+      tabs.forEach(function (tab, index) {
+        tab.addEventListener('click', function () {
+          selectTab(tab, false);
+        });
+
+        tab.addEventListener('keydown', function (event) {
+          var newIndex = null;
+
+          if (event.key === 'ArrowRight') newIndex = (index + 1) % tabs.length;
+          else if (event.key === 'ArrowLeft')
+            newIndex = (index - 1 + tabs.length) % tabs.length;
+          else if (event.key === 'Home') newIndex = 0;
+          else if (event.key === 'End') newIndex = tabs.length - 1;
+
+          if (newIndex !== null) {
+            event.preventDefault();
+            selectTab(tabs[newIndex], true);
+          }
+        });
+      });
+    });
+  }
+
   /* --- Модальные окна ---------------------------------------------------- */
 
   var FOCUSABLE =
@@ -294,6 +343,7 @@
     initMobileMenu();
     initAnchors();
     initReveal();
+    initTabs();
     initModals();
     initPhoneMask();
     initForms();
