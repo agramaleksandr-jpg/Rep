@@ -1,0 +1,499 @@
+/* ==========================================================================
+   Страница «О школе» — Figma node 38:7407
+   Переиспользует .timeline-format__overview (timeline-format.css) для секции
+   «Это не набор видеоуроков» и .parents-teachers__teachers (parents-teachers.css)
+   для блока преподавателей — обе секции в макете этой страницы полностью
+   совпадают с одноимёнными на главной. Здесь — только уникальные блоки.
+   ========================================================================== */
+
+/* --- Hero (38:7489) ---------------------------------------------------------- */
+
+.about-hero {
+  padding-block: 96px;
+  background-color: var(--color-surface);
+}
+
+.about-hero__grid {
+  position: relative;
+  min-height: 444px;
+}
+
+.about-hero__content {
+  max-width: 644px;
+}
+
+.about-hero__title {
+  font-size: 48px;
+  line-height: 60px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -1.5px;
+  color: var(--color-text);
+}
+
+.about-hero__text {
+  max-width: 576px;
+  margin-block-start: 24px;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--color-text-body);
+}
+
+.about-hero__actions {
+  display: flex;
+  gap: 16px;
+  margin-block-start: 40px;
+}
+
+/* Две колонки карточек справа. Координаты — из макета (левый край контента 0). */
+.about-hero__cards {
+  position: absolute;
+  inset-block-start: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 248px;
+}
+
+.about-hero__cards--first {
+  inset-inline-start: 824px;
+}
+
+.about-hero__cards--second {
+  inset-inline-start: 1088px;
+  padding-block-start: 32px;
+}
+
+.about-hero__card {
+  padding: 25px;
+  border-radius: 24px;
+}
+
+/* «Живые уроки» и «Поддержка» — цветные карточки фиксированной высоты 248px */
+.about-hero__card--feature {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 248px;
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.about-hero__card--lessons {
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+}
+
+.about-hero__card--support {
+  background-color: #f0fdf4;
+  border: 1px solid #dcfce7;
+}
+
+/* «Прогресс» и «Команда» — белые карточки с крупной тенью */
+.about-hero__card--panel {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  box-shadow: 0 20px 12.5px rgba(0, 0, 0, 0.1), 0 8px 5px rgba(0, 0, 0, 0.1);
+}
+
+.about-hero__card-icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin-block-end: 16px;
+}
+
+.about-hero__card-title {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: var(--fw-bold);
+}
+
+.about-hero__card-subtitle {
+  font-size: var(--fs-body);
+  line-height: 20px;
+}
+
+.about-hero__card--lessons .about-hero__card-title {
+  color: #1c398e;
+}
+
+.about-hero__card--lessons .about-hero__card-subtitle {
+  color: #1447e6;
+}
+
+.about-hero__card--support .about-hero__card-title {
+  color: #0d542b;
+}
+
+.about-hero__card--support .about-hero__card-subtitle {
+  color: #008236;
+}
+
+/* Карточка «Прогресс» */
+.about-hero__progress-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.about-hero__progress-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  background-color: #ffedd4;
+}
+
+.about-hero__progress-icon .asset-pending {
+  width: 20px;
+  height: 20px;
+}
+
+.about-hero__progress-label {
+  font-size: var(--fs-body);
+  line-height: 20px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.about-hero__progress-bar {
+  margin-block-start: 16px;
+  height: 8px;
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-border-light);
+}
+
+.about-hero__progress-bar span {
+  display: block;
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background-color: #ff6900;
+}
+
+.about-hero__progress-note {
+  margin-block-start: 8px;
+  text-align: end;
+  font-size: var(--fs-small);
+  line-height: 16px;
+  color: var(--color-text-muted);
+}
+
+/* Карточка «Команда» */
+.about-hero__team-label {
+  font-size: var(--fs-small);
+  line-height: 16px;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #90a1b9;
+}
+
+.about-hero__team-avatars {
+  display: flex;
+  margin-block-start: 12px;
+}
+
+.about-hero__team-avatar {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #ffffff;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-border);
+}
+
+.about-hero__team-avatar + .about-hero__team-avatar {
+  margin-inline-start: -12px;
+}
+
+.about-hero__team-avatar--more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #dbeafe;
+  font-size: var(--fs-small);
+  line-height: 16px;
+  font-weight: var(--fw-bold);
+  color: #155dfc;
+}
+
+/* --- Полоса цифр (38:7573) --------------------------------------------------- */
+
+.about-stats {
+  padding-block: 48px;
+  background-color: #1c398e;
+}
+
+/* 4 колонки по 310px с зазором 32 (310×4 + 32×3 = 1336, как в макете) */
+.about-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.about-stats__item {
+  text-align: center;
+}
+
+.about-stats__item:not(:last-child) {
+  border-inline-end: 1px solid #193cb8;
+}
+
+.about-stats__value {
+  display: block;
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: var(--fw-bold);
+  color: #ffffff;
+}
+
+.about-stats__icon {
+  display: block;
+  width: 32px;
+  height: 32px;
+  /* высота строки значения (36px) — чтобы 4-й пункт совпал по базовой линии */
+  margin-block: 2px;
+  margin-inline: auto;
+}
+
+.about-stats__label {
+  display: block;
+  margin-block-start: 8px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: #8ec5ff;
+}
+
+/* --- «Мы верим…» (38:7613) --------------------------------------------------- */
+
+.about-belief {
+  padding-block: 96px;
+  background-color: var(--color-surface);
+}
+
+.about-belief__title {
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.about-belief__card {
+  margin-block-start: 32px;
+  padding: 33px;
+  background-color: var(--color-surface-muted);
+  border: 1px solid var(--color-border-light);
+  border-radius: 24px;
+}
+
+.about-belief__lead {
+  font-size: 18px;
+  line-height: 29.25px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-body);
+}
+
+.about-belief__list {
+  max-width: 766px;
+  margin-block-start: 24px;
+}
+
+.about-belief__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 18px;
+  line-height: 29.25px;
+  color: var(--color-text-body);
+}
+
+.about-belief__item + .about-belief__item {
+  margin-block-start: 16px;
+}
+
+.about-belief__item .asset-pending {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+/* --- «Чем мы отличаемся» (38:7785) ------------------------------------------- */
+
+.about-compare {
+  padding-block: 80px;
+  background-color: var(--color-surface-muted);
+}
+
+.about-compare__title {
+  text-align: center;
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.about-compare__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-block-start: 64px;
+}
+
+.about-compare__col {
+  padding: 41px;
+  border-radius: 32px;
+}
+
+.about-compare__col--old {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.about-compare__col--new {
+  background-color: #1c398e;
+  border: 1px solid #193cb8;
+  box-shadow: 0 20px 12.5px rgba(0, 0, 0, 0.1), 0 8px 5px rgba(0, 0, 0, 0.1);
+}
+
+.about-compare__col-title {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: var(--fw-bold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.about-compare__col--old .about-compare__col-title {
+  color: #90a1b9;
+}
+
+.about-compare__col--new .about-compare__col-title {
+  color: #8ec5ff;
+}
+
+.about-compare__list {
+  margin-block-start: 32px;
+}
+
+.about-compare__item {
+  display: flex;
+  align-items: flex-start;
+  font-size: var(--fs-lead);
+  line-height: 24px;
+}
+
+.about-compare__item + .about-compare__item {
+  margin-block-start: 24px;
+}
+
+.about-compare__col--old .about-compare__item {
+  gap: 16px;
+  color: var(--color-text-body);
+}
+
+.about-compare__col--new .about-compare__item {
+  gap: 16px;
+  color: #ffffff;
+}
+
+/* Маркер-точка у «обычной школы», иконка-галочка у «нашей школы» */
+.about-compare__dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  margin-block-start: 8px;
+  border-radius: var(--radius-pill);
+  background-color: #cad5e2;
+}
+
+.about-compare__item .asset-pending {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-block-start: 2px;
+}
+
+/* --- Документы (38:7859) ------------------------------------------------------
+   В макете это осознанная заглушка: пунктирная рамка и текст о том, что
+   документы появятся позже. Верстаем как нарисовано — см. блокер в AUDIT.md. */
+
+.about-docs {
+  padding-block: 64px;
+  background-color: var(--color-surface);
+}
+
+.about-docs__card {
+  max-width: 832px;
+  margin-inline: auto;
+  padding: 34px;
+  text-align: center;
+  background-color: var(--color-surface-muted);
+  border: 2px dashed var(--color-border);
+  border-radius: 24px;
+}
+
+.about-docs__icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin-inline: auto;
+}
+
+.about-docs__title {
+  margin-block-start: 16px;
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text-muted);
+}
+
+.about-docs__text {
+  margin-block-start: 8px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: var(--color-text-muted);
+}
+
+/* --- Финальный CTA (38:7880) -------------------------------------------------- */
+
+.about-cta {
+  padding-block: 80px;
+  background-color: #eff6ff;
+  text-align: center;
+}
+
+.about-cta__title {
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.about-cta__text {
+  max-width: 704px;
+  margin-inline: auto;
+  margin-block-start: 24px;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-text-body);
+}
+
+.about-cta__actions {
+  margin-block-start: 40px;
+}
+
+.about-cta__button {
+  padding-inline: 40px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+/* --- Точечные отличия переиспользованных секций ------------------------------
+   Блок преподавателей на этой странице стоит на белом фоне (на главной —
+   на `--color-surface-muted`). Класс общий, поэтому переопределяем здесь. */
+
+.parents-teachers__teachers {
+  background-color: var(--color-surface);
+}
