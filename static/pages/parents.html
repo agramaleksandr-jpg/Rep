@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Для родителей — Вектор семьи</title>
+  <meta name="description" content="Всё, что важно знать родителям о дистанционном обучении: переход в онлайн-школу, аттестация, режим дня, мотивация ребёнка и роль родителей.">
+
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components/button.css">
+  <link rel="stylesheet" href="../assets/css/components/header.css">
+  <link rel="stylesheet" href="../assets/css/components/footer.css">
+  <link rel="stylesheet" href="../assets/css/components/breadcrumb.css">
+  <link rel="stylesheet" href="../assets/css/components/modal.css">
+  <link rel="stylesheet" href="../assets/css/components/courses.css">
+  <link rel="stylesheet" href="../assets/css/components/parents.css">
+</head>
+<body>
+
+  <a class="visually-hidden" href="#main">Перейти к содержанию</a>
+
+  <!-- ======================= Шапка (Figma 7:1479) ======================= -->
+  <header class="header">
+    <div class="container header__inner">
+
+      <a class="logo" href="../index.html">
+        <span class="logo__mark">
+          <span class="asset-pending" style="width:33px;height:24px"></span>
+        </span>
+        <span class="logo__text">
+          <span class="logo__name">Вектор семьи</span>
+          <span class="logo__tagline">онлайн-школа</span>
+        </span>
+      </a>
+
+      <nav class="header__nav" aria-label="Основная навигация">
+        <ul class="header__nav-list" data-menu>
+          <li><a class="header__nav-link" href="courses.html">Курсы</a></li>
+          <li><a class="header__nav-link" href="attestation.html">Аттестация</a></li>
+          <li><a class="header__nav-link" href="about.html">О школе</a></li>
+          <li><a class="header__nav-link" href="parents.html" aria-current="page">Для родителей</a></li>
+          <li><a class="header__nav-link" href="blog.html">Блог</a></li>
+          <li><a class="header__nav-link" href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__aside">
+        <div class="header__contacts">
+          <a class="header__phone" href="tel:+78001234567">8 (800) 123-45-67</a>
+          <span class="header__schedule">Ежедневно с 9:00 до 21:00</span>
+        </div>
+
+        <div class="header__actions">
+          <a class="btn btn--secondary" href="#">
+            <span class="asset-pending" style="width:16px;height:16px"></span>
+            Войти
+          </a>
+          <button class="btn btn--primary" type="button" data-modal-open="consultation">
+            Записаться
+            <span class="asset-pending" style="width:16px;height:16px"></span>
+          </button>
+        </div>
+
+        <button class="header__burger" type="button"
+                aria-expanded="false" aria-controls="main-menu"
+                data-menu-toggle>
+          <span class="visually-hidden">Открыть меню</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="header__spacer" aria-hidden="true"></div>
+
+  <main id="main">
+
+    <nav class="breadcrumb" aria-label="Хлебные крошки">
+      <div class="container">
+        <ol class="breadcrumb__list">
+          <li><a class="breadcrumb__link" href="../index.html">Главная</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="breadcrumb__current" aria-current="page">Для родителей</li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- ===================== Hero (Figma 37:5935) ======================= -->
+    <section class="parents-hero">
+      <div class="container">
+        <div class="parents-hero__grid">
+
+          <div class="parents-hero__content">
+            <h1 class="parents-hero__title">Всё, что важно знать родителям о дистанционном обучении</h1>
+            <p class="parents-hero__text">Разбираем переход в онлайн-школу, аттестацию, режим дня, мотивацию ребёнка и роль родителей — спокойно и без сложных формулировок.</p>
+
+            <div class="parents-hero__actions">
+              <button class="btn btn--primary btn--lg btn--rect" type="button" data-modal-open="consultation" style="padding-inline:32px">Получить консультацию</button>
+              <a class="btn btn--outline-brand btn--lg btn--rect" href="blog.html" style="padding-inline:33px">Полезные материалы</a>
+            </div>
+          </div>
+
+          <div class="parents-hero__topics">
+            <!-- В макете карточка «Аттестация» помечена как Link (37:5957);
+                 адрес не задан — ведём на страницу аттестации по названию. -->
+            <a class="parents-hero__topic parents-hero__topic--attestation" href="attestation.html">
+              <!-- Требуется экспорт из Figma: node 37:5958, 32×32 -->
+              <span class="asset-pending parents-hero__topic-icon"></span>
+              <span class="parents-hero__topic-title">Аттестация</span>
+              <span class="parents-hero__topic-text">Как и когда сдавать</span>
+            </a>
+
+            <div class="parents-hero__topic parents-hero__topic--routine">
+              <span class="asset-pending parents-hero__topic-icon"></span>
+              <p class="parents-hero__topic-title">Режим дня</p>
+              <p class="parents-hero__topic-text">Как выстроить дома</p>
+            </div>
+
+            <div class="parents-hero__topic parents-hero__topic--motivation">
+              <span class="asset-pending parents-hero__topic-icon"></span>
+              <p class="parents-hero__topic-title">Мотивация</p>
+              <p class="parents-hero__topic-text">Как увлечь учебой</p>
+            </div>
+
+            <div class="parents-hero__topic parents-hero__topic--programs">
+              <span class="asset-pending parents-hero__topic-icon"></span>
+              <p class="parents-hero__topic-title">Программы</p>
+              <p class="parents-hero__topic-text">Выбор маршрута</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================ Путь родителя (Figma 37:6013) =================== -->
+    <section class="parents-path">
+      <div class="container">
+        <h2 class="parents-path__title">Путь родителя: от сомнений до спокойной учёбы</h2>
+
+        <ol class="parents-path__steps">
+          <li class="parents-path__step">
+            <span class="parents-path__num">1</span>
+            <h3 class="parents-path__step-title">Сомнения</h3>
+            <p class="parents-path__step-text">Ребёнку некомфортно в школе. Вы ищете варианты.</p>
+          </li>
+          <li class="parents-path__step">
+            <span class="parents-path__num">2</span>
+            <h3 class="parents-path__step-title">Консультация</h3>
+            <p class="parents-path__step-text">Разбираем ситуацию, форму обучения и документы.</p>
+          </li>
+          <li class="parents-path__step">
+            <span class="parents-path__num">3</span>
+            <h3 class="parents-path__step-title">Адаптация</h3>
+            <p class="parents-path__step-text">Первые недели. Куратор помогает выстроить режим.</p>
+          </li>
+          <li class="parents-path__step">
+            <span class="parents-path__num">4</span>
+            <h3 class="parents-path__step-title">Спокойствие</h3>
+            <p class="parents-path__step-text">Ребёнок учится, вы видите прогресс в кабинете.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= Ваша роль (Figma 37:6075) ====================== -->
+    <section class="parents-role">
+      <div class="container">
+        <div class="parents-role__grid">
+
+          <div class="parents-role__content">
+            <h2 class="parents-role__title">Ваша роль в онлайн-обучении</h2>
+            <p class="parents-role__text">Главный страх многих — «придётся самому стать учителем». Это не так. Школа полностью берет на себя учебный процесс, проверку заданий и объяснение тем.</p>
+
+            <div class="parents-role__note parents-role__note--you">
+              <h3 class="parents-role__note-title">Что делаете вы:</h3>
+              <p class="parents-role__note-text">Помогаете организовать рабочее место, следите за режимом сна и питания, поддерживаете ребёнка эмоционально.</p>
+            </div>
+
+            <div class="parents-role__note parents-role__note--school">
+              <h3 class="parents-role__note-title">Что делает школа:</h3>
+              <p class="parents-role__note-text">Учит, проверяет, контролирует прогресс, мотивирует, готовит к аттестации и регулярно отчитывается вам об успехах.</p>
+            </div>
+          </div>
+
+          <div class="parents-role__panel">
+            <h3 class="parents-role__panel-title">Как вы контролируете процесс:</h3>
+            <ul class="parents-role__list">
+              <li class="parents-role__item">
+                <!-- Требуется экспорт из Figma: node 37:6110, 20×20 (переиспользуется 5×) -->
+                <span class="asset-pending"></span> Доступ в личный кабинет 24/7
+              </li>
+              <li class="parents-role__item"><span class="asset-pending"></span> Еженедельные отчёты от куратора</li>
+              <li class="parents-role__item"><span class="asset-pending"></span> Наглядные графики успеваемости</li>
+              <li class="parents-role__item"><span class="asset-pending"></span> Комментарии педагогов к домашкам</li>
+              <li class="parents-role__item"><span class="asset-pending"></span> Прямая связь с куратором в мессенджере</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============= Учебный день дома (Figma 37:6155) ================== -->
+    <section class="parents-day">
+      <span class="parents-day__glow parents-day__glow--left" aria-hidden="true"></span>
+      <span class="parents-day__glow parents-day__glow--right" aria-hidden="true"></span>
+      <div class="container">
+        <div class="parents-day__inner">
+          <h2 class="parents-day__title">Как организовать учебный день дома</h2>
+
+          <div class="parents-day__grid">
+            <div class="parents-day__card">
+              <div class="parents-day__card-head">
+                <span class="parents-day__card-icon">
+                  <!-- Требуется экспорт из Figma: node 38:6454, 24×24 -->
+                  <span class="asset-pending"></span>
+                </span>
+                <h3 class="parents-day__card-title">Баланс</h3>
+              </div>
+              <p class="parents-day__card-text">Ограничить фоновые отвлечения (телефон) во время уроков. После учебы — обязательная прогулка.</p>
+            </div>
+
+            <div class="parents-day__card">
+              <div class="parents-day__card-head">
+                <span class="parents-day__card-icon">
+                  <span class="asset-pending"></span>
+                </span>
+                <h3 class="parents-day__card-title">Расписание</h3>
+              </div>
+              <p class="parents-day__card-text">Уроки в одно и то же время. Визуальное расписание на стене или на рабочем столе компьютера.</p>
+            </div>
+
+            <div class="parents-day__card">
+              <div class="parents-day__card-head">
+                <span class="parents-day__card-icon">
+                  <span class="asset-pending"></span>
+                </span>
+                <h3 class="parents-day__card-title">Рабочее место</h3>
+              </div>
+              <p class="parents-day__card-text">Отдельный стол, хорошее освещение, стабильный интернет. Важно: учиться не в кровати.</p>
+            </div>
+
+            <div class="parents-day__card">
+              <div class="parents-day__card-head">
+                <span class="parents-day__card-icon">
+                  <span class="asset-pending"></span>
+                </span>
+                <h3 class="parents-day__card-title">Перерывы</h3>
+              </div>
+              <p class="parents-day__card-text">Правило 45/15: после урока обязательно отойти от экрана, сделать разминку или перекусить.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== Частые ситуации (Figma 37:6195) =================== -->
+    <section class="parents-cases">
+      <div class="container">
+        <h2 class="parents-cases__title">Частые ситуации</h2>
+
+        <div class="parents-cases__grid">
+          <div class="parents-cases__card">
+            <h3 class="parents-cases__card-title">Нужно перейти в середине года</h3>
+            <p class="parents-cases__card-text">Мы оценим текущие оценки, составим план догонялок и мягко встроим ребёнка в процесс.</p>
+            <button class="parents-cases__card-link" type="button" data-modal-open="consultation">Обсудить ситуацию →</button>
+          </div>
+
+          <div class="parents-cases__card">
+            <h3 class="parents-cases__card-title">Ребёнок отстал по предметам</h3>
+            <p class="parents-cases__card-text">Проведём диагностику, выявим пробелы и дадим материалы для их точечного закрытия.</p>
+            <button class="parents-cases__card-link" type="button" data-modal-open="consultation">Обсудить ситуацию →</button>
+          </div>
+
+          <div class="parents-cases__card">
+            <h3 class="parents-cases__card-title">Мы часто переезжаем</h3>
+            <p class="parents-cases__card-text">Дистанционный формат позволяет учиться из любой точки мира. График можно подстроить под часовой пояс.</p>
+            <button class="parents-cases__card-link" type="button" data-modal-open="consultation">Обсудить ситуацию →</button>
+          </div>
+
+          <div class="parents-cases__card">
+            <h3 class="parents-cases__card-title">Ребёнку тяжело в классе</h3>
+            <p class="parents-cases__card-text">Дома спокойнее. Нет буллинга и шума, можно сосредоточиться на знаниях.</p>
+            <button class="parents-cases__card-link" type="button" data-modal-open="consultation">Обсудить ситуацию →</button>
+          </div>
+
+          <div class="parents-cases__card">
+            <h3 class="parents-cases__card-title">Подготовка к экзаменам</h3>
+            <p class="parents-cases__card-text">Помогаем закрыть аттестации без долгов, чтобы освободить время для ОГЭ/ЕГЭ.</p>
+            <button class="parents-cases__card-link" type="button" data-modal-open="consultation">Обсудить ситуацию →</button>
+          </div>
+
+          <div class="parents-cases__card">
+            <h3 class="parents-cases__card-title">Непонятно с документами</h3>
+            <p class="parents-cases__card-text">На консультации подробно объясняем разницу форм обучения и алгоритм прикрепления.</p>
+            <button class="parents-cases__card-link" type="button" data-modal-open="consultation">Обсудить ситуацию →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= FAQ (Figma 38:6464) ====================
+         Те же 6 вопросов и тот же паттерн, что на главной/`courses.html`/
+         `attestation.html`; отвечает только первый (блокер 5.13). -->
+    <section class="courses-faq courses-faq--surface">
+      <div class="container">
+        <h2 class="courses-faq__title">Популярные вопросы родителей</h2>
+        <p class="courses-faq__subtitle">Отвечаем на главные вопросы родителей о семейном образовании и нашей школе.</p>
+        <div class="courses-faq__panel">
+          <div class="courses-faq__col">
+            <details class="courses-faq__item" open>
+              <summary>
+                Можно ли перейти к вам в течение года?
+                <span class="courses-faq__chevron asset-pending" aria-hidden="true"></span>
+              </summary>
+              <p class="courses-faq__answer">Да, вы можете присоединиться к нам в любой момент. Мы поможем плавно влиться в учебный процесс.</p>
+            </details>
+            <details class="courses-faq__item">
+              <summary>
+                Как родитель видит прогресс?
+                <span class="courses-faq__chevron asset-pending" aria-hidden="true"></span>
+              </summary>
+              <p class="courses-faq__answer">Ответ на этот вопрос ещё не добавлен в макет Figma.</p>
+            </details>
+            <details class="courses-faq__item">
+              <summary>
+                Есть ли пробное занятие?
+                <span class="courses-faq__chevron asset-pending" aria-hidden="true"></span>
+              </summary>
+              <p class="courses-faq__answer">Ответ на этот вопрос ещё не добавлен в макет Figma.</p>
+            </details>
+          </div>
+          <div class="courses-faq__col">
+            <details class="courses-faq__item">
+              <summary>
+                Как проходит аттестация?
+                <span class="courses-faq__chevron asset-pending" aria-hidden="true"></span>
+              </summary>
+              <p class="courses-faq__answer">Ответ на этот вопрос ещё не добавлен в макет Figma.</p>
+            </details>
+            <details class="courses-faq__item">
+              <summary>
+                Сколько детей в группе?
+                <span class="courses-faq__chevron asset-pending" aria-hidden="true"></span>
+              </summary>
+              <p class="courses-faq__answer">Ответ на этот вопрос ещё не добавлен в макет Figma.</p>
+            </details>
+            <details class="courses-faq__item">
+              <summary>
+                Официально ли это?
+                <span class="courses-faq__chevron asset-pending" aria-hidden="true"></span>
+              </summary>
+              <p class="courses-faq__answer">Ответ на этот вопрос ещё не добавлен в макет Figma.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================ Финальный CTA (Figma 37:6314) =================== -->
+    <section class="parents-cta">
+      <div class="container">
+        <h2 class="parents-cta__title">Разберём вашу ситуацию и подскажем, как действовать</h2>
+        <p class="parents-cta__text">Если вы сомневаетесь или не знаете, с чего начать — оставьте заявку. Консультация бесплатная и ни к чему не обязывает.</p>
+        <div class="parents-cta__actions">
+          <button class="btn btn--primary btn--lg btn--rect parents-cta__button" type="button" data-modal-open="consultation">Записаться на консультацию</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================= Подвал (Figma 7:1480) ====================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+
+      <div class="footer__columns">
+
+        <div class="footer__about">
+          <a class="logo" href="../index.html">
+            <span class="logo__mark">
+              <span class="asset-pending" style="width:33px;height:24px"></span>
+            </span>
+            <span class="logo__text">
+              <span class="logo__name">Вектор семьи</span>
+              <span class="logo__tagline">онлайн-школа</span>
+            </span>
+          </a>
+
+          <p class="footer__description">
+            Современная онлайн-школа с человеческим лицом. Учим детей, бережем нервы родителей.
+          </p>
+
+          <div class="footer__contacts">
+            <a class="footer__phone" href="tel:+78001234567">8 (800) 123-45-67</a>
+            <a class="footer__email" href="mailto:hello@tochkarosta.ru">hello@tochkarosta.ru</a>
+          </div>
+        </div>
+
+        <div class="footer__column">
+          <h2 class="footer__heading">Обучение</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="courses.html#catalog">Начальная школа 1-4 кл.</a></li>
+            <li><a class="footer__link" href="courses.html#catalog">Средняя школа 5-9 кл.</a></li>
+            <li><a class="footer__link" href="courses.html#catalog">Старшая школа 10-11 кл.</a></li>
+            <li><a class="footer__link" href="courses.html#catalog">Подготовка к ОГЭ/ЕГЭ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h2 class="footer__heading">Информация</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="about.html">Об онлайн-школе</a></li>
+            <li><a class="footer__link" href="#">Преподаватели</a></li>
+            <li><a class="footer__link" href="attestation.html">Аттестация</a></li>
+            <li><a class="footer__link" href="#">Отзывы</a></li>
+            <li><a class="footer__link" href="blog.html">Блог</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h2 class="footer__heading">Документы</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="#">Оферта</a></li>
+            <li><a class="footer__link" href="#">Политика конфиденциальности</a></li>
+            <li><a class="footer__link" href="#">Лицензия</a></li>
+            <li><a class="footer__link" href="#">Реквизиты</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">© 2026 Онлайн-школа «Точка роста». Все права защищены.</p>
+
+        <ul class="footer__social">
+          <li><span class="footer__social-item"></span></li>
+          <li><span class="footer__social-item"></span></li>
+          <li><span class="footer__social-item"></span></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== Модалка консультации (Figma 7:1254) ================= -->
+  <div class="modal" id="consultation" data-modal hidden>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="consultation-title">
+      <button class="modal__close" type="button" data-modal-close aria-label="Закрыть">
+        <span class="asset-pending" style="width:16px;height:16px"></span>
+      </button>
+
+      <div class="modal__header">
+        <h2 class="modal__title" id="consultation-title">Записаться на консультацию</h2>
+        <p class="modal__subtitle">Оставьте свои данные, и мы поможем подобрать подходящую программу для вашего ребенка</p>
+      </div>
+
+      <form class="modal__form" data-validate novalidate>
+        <div class="modal__field" data-field>
+          <label class="modal__label" for="consultation-name">Как к вам обращаться?</label>
+          <input class="modal__input" type="text" id="consultation-name" name="name" placeholder="Ваше имя" required>
+          <span class="modal__error" data-error hidden></span>
+        </div>
+
+        <div class="modal__field" data-field>
+          <label class="modal__label" for="consultation-phone">Номер телефона</label>
+          <input class="modal__input" type="tel" id="consultation-phone" name="phone" placeholder="+7 (999) 000-00-00" data-phone required>
+          <span class="modal__error" data-error hidden></span>
+        </div>
+
+        <div class="modal__field" data-field>
+          <label class="modal__label" for="consultation-grade">В какой класс пойдет ребенок?</label>
+          <span class="modal__select-wrap">
+            <select class="modal__select" id="consultation-grade" name="grade" required>
+              <option value="" selected disabled hidden>Выберите класс</option>
+              <option value="1">1 класс</option>
+              <option value="2">2 класс</option>
+              <option value="3">3 класс</option>
+              <option value="4">4 класс</option>
+              <option value="5">5 класс</option>
+              <option value="6">6 класс</option>
+              <option value="7">7 класс</option>
+              <option value="8">8 класс</option>
+              <option value="9">9 класс</option>
+              <option value="10">10 класс</option>
+              <option value="11">11 класс</option>
+            </select>
+            <span class="asset-pending modal__select-icon"></span>
+          </span>
+          <span class="modal__error" data-error hidden></span>
+        </div>
+
+        <div class="modal__field" data-field>
+          <label class="modal__consent">
+            <input type="checkbox" name="consent" required>
+            <span class="modal__consent-text">
+              Нажимая на кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a> и <a href="#">обработкой персональных данных</a>
+            </span>
+          </label>
+          <span class="modal__error" data-error hidden></span>
+        </div>
+
+        <button class="btn btn--primary modal__submit" type="submit">Оставить заявку</button>
+        <p class="modal__status" data-form-status hidden></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

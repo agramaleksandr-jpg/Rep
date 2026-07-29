@@ -443,11 +443,26 @@
   text-align: center;
 }
 
+/* На `attestation.html` и `parents.html` та же секция стоит на белом фоне */
+.courses-faq--surface {
+  background-color: var(--color-surface);
+}
+
 .courses-faq__title {
   font-size: 30px;
   line-height: 36px;
   font-weight: var(--fw-bold);
   color: var(--color-text);
+}
+
+/* Подзаголовок есть только у FAQ на `attestation.html` и `parents.html` */
+.courses-faq__subtitle {
+  max-width: 768px;
+  margin-inline: auto;
+  margin-block-start: 16px;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-text-body);
 }
 
 .courses-faq__panel {

@@ -154,13 +154,6 @@
   background-color: var(--color-surface);
 }
 
-/* Секция FAQ (`.courses-faq`, courses.css) на этой странице спроектирована
-   на белом фоне, а не на `--color-surface-muted` как в архиве курсов —
-   переопределяем только здесь. */
-.courses-faq {
-  background-color: var(--color-surface);
-}
-
 .attestation-forms__note {
   max-width: 700px;
   margin-inline: auto;

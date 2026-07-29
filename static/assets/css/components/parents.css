@@ -1,0 +1,495 @@
+/* ==========================================================================
+   Страница «Для родителей» — Figma node 37:5853
+   Секция FAQ переиспользует .courses-faq* (courses.css) с модификатором
+   --surface. Здесь — только уникальные для этой страницы блоки.
+   ========================================================================== */
+
+/* --- Hero (37:5935) ---------------------------------------------------------- */
+
+.parents-hero {
+  padding-block: 96px;
+  background-color: var(--color-surface);
+}
+
+.parents-hero__grid {
+  position: relative;
+  min-height: 409px;
+}
+
+.parents-hero__content {
+  max-width: 745px;
+}
+
+.parents-hero__title {
+  font-size: 48px;
+  line-height: 60px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -1.5px;
+  color: var(--color-text);
+}
+
+.parents-hero__text {
+  max-width: 576px;
+  margin-block-start: 24px;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--color-text-body);
+}
+
+.parents-hero__actions {
+  display: flex;
+  gap: 16px;
+  margin-block-start: 40px;
+}
+
+/* Сетка 2×2 карточек-тем справа, координаты из макета */
+.parents-hero__topics {
+  position: absolute;
+  inset-inline-start: 824px;
+  inset-block-start: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  width: 512px;
+}
+
+.parents-hero__topic {
+  display: block;
+  padding: 25px;
+  border-radius: 24px;
+  text-decoration: none;
+}
+
+.parents-hero__topic--attestation {
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+}
+
+.parents-hero__topic--routine {
+  background-color: #fff7ed;
+  border: 1px solid #ffedd4;
+}
+
+.parents-hero__topic--motivation {
+  background-color: #f0fdf4;
+  border: 1px solid #dcfce7;
+}
+
+.parents-hero__topic--programs {
+  background-color: #faf5ff;
+  border: 1px solid #f3e8ff;
+}
+
+.parents-hero__topic-icon {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+/* display:block — первая карточка в макете помечена как Link, её заголовок
+   и подпись лежат в инлайновых <span> внутри <a> */
+.parents-hero__topic-title {
+  display: block;
+  margin-block-start: 16px;
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.parents-hero__topic-text {
+  display: block;
+  margin-block-start: 4px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: var(--color-text-body);
+}
+
+/* --- Путь родителя (37:6013) -------------------------------------------------- */
+
+.parents-path {
+  padding-block: 80px;
+  background-color: var(--color-surface-muted);
+}
+
+.parents-path__title {
+  text-align: center;
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+/* Соединительная линия проходит по центру кружков (24.5px от верха) */
+.parents-path__steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  max-width: 1024px;
+  margin-inline: auto;
+  margin-block-start: 64px;
+}
+
+.parents-path__steps::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 24.5px;
+  height: 4px;
+  background-color: var(--color-border);
+}
+
+.parents-path__step {
+  position: relative;
+  text-align: center;
+}
+
+.parents-path__num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-inline: auto;
+  border: 4px solid var(--color-surface-muted);
+  border-radius: var(--radius-pill);
+  background-color: #155dfc;
+  box-shadow: 0 10px 7.5px rgba(0, 0, 0, 0.1), 0 4px 3px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: var(--fw-bold);
+  color: #ffffff;
+}
+
+.parents-path__step-title {
+  margin-block-start: 16px;
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.parents-path__step-text {
+  margin-block-start: 8px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: var(--color-text-body);
+}
+
+/* --- Ваша роль (37:6075) ------------------------------------------------------ */
+
+.parents-role {
+  padding-block: 80px;
+  background-color: var(--color-surface);
+}
+
+.parents-role__grid {
+  display: flex;
+  align-items: flex-start;
+  gap: 64px;
+}
+
+.parents-role__content {
+  flex: 1 1 636px;
+  padding-block-start: 17px;
+}
+
+.parents-role__title {
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.parents-role__text {
+  margin-block-start: 24px;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-text-body);
+}
+
+.parents-role__note {
+  padding: 25px;
+  border-radius: 16px;
+}
+
+.parents-role__note--you {
+  margin-block-start: 32px;
+  background-color: #fff7ed;
+  border: 1px solid #ffedd4;
+}
+
+.parents-role__note--school {
+  margin-block-start: 24px;
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+}
+
+.parents-role__note-title {
+  font-size: var(--fs-lead);
+  line-height: 24px;
+  font-weight: var(--fw-bold);
+}
+
+.parents-role__note--you .parents-role__note-title {
+  color: #7e2a0c;
+}
+
+.parents-role__note--school .parents-role__note-title {
+  color: #1c398e;
+}
+
+.parents-role__note-text {
+  margin-block-start: 8px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+}
+
+.parents-role__note--you .parents-role__note-text {
+  color: #9f2d00;
+}
+
+.parents-role__note--school .parents-role__note-text {
+  color: #193cb8;
+}
+
+.parents-role__panel {
+  flex: 1 1 636px;
+  padding: 41px;
+  background-color: var(--color-surface-muted);
+  border: 1px solid var(--color-border-light);
+  border-radius: 48px;
+}
+
+.parents-role__panel-title {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.parents-role__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-block-start: 24px;
+}
+
+.parents-role__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background-color: var(--color-surface);
+  border-radius: 14px;
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
+  font-size: var(--fs-lead);
+  line-height: 24px;
+  color: var(--color-text-secondary-btn);
+}
+
+.parents-role__item .asset-pending {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+/* --- Учебный день дома (37:6155) ---------------------------------------------- */
+
+.parents-day {
+  position: relative;
+  overflow: hidden;
+  padding-block: 80px;
+  background-color: #0f172b;
+}
+
+.parents-day__glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(150px);
+  pointer-events: none;
+}
+
+.parents-day__glow--left {
+  inset-inline-start: 0;
+  inset-block-start: -240px;
+  width: 600px;
+  height: 600px;
+  background-image: linear-gradient(
+    135deg,
+    rgba(156, 63, 253, 0.4) 0%,
+    rgba(224, 231, 255, 0.4) 100%
+  );
+}
+
+.parents-day__glow--right {
+  inset-inline-end: -250px;
+  inset-block-start: -92px;
+  width: 836px;
+  height: 836px;
+  background-image: linear-gradient(
+    45deg,
+    rgba(190, 219, 255, 0.2) 0%,
+    rgba(206, 250, 254, 0.2) 100%
+  );
+}
+
+.parents-day__inner {
+  position: relative;
+  max-width: 832px;
+  margin-inline: auto;
+}
+
+.parents-day__title {
+  text-align: center;
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: var(--fw-bold);
+  color: #ffffff;
+}
+
+.parents-day__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-block-start: 48px;
+}
+
+.parents-day__card {
+  padding: 24px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+}
+
+.parents-day__card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.parents-day__card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.parents-day__card-icon .asset-pending {
+  width: 24px;
+  height: 24px;
+}
+
+.parents-day__card-title {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: var(--fw-bold);
+  color: #8ec5ff;
+}
+
+.parents-day__card-text {
+  margin-block-start: 16px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: #cad5e2;
+}
+
+/* --- Частые ситуации (37:6195) ------------------------------------------------ */
+
+.parents-cases {
+  padding-block: 80px;
+  background-color: var(--color-surface-muted);
+}
+
+.parents-cases__title {
+  text-align: center;
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.parents-cases__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-block-start: 48px;
+}
+
+.parents-cases__card {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.parents-cases__card-title {
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.parents-cases__card-text {
+  margin-block-start: 8px;
+  margin-block-end: 16px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: var(--color-text-body);
+}
+
+/* Ссылка прижата к низу карточки — карточки в ряду равной высоты */
+.parents-cases__card-link {
+  margin-block-start: auto;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  font-weight: var(--fw-medium);
+  color: #155dfc;
+  text-decoration: none;
+}
+
+.parents-cases__card-link:hover,
+.parents-cases__card-link:focus-visible {
+  text-decoration: underline;
+}
+
+/* --- Финальный CTA (37:6314) -------------------------------------------------- */
+
+.parents-cta {
+  padding-block: 80px;
+  background-color: #eff6ff;
+  text-align: center;
+}
+
+.parents-cta__title {
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.parents-cta__text {
+  max-width: 704px;
+  margin-inline: auto;
+  margin-block-start: 24px;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-text-body);
+}
+
+.parents-cta__actions {
+  margin-block-start: 40px;
+}
+
+.parents-cta__button {
+  padding-inline: 40px;
+  font-size: 18px;
+  line-height: 28px;
+}
