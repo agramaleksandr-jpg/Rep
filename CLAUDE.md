@@ -78,7 +78,8 @@ project/
   `timeline-format`, `attestation-exam`, `parents-teachers`, `results-faq`,
   `modal` (модалка консультации, Figma node `7:1254`), `breadcrumb`
 * все секции главной страницы (`1:8`…`1:740`) свёрстаны и сверены с макетом
-* внутренняя страница `pages/courses.html` (Figma `35:1225` «Архив курсов»)
+* внутренние страницы `pages/courses.html` (Figma `35:1225` «Архив курсов»)
+  и `pages/course.html` (Figma `36:2139` «Одиночная курса»)
 * `main.js`: мобильное меню, якоря, появление при прокрутке, модалки
   (ловушка фокуса + Escape), маска телефона, клиентская валидация форм
 * сборщик превью
@@ -86,8 +87,8 @@ project/
 ## Что дальше
 
 Главная полностью свёрстана. По порядку из `docs/AUDIT.md` §6: внутренние
-страницы — `courses.html` готова; дальше `course.html` (карточка одного
-курса), `attestation.html`, `about.html`, `parents.html`, `blog.html`,
+страницы — `courses.html` и `course.html` готовы; дальше
+`attestation.html`, `about.html`, `parents.html`, `blog.html`,
 `blog-post.html`, `contacts.html`. Потом адаптив, потом тема WordPress.
 
 К WordPress **не переходить**, пока статика не закрыта и не сверена.
