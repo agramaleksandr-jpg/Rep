@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Аттестация в семейной форме обучения — Вектор семьи</title>
+  <meta name="description" content="Официальная промежуточная и итоговая аттестация для детей на семейной форме обучения: как проходит, кто помогает подготовиться, прозрачность для родителей.">
+
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components/button.css">
+  <link rel="stylesheet" href="../assets/css/components/header.css">
+  <link rel="stylesheet" href="../assets/css/components/footer.css">
+  <link rel="stylesheet" href="../assets/css/components/breadcrumb.css">
+  <link rel="stylesheet" href="../assets/css/components/modal.css">
+  <link rel="stylesheet" href="../assets/css/components/course.css">
+  <link rel="stylesheet" href="../assets/css/components/courses.css">
+  <link rel="stylesheet" href="../assets/css/components/attestation.css">
+</head>
+<body>
+
+  <a class="visually-hidden" href="#main">Перейти к содержанию</a>
+
+  <!-- ======================= Шапка (Figma 7:1479) ======================= -->
+  <header class="header">
+    <div class="container header__inner">
+
+      <a class="logo" href="../index.html">
+        <span class="logo__mark">
+          <span class="asset-pending" style="width:33px;height:24px"></span>
+        </span>
+        <span class="logo__text">
+          <span class="logo__name">Вектор семьи</span>
+          <span class="logo__tagline">онлайн-школа</span>
+        </span>
+      </a>
+
+      <nav class="header__nav" aria-label="Основная навигация">
+        <ul class="header__nav-list" data-menu>
+          <li><a class="header__nav-link" href="courses.html">Курсы</a></li>
+          <li><a class="header__nav-link" href="attestation.html" aria-current="page">Аттестация</a></li>
+          <li><a class="header__nav-link" href="about.html">О школе</a></li>
+          <li><a class="header__nav-link" href="parents.html">Для родителей</a></li>
+          <li><a class="header__nav-link" href="blog.html">Блог</a></li>
+          <li><a class="header__nav-link" href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__aside">
+        <div class="header__contacts">
+          <a class="header__phone" href="tel:+78001234567">8 (800) 123-45-67</a>
+          <span class="header__schedule">Ежедневно с 9:00 до 21:00</span>
+        </div>
+
+        <div class="header__actions">
+          <a class="btn btn--secondary" href="#">
+            <span class="asset-pending" style="width:16px;height:16px"></span>
+            Войти
+          </a>
+          <button class="btn btn--primary" type="button" data-modal-open="consultation">
+            Записаться
+            <span class="asset-pending" style="width:16px;height:16px"></span>
+          </button>
+        </div>
+
+        <button class="header__burger" type="button"
+                aria-expanded="false" aria-controls="main-menu"
+                data-menu-toggle>
+          <span class="visually-hidden">Открыть меню</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="header__spacer" aria-hidden="true"></div>
+
+  <main id="main">
+
+    <nav class="breadcrumb" aria-label="Хлебные крошки">
+      <div class="container">
+        <ol class="breadcrumb__list">
+          <li><a class="breadcrumb__link" href="../index.html">Главная</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="breadcrumb__current" aria-current="page">Аттестация</li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- ===================== Hero (Figma 38:6595) ======================= -->
+    <section class="course-hero">
+      <div class="container">
+        <div class="course-hero__grid">
+          <div class="course-hero__content">
+            <h1 class="course-hero__title">Аттестация без стресса и хаоса</h1>
+            <p class="course-hero__text">Помогаем родителям разобраться, как проходит проверка знаний при дистанционном и семейном обучении, и готовим ребёнка к ней спокойно и системно.</p>
+
+            <div class="course-hero__actions">
+              <button class="btn btn--primary btn--lg btn--rect" type="button" data-modal-open="consultation" style="padding-inline:32px">Получить консультацию по аттестации</button>
+              <button class="btn btn--outline-brand btn--lg btn--rect" type="button" data-modal-open="consultation" style="padding-inline:33px">Узнать о переходе в онлайн</button>
+            </div>
+          </div>
+
+          <div class="attestation-hero__media" aria-hidden="true">
+            <div class="attestation-hero__media-inner"><span class="asset-pending"></span></div>
+          </div>
+
+          <div class="course-hero__card attestation-hero__card--lesson" aria-hidden="true">
+            <span class="asset-pending"></span>
+            <span class="attestation-hero__card--lesson-text">Математика сдана</span>
+          </div>
+
+          <div class="course-hero__card attestation-hero__card--calendar" aria-hidden="true">
+            <span class="attestation-hero__card--calendar-row">
+              <span class="asset-pending"></span>
+              <span class="attestation-hero__card--calendar-label">Календарь сдачи</span>
+            </span>
+            <span class="attestation-hero__card--calendar-value">Май 2024</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== Что такое аттестация (Figma 38:6617) ========== -->
+    <section class="attestation-basics">
+      <div class="container">
+        <h2 class="course-section-title">Что такое аттестация простыми словами</h2>
+        <p class="course-section-text">Аттестация — это официальное подтверждение того, что ребёнок усвоил программу своего класса. Она нужна для перевода в следующий класс и допуска к итоговым экзаменам (ОГЭ/ЕГЭ).</p>
+
+        <div class="attestation-basics__grid">
+          <div class="attestation-basics__card">
+            <span class="attestation-basics__icon attestation-basics__icon--blue"><span class="asset-pending"></span></span>
+            <h3 class="attestation-basics__title">Промежуточная аттестация</h3>
+            <p class="attestation-basics__text">Проходит каждый год (обычно в конце учебного года или по четвертям/полугодиям). Это проверка знаний за текущий класс по всем обязательным предметам. Успешная сдача гарантирует перевод в следующий класс.</p>
+          </div>
+          <div class="attestation-basics__card">
+            <span class="attestation-basics__icon attestation-basics__icon--amber"><span class="asset-pending"></span></span>
+            <h3 class="attestation-basics__title">Итоговая аттестация (ГИА)</h3>
+            <p class="attestation-basics__text">Это государственные экзамены — ОГЭ в 9 классе и ЕГЭ в 11 классе. К ним допускаются только те ученики, у которых нет задолженностей по промежуточным аттестациям.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== Формы обучения (Figma 38:6661) ================ -->
+    <section class="attestation-forms">
+      <div class="container">
+        <h2 class="course-section-title">Какие бывают формы обучения</h2>
+
+        <div class="courses-compare__table-wrap" style="margin-block-start:48px">
+          <table class="courses-compare__table">
+            <thead>
+              <tr>
+                <th scope="col">Форма</th>
+                <th scope="col">Кто отвечает за обучение</th>
+                <th scope="col">Контроль знаний</th>
+                <th scope="col">Аттестация</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Очное обучение</th>
+                <td>Школа</td>
+                <td>Ежедневный (оценки на уроках)</td>
+                <td>Проходит внутри школы автоматически</td>
+              </tr>
+              <tr>
+                <th scope="row">Заочное обучение</th>
+                <td>Школа (составляет план, проверяет ДЗ)</td>
+                <td>Регулярная сдача работ по графику</td>
+                <td>По графику школы (дистанционно или очно)</td>
+              </tr>
+              <tr>
+                <th scope="row">Семейное обучение</th>
+                <td>Родители (имеют право привлекать репетиторов, онлайн-школы)</td>
+                <td>Ответственность родителей</td>
+                <td>Сдаётся в прикреплённой школе по её графику 1-2 раза в год</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="attestation-forms__note">Точную форму обучения и порядок оформления необходимо уточнять индивидуально.</p>
+      </div>
+    </section>
+
+    <!-- ============= Как мы помогаем с подготовкой (Figma 38:6728) ======== -->
+    <section class="attestation-help">
+      <span class="attestation-help__glow attestation-help__glow--left" aria-hidden="true"></span>
+      <span class="attestation-help__glow attestation-help__glow--right" aria-hidden="true"></span>
+      <div class="container">
+        <h2 class="attestation-help__title">Как мы помогаем с подготовкой</h2>
+
+        <ol class="attestation-help__grid">
+          <li class="attestation-help__card">
+            <span class="attestation-help__num">1</span>
+            <p class="attestation-help__text">Составляем образовательный маршрут с учётом требований ФГОС</p>
+          </li>
+          <li class="attestation-help__card">
+            <span class="attestation-help__num">2</span>
+            <p class="attestation-help__text">Находим и мягко закрываем пробелы в знаниях за прошлые годы</p>
+          </li>
+          <li class="attestation-help__card">
+            <span class="attestation-help__num">3</span>
+            <p class="attestation-help__text">Предоставляем все необходимые материалы и тренажёры</p>
+          </li>
+          <li class="attestation-help__card">
+            <span class="attestation-help__num">4</span>
+            <p class="attestation-help__text">Регулярно проверяем домашние задания и даём обратную связь</p>
+          </li>
+          <li class="attestation-help__card">
+            <span class="attestation-help__num">5</span>
+            <p class="attestation-help__text">Отслеживаем реальный прогресс, а не просто ставим оценки</p>
+          </li>
+          <li class="attestation-help__card">
+            <span class="attestation-help__num">6</span>
+            <p class="attestation-help__text">Проводим тренировочные работы в формате аттестации</p>
+          </li>
+          <li class="attestation-help__card">
+            <span class="attestation-help__num">7</span>
+            <p class="attestation-help__text">Подробно объясняем родителям весь порядок действий</p>
+          </li>
+          <li class="attestation-help__card">
+            <span class="attestation-help__num">8</span>
+            <p class="attestation-help__text">Эмоционально поддерживаем ребёнка перед проверками</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============= Прозрачность для родителей (Figma 38:6800) =========== -->
+    <section class="attestation-transparency">
+      <div class="container">
+        <div class="attestation-transparency__grid">
+          <div class="attestation-transparency__content">
+            <h2 class="course-section-title" style="text-align:start">Полная прозрачность для родителей</h2>
+            <p class="course-section-text" style="margin-inline:0;text-align:start">Вам не придётся гадать, готов ли ребёнок к проверке знаний. Вы в любой момент видите реальную картину.</p>
+
+            <ul class="attestation-transparency__list">
+              <li class="attestation-transparency__item"><span class="asset-pending"></span> Понятное расписание пройденных и будущих тем</li>
+              <li class="attestation-transparency__item"><span class="asset-pending"></span> Статус выполненных заданий и оценки за них</li>
+              <li class="attestation-transparency__item"><span class="asset-pending"></span> Развёрнутые комментарии педагогов к работам</li>
+              <li class="attestation-transparency__item"><span class="asset-pending"></span> Наглядная динамика успеваемости по каждому предмету</li>
+              <li class="attestation-transparency__item"><span class="asset-pending"></span> Рекомендации от личного куратора</li>
+              <li class="attestation-transparency__item"><span class="asset-pending"></span> Индикатор готовности к итоговой проверке</li>
+            </ul>
+          </div>
+
+          <div class="attestation-transparency__dashboard" aria-hidden="true">
+            <div class="attestation-transparency__subject">
+              <div class="attestation-transparency__subject-row">
+                <span>Математика</span>
+                <span class="attestation-transparency__status--ready">Готов к сдаче</span>
+              </div>
+              <div class="attestation-transparency__bar"><span style="width:95%;background-color:#00c950"></span></div>
+            </div>
+            <div class="attestation-transparency__subject">
+              <div class="attestation-transparency__subject-row">
+                <span>Русский язык</span>
+                <span class="attestation-transparency__status--progress">В процессе (80%)</span>
+              </div>
+              <div class="attestation-transparency__bar"><span style="width:80%;background-color:#2b7fff"></span></div>
+            </div>
+            <div class="attestation-transparency__subject">
+              <div class="attestation-transparency__subject-row">
+                <span>История</span>
+                <span class="attestation-transparency__status--behind">Есть долги (45%)</span>
+              </div>
+              <div class="attestation-transparency__bar"><span style="width:45%;background-color:#ff6900"></span></div>
+            </div>
+
+            <p class="attestation-transparency__comment"><strong>Комментарий куратора:</strong> «По математике всё отлично, можно записываться на сдачу. По истории нужно сдать два теста за прошлую неделю.»</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Особенности подготовки по классам (Figma 38:6908) ======= -->
+    <section class="attestation-classes">
+      <div class="container">
+        <h2 class="course-section-title">Особенности подготовки по классам</h2>
+
+        <div class="attestation-classes__grid">
+          <div class="attestation-classes__card">
+            <h3 class="attestation-classes__title">1–4 классы</h3>
+            <p class="attestation-classes__text">Главное — мягкая адаптация и минимизация стресса. Закладываем базовые навыки. Проверки проходят в максимально спокойной обстановке с поддержкой родителей.</p>
+          </div>
+          <div class="attestation-classes__card">
+            <h3 class="attestation-classes__title">5–8 классы</h3>
+            <p class="attestation-classes__text">Системная проверка знаний и контроль пробелов. Учим ребёнка самостоятельности. Вводим регулярные тренировочные тесты без запугивания.</p>
+          </div>
+          <div class="attestation-classes__card">
+            <h3 class="attestation-classes__title">9 класс</h3>
+            <p class="attestation-classes__text">Фокус на отсутствии задолженностей для допуска к ОГЭ. Выстраиваем чёткий план подготовки, чтобы сдача промежуточной аттестации не мешала подготовке к ОГЭ.</p>
+          </div>
+          <div class="attestation-classes__card">
+            <h3 class="attestation-classes__title">10–11 классы</h3>
+            <p class="attestation-classes__text">Итоговая траектория с упором на ЕГЭ. Сроки аттестации и документы уточняются индивидуально, чтобы освободить время для подготовки к поступлению.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================ Важно про ОГЭ и ЕГЭ (Figma 38:6948) =============== -->
+    <section class="attestation-callout">
+      <div class="container">
+        <div class="attestation-callout__card">
+          <div class="attestation-callout__heading">
+            <span class="attestation-callout__icon"><span class="asset-pending"></span></span>
+            <h2 class="attestation-callout__title">Важно про ОГЭ и ЕГЭ</h2>
+          </div>
+          <p class="attestation-callout__text">Итоговые государственные экзамены (ОГЭ в 9 классе и ЕГЭ в 11 классе) требуют отдельной, целенаправленной подготовки. Они проводятся строго в очном формате в аккредитованных школах.</p>
+          <p class="attestation-callout__text">Наша школа помогает выстроить учебный маршрут, закрыть все <strong>промежуточные аттестации</strong> (что является обязательным условием допуска к ОГЭ/ЕГЭ) и качественно подготовиться к самим экзаменам.</p>
+          <p class="attestation-callout__note">Конкретный порядок допуска, прикрепления к школе для сдачи ГИА и оформления документов уточняется строго индивидуально на консультации.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= FAQ (Figma 38:7140) ====================== -->
+    <section class="courses-faq">
+      <div class="container">
+        <h2 class="courses-faq__title">Популярные вопросы родителей</h2>
+        <p class="course-section-text">Отвечаем на главные вопросы родителей о семейном образовании и нашей школе.</p>
+        <div class="courses-faq__panel">
+          <div class="courses-faq__col">
+            <details class="courses-faq__item" open>
+              <summary>
+                Можно ли перейти к вам в течение года?
+                <span class="courses-faq__chevron asset-pending" aria-hidden="true"></span>
+              </summary>
+              <p class="courses-faq__answer">Да, вы можете присоединиться к нам в любой момент. Мы поможем плавно влиться в учебный процесс.</p>
+            </details>
+            <details class="courses-faq__item">
+              <summary>
+                Как родитель видит прогресс?
+                <span class="courses-faq__chevron asset-pending" aria-hidden="true"></span>
+              </summary>
+              <p class="courses-faq__answer">Ответ на этот вопрос ещё не добавлен в макет Figma.</p>
+            </details>
+            <details class="courses-faq__item">
+              <summary>
+                Есть ли пробное занятие?
+                <span class="courses-faq__chevron asset-pending" aria-hidden="true"></span>
+              </summary>
+              <p class="courses-faq__answer">Ответ на этот вопрос ещё не добавлен в макет Figma.</p>
+            </details>
+          </div>
+          <div class="courses-faq__col">
+            <details class="courses-faq__item">
+              <summary>
+                Как проходит аттестация?
+                <span class="courses-faq__chevron asset-pending" aria-hidden="true"></span>
+              </summary>
+              <p class="courses-faq__answer">Ответ на этот вопрос ещё не добавлен в макет Figma.</p>
+            </details>
+            <details class="courses-faq__item">
+              <summary>
+                Сколько детей в группе?
+                <span class="courses-faq__chevron asset-pending" aria-hidden="true"></span>
+              </summary>
+              <p class="courses-faq__answer">Ответ на этот вопрос ещё не добавлен в макет Figma.</p>
+            </details>
+            <details class="courses-faq__item">
+              <summary>
+                Официально ли это?
+                <span class="courses-faq__chevron asset-pending" aria-hidden="true"></span>
+              </summary>
+              <p class="courses-faq__answer">Ответ на этот вопрос ещё не добавлен в макет Figma.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================= Подвал (Figma 7:1480) ====================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+
+      <div class="footer__columns">
+
+        <div class="footer__about">
+          <a class="logo" href="../index.html">
+            <span class="logo__mark">
+              <span class="asset-pending" style="width:33px;height:24px"></span>
+            </span>
+            <span class="logo__text">
+              <span class="logo__name">Вектор семьи</span>
+              <span class="logo__tagline">онлайн-школа</span>
+            </span>
+          </a>
+
+          <p class="footer__description">
+            Современная онлайн-школа с человеческим лицом. Учим детей, бережем нервы родителей.
+          </p>
+
+          <div class="footer__contacts">
+            <a class="footer__phone" href="tel:+78001234567">8 (800) 123-45-67</a>
+            <a class="footer__email" href="mailto:hello@tochkarosta.ru">hello@tochkarosta.ru</a>
+          </div>
+        </div>
+
+        <div class="footer__column">
+          <h2 class="footer__heading">Обучение</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="courses.html#catalog">Начальная школа 1-4 кл.</a></li>
+            <li><a class="footer__link" href="courses.html#catalog">Средняя школа 5-9 кл.</a></li>
+            <li><a class="footer__link" href="courses.html#catalog">Старшая школа 10-11 кл.</a></li>
+            <li><a class="footer__link" href="courses.html#catalog">Подготовка к ОГЭ/ЕГЭ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h2 class="footer__heading">Информация</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="about.html">Об онлайн-школе</a></li>
+            <li><a class="footer__link" href="#">Преподаватели</a></li>
+            <li><a class="footer__link" href="attestation.html">Аттестация</a></li>
+            <li><a class="footer__link" href="#">Отзывы</a></li>
+            <li><a class="footer__link" href="blog.html">Блог</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h2 class="footer__heading">Документы</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="#">Оферта</a></li>
+            <li><a class="footer__link" href="#">Политика конфиденциальности</a></li>
+            <li><a class="footer__link" href="#">Лицензия</a></li>
+            <li><a class="footer__link" href="#">Реквизиты</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">© 2026 Онлайн-школа «Точка роста». Все права защищены.</p>
+
+        <ul class="footer__social">
+          <li><span class="footer__social-item"></span></li>
+          <li><span class="footer__social-item"></span></li>
+          <li><span class="footer__social-item"></span></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== Модалка консультации (Figma 7:1254) ================= -->
+  <div class="modal" id="consultation" data-modal hidden>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="consultation-title">
+      <button class="modal__close" type="button" data-modal-close aria-label="Закрыть">
+        <span class="asset-pending" style="width:16px;height:16px"></span>
+      </button>
+
+      <div class="modal__header">
+        <h2 class="modal__title" id="consultation-title">Записаться на консультацию</h2>
+        <p class="modal__subtitle">Оставьте свои данные, и мы поможем подобрать подходящую программу для вашего ребенка</p>
+      </div>
+
+      <form class="modal__form" data-validate novalidate>
+        <div class="modal__field" data-field>
+          <label class="modal__label" for="consultation-name">Как к вам обращаться?</label>
+          <input class="modal__input" type="text" id="consultation-name" name="name" placeholder="Ваше имя" required>
+          <span class="modal__error" data-error hidden></span>
+        </div>
+
+        <div class="modal__field" data-field>
+          <label class="modal__label" for="consultation-phone">Номер телефона</label>
+          <input class="modal__input" type="tel" id="consultation-phone" name="phone" placeholder="+7 (999) 000-00-00" data-phone required>
+          <span class="modal__error" data-error hidden></span>
+        </div>
+
+        <div class="modal__field" data-field>
+          <label class="modal__label" for="consultation-grade">В какой класс пойдет ребенок?</label>
+          <span class="modal__select-wrap">
+            <select class="modal__select" id="consultation-grade" name="grade" required>
+              <option value="" selected disabled hidden>Выберите класс</option>
+              <option value="1">1 класс</option>
+              <option value="2">2 класс</option>
+              <option value="3">3 класс</option>
+              <option value="4">4 класс</option>
+              <option value="5">5 класс</option>
+              <option value="6">6 класс</option>
+              <option value="7">7 класс</option>
+              <option value="8">8 класс</option>
+              <option value="9">9 класс</option>
+              <option value="10">10 класс</option>
+              <option value="11">11 класс</option>
+            </select>
+            <span class="asset-pending modal__select-icon"></span>
+          </span>
+          <span class="modal__error" data-error hidden></span>
+        </div>
+
+        <div class="modal__field" data-field>
+          <label class="modal__consent">
+            <input type="checkbox" name="consent" required>
+            <span class="modal__consent-text">
+              Нажимая на кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a> и <a href="#">обработкой персональных данных</a>
+            </span>
+          </label>
+          <span class="modal__error" data-error hidden></span>
+        </div>
+
+        <button class="btn btn--primary modal__submit" type="submit">Оставить заявку</button>
+        <p class="modal__status" data-form-status hidden></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

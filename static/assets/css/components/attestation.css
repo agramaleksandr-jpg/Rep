@@ -1,0 +1,462 @@
+/* ==========================================================================
+   Страница «Аттестация» — Figma node 38:6513
+   Переиспользует .course-hero, .course-section-title (course.css) и
+   .courses-compare__table (courses.css) — те же паттерны, что и на
+   странице курса. Здесь — только уникальные для этой страницы блоки.
+   ========================================================================== */
+
+.attestation-hero__media {
+  position: absolute;
+  inset-inline-start: 824px;
+  inset-block-start: 15px;
+  width: 512px;
+  height: 512px;
+  overflow: hidden;
+  border: 8px solid #ffffff;
+  border-radius: 48px;
+  background-color: var(--color-border-light);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.attestation-hero__media-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(135deg, #f0fdf4 0%, #eff6ff 100%);
+}
+
+.attestation-hero__media-inner .asset-pending {
+  width: 128px;
+  height: 128px;
+}
+
+.attestation-hero__card--lesson {
+  inset-inline-start: 812.24px;
+  inset-block-start: 63px;
+  width: 188px;
+}
+
+.attestation-hero__card--lesson .asset-pending {
+  width: 20px;
+  height: 20px;
+  margin-inline-end: 8px;
+}
+
+.attestation-hero__card--lesson-text {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-bold);
+  color: var(--color-text-secondary-btn);
+  white-space: nowrap;
+}
+
+.attestation-hero__card--calendar {
+  inset-inline-start: 1178px;
+  inset-block-start: 342px;
+  width: 162.953px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.attestation-hero__card--calendar-row {
+  display: flex;
+  align-items: center;
+}
+
+.attestation-hero__card--calendar .asset-pending {
+  width: 16px;
+  height: 16px;
+  margin-inline-end: 8px;
+}
+
+.attestation-hero__card--calendar-label {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-bold);
+  color: var(--color-text-secondary-btn);
+  white-space: nowrap;
+}
+
+.attestation-hero__card--calendar-value {
+  margin-block-start: 8px;
+  font-size: var(--fs-body);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* --- Что такое аттестация (2 карточки) -------------------------------------- */
+
+.attestation-basics {
+  padding-block: 80px;
+  background-color: var(--color-surface-muted);
+  text-align: center;
+}
+
+.attestation-basics__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 896px;
+  margin-inline: auto;
+  margin-block-start: 64px;
+  text-align: start;
+}
+
+.attestation-basics__card {
+  padding: 33px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.attestation-basics__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-pill);
+}
+
+.attestation-basics__icon--blue {
+  background-color: #dbeafe;
+}
+
+.attestation-basics__icon--amber {
+  background-color: #ffedd4;
+}
+
+.attestation-basics__icon .asset-pending {
+  width: 24px;
+  height: 24px;
+}
+
+.attestation-basics__title {
+  margin-block-start: 16px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.attestation-basics__text {
+  margin-block-start: 12px;
+  font-size: var(--fs-lead);
+  line-height: 24px;
+  color: var(--color-text-body);
+}
+
+/* --- Формы обучения (таблица + сноска) --------------------------------------- */
+
+.attestation-forms {
+  padding-block: 80px;
+  background-color: var(--color-surface);
+}
+
+/* Секция FAQ (`.courses-faq`, courses.css) на этой странице спроектирована
+   на белом фоне, а не на `--color-surface-muted` как в архиве курсов —
+   переопределяем только здесь. */
+.courses-faq {
+  background-color: var(--color-surface);
+}
+
+.attestation-forms__note {
+  max-width: 700px;
+  margin-inline: auto;
+  margin-block-start: 24px;
+  text-align: center;
+  font-size: var(--fs-body);
+  font-style: italic;
+  line-height: 20px;
+  color: var(--color-text-muted);
+}
+
+/* --- Как мы помогаем с подготовкой (8 пунктов) ------------------------------- */
+
+.attestation-help {
+  position: relative;
+  overflow: hidden;
+  padding-block: 80px;
+  background-color: #0f172b;
+}
+
+.attestation-help__title {
+  position: relative;
+  text-align: center;
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: var(--fw-bold);
+  color: #ffffff;
+}
+
+.attestation-help__glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(150px);
+  pointer-events: none;
+}
+
+.attestation-help__glow--left {
+  inset-inline-start: -95px;
+  inset-block-start: -227px;
+  width: 600px;
+  height: 600px;
+  background-image: linear-gradient(
+    135deg,
+    rgba(156, 63, 253, 0.4) 0%,
+    rgba(224, 231, 255, 0.4) 100%
+  );
+}
+
+.attestation-help__glow--right {
+  inset-inline-end: -250px;
+  inset-block-start: 42px;
+  width: 836px;
+  height: 836px;
+  background-image: linear-gradient(
+    45deg,
+    rgba(190, 219, 255, 0.2) 0%,
+    rgba(206, 250, 254, 0.2) 100%
+  );
+}
+
+.attestation-help__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-block-start: 64px;
+}
+
+.attestation-help__card {
+  padding: 25px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+}
+
+.attestation-help__num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  background-color: rgba(43, 127, 255, 0.2);
+  font-size: var(--fs-lead);
+  font-weight: var(--fw-bold);
+  color: #51a2ff;
+}
+
+.attestation-help__text {
+  margin-block-start: 16px;
+  font-size: var(--fs-body);
+  line-height: 22.75px;
+  color: #cad5e2;
+}
+
+/* --- Прозрачность для родителей (дашборд) ------------------------------------ */
+
+.attestation-transparency {
+  padding-block: 80px;
+  background-color: #eff6ff;
+}
+
+.attestation-transparency__grid {
+  display: flex;
+  gap: 64px;
+  align-items: center;
+}
+
+.attestation-transparency__content {
+  flex: 1 1 636px;
+}
+
+.attestation-transparency__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-block-start: 32px;
+}
+
+.attestation-transparency__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 17px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: 14px;
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: var(--color-text-secondary-btn);
+}
+
+.attestation-transparency__item .asset-pending {
+  width: 20px;
+  height: 20px;
+}
+
+.attestation-transparency__dashboard {
+  flex: 1 1 636px;
+  padding: 33px;
+  background-color: var(--color-surface);
+  border: 1px solid #dbeafe;
+  border-radius: 32px;
+  box-shadow: 0 20px 12.5px rgba(0, 0, 0, 0.1), 0 8px 5px rgba(0, 0, 0, 0.1);
+}
+
+.attestation-transparency__subject {
+  margin-block-start: 24px;
+}
+
+.attestation-transparency__subject:first-child {
+  margin-block-start: 0;
+}
+
+.attestation-transparency__subject-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--fs-body);
+  font-weight: var(--fw-bold);
+  color: var(--color-text-secondary-btn);
+}
+
+.attestation-transparency__status--ready {
+  color: #00a63e;
+}
+
+.attestation-transparency__status--progress {
+  color: #155dfc;
+}
+
+.attestation-transparency__status--behind {
+  color: #f54900;
+}
+
+.attestation-transparency__bar {
+  margin-block-start: 8px;
+  height: 8px;
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-border-light);
+}
+
+.attestation-transparency__bar span {
+  display: block;
+  height: 100%;
+  border-radius: var(--radius-pill);
+}
+
+.attestation-transparency__comment {
+  margin-block-start: 32px;
+  padding: 17px;
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+  border-radius: 14px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: #193cb8;
+}
+
+/* --- Особенности подготовки по классам -------------------------------------- */
+
+.attestation-classes {
+  padding-block: 80px;
+  background-color: var(--color-surface);
+}
+
+.attestation-classes__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-block-start: 48px;
+}
+
+.attestation-classes__card {
+  padding: 25px;
+  background-color: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+}
+
+.attestation-classes__title {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.attestation-classes__text {
+  margin-block-start: 12px;
+  font-size: var(--fs-body);
+  line-height: 22.75px;
+  color: var(--color-text-body);
+}
+
+/* --- CTA-плашка «Важно про ОГЭ и ЕГЭ» ---------------------------------------- */
+
+.attestation-callout {
+  padding-block: 80px;
+  background-color: #fff7ed;
+}
+
+.attestation-callout__card {
+  max-width: 896px;
+  margin-inline: auto;
+  padding: 41px;
+  background-color: var(--color-surface);
+  border: 1px solid #ffedd4;
+  border-radius: 32px;
+  box-shadow: 0 20px 12.5px rgba(126, 42, 12, 0.05), 0 8px 5px rgba(126, 42, 12, 0.05);
+}
+
+.attestation-callout__heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.attestation-callout__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-pill);
+  background-color: #ffedd4;
+}
+
+.attestation-callout__icon .asset-pending {
+  width: 24px;
+  height: 24px;
+}
+
+.attestation-callout__title {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.attestation-callout__text {
+  margin-block-start: 24px;
+  font-size: var(--fs-body);
+  line-height: 26px;
+  color: #314158;
+}
+
+.attestation-callout__note {
+  margin-block-start: 24px;
+  padding: 17px;
+  background-color: #fff7ed;
+  border: 1px solid #ffedd4;
+  border-radius: 14px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  font-weight: var(--fw-medium);
+  color: #9f2d00;
+}
