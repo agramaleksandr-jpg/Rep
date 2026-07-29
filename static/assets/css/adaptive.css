@@ -555,14 +555,20 @@
 
   .logo__name {
     white-space: nowrap;
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
   }
 
+  /* Логотип, кнопка и бургер должны уместиться в 375px: считаем по узкому
+     краю — 375 − 40 (поля) = 335. Иначе бургер уезжает за правый край. */
   .header__actions .btn--primary {
-    padding-inline: 16px;
+    padding-inline: 12px;
+    font-size: var(--fs-caption);
   }
 
-  .header__inner {
-    gap: 12px;
+  .header__inner,
+  .header__aside {
+    gap: 8px;
   }
 
   /* --- Всё в одну колонку -------------------------------------------------- */
@@ -615,7 +621,11 @@
   .contacts-hero__actions,
   .results-faq__cta-actions,
   .post-share,
-  .contacts-legal__actions {
+  .contacts-legal__actions,
+  .about-cta__actions,
+  .parents-cta__actions,
+  .contacts-cta__actions,
+  .course-pricing__cta {
     flex-wrap: wrap;
   }
 
@@ -624,9 +634,24 @@
   .courses-hero__actions .btn,
   .about-hero__actions .btn,
   .parents-hero__actions .btn,
-  .contacts-hero__actions .btn {
+  .contacts-hero__actions .btn,
+  .about-cta__actions .btn,
+  .parents-cta__actions .btn,
+  .contacts-cta__actions .btn,
+  .course-pricing__cta .btn {
     width: 100%;
     padding-inline: 16px !important;
+  }
+
+  /* Длинные слова и подписи не должны распирать узкую колонку */
+  h1, h2, h3, h4, p, li, a, dd, dt, td, th {
+    overflow-wrap: break-word;
+  }
+
+  /* Каталог курсов уже перенесён в колонку — снимаем min-content у обеих */
+  .courses-catalog__layout > * {
+    min-width: 0;
+    width: 100%;
   }
 
   /* --- Уменьшенные отступы секций ------------------------------------------ */
@@ -817,6 +842,19 @@
   /* Плавающие цифры шагов на фоне перекрывают текст на узком экране */
   .timeline-format__step-bgnum,
   .course-steps__bgnum {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   ≤360px — самые узкие телефоны
+   Логотип и бургер обязаны быть на экране всегда, поэтому кнопка
+   «Записаться» из шапки уходит: тот же призыв есть в первом экране
+   каждой страницы и в подвале.
+   ========================================================================== */
+
+@media (max-width: 360px) {
+  .header__actions {
     display: none;
   }
 }

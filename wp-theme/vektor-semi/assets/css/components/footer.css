@@ -1,0 +1,125 @@
+/* ==========================================================================
+   Подвал — Figma node 7:1480
+   Высота 438 = 81 (верхний отступ) + 317 (контент) + 40 (нижний отступ)
+   ========================================================================== */
+
+.footer {
+  padding-block: 81px 40px;
+  background-color: var(--color-surface-muted);
+  border-top: 1px solid var(--color-border);
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+/* --- Колонки ------------------------------------------------------------
+   Ширины колонок в макете: 515.19 / 241.61 / 241.59 / 241.61 при зазоре 32.
+   Записаны через fr, чтобы пропорции сохранялись при сужении контейнера.
+   ------------------------------------------------------------------------ */
+
+.footer__columns {
+  display: grid;
+  grid-template-columns: 515.19fr 241.61fr 241.59fr 241.61fr;
+  gap: var(--grid-gap);
+}
+
+.footer__about {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.footer__description {
+  max-width: 384px;
+  color: var(--color-text-muted);
+}
+
+.footer__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-block-start: 8px;
+}
+
+.footer__phone {
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.footer__email {
+  color: var(--color-text-body);
+}
+
+.footer__phone:hover,
+.footer__email:hover {
+  color: var(--color-brand);
+}
+
+/* --- Колонка ссылок ----------------------------------------------------- */
+
+.footer__column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer__heading {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.footer__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer__link {
+  color: var(--color-text-body);
+}
+
+.footer__link:hover {
+  color: var(--color-brand);
+}
+
+/* --- Нижняя полоса ------------------------------------------------------ */
+
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--grid-gap);
+  padding-block-start: 33px;
+  border-top: 1px solid var(--color-border);
+}
+
+.footer__copyright {
+  color: var(--color-text-muted);
+}
+
+.footer__social {
+  display: flex;
+  gap: 16px;
+}
+
+/* В макете кружки нарисованы без иконок — см. блокер 5.3 в docs/AUDIT.md */
+.footer__social-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-border);
+  transition: background-color var(--duration-fast) var(--ease);
+}
+
+.footer__social-item:hover {
+  background-color: #cbd5e1;
+}

@@ -1,0 +1,267 @@
+/* ==========================================================================
+   OnlineClasses — Figma node 1:194
+   Секция 2543 × 1093, контент 1400/32 (как и другие секции главной).
+   В макете реализован только таб «1–2 класс» — контент для остальных
+   возрастов не спроектирован (см. блокер 5.8 в docs/AUDIT.md).
+   ========================================================================== */
+
+.online-classes {
+  padding-block: 80px;
+  background-color: var(--color-surface-muted);
+}
+
+.online-classes__header {
+  max-width: 768px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.online-classes__title {
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.9px;
+  color: var(--color-text);
+}
+
+.online-classes__text {
+  margin-block-start: 16px;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-text-body);
+}
+
+/* --- Табы возрастных групп ----------------------------------------------- */
+
+.online-classes__tabs-row {
+  display: flex;
+  justify-content: center;
+  margin-block-start: 48px;
+}
+
+.online-classes__tablist {
+  display: flex;
+  padding: 6px 5px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.online-classes__tab {
+  width: 146px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-muted);
+  transition: background-color var(--duration-fast) var(--ease),
+    color var(--duration-fast) var(--ease);
+}
+
+.online-classes__tab[aria-selected="true"] {
+  background-color: var(--color-brand);
+  color: var(--color-on-brand);
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Панель ---------------------------------------------------------------- */
+
+.online-classes__panels {
+  margin-block-start: 32px;
+}
+
+.online-classes__panel {
+  position: relative;
+  overflow: hidden;
+  height: 693px;
+  padding: 48px;
+  display: flex;
+  gap: 48px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: 32px;
+  box-shadow: 0 20px 25px -5px rgba(226, 232, 240, 0.5),
+    0 8px 10px -6px rgba(226, 232, 240, 0.5);
+}
+
+.online-classes__panel[hidden] {
+  display: none;
+}
+
+.online-classes__glow {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  width: 256px;
+  height: 256px;
+  border-radius: 0 0 0 9999px;
+  background-image: linear-gradient(
+    225deg,
+    rgb(243, 232, 255) 0%,
+    rgba(243, 232, 255, 0) 100%
+  );
+  filter: blur(25px);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* --- Текстовая колонка ------------------------------------------------------ */
+
+.online-classes__content {
+  flex: 0 0 595px;
+  margin-block-start: 93.5px;
+}
+
+.online-classes__badge {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 5px 13px;
+  border-radius: var(--radius-pill);
+  background-color: #ffedd4;
+  font-size: var(--fs-small);
+  line-height: 16px;
+  font-weight: var(--fw-semibold);
+  color: #ca3500;
+}
+
+.online-classes__content-title {
+  margin-block-start: 24px;
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.online-classes__content-text {
+  margin-block-start: 24px;
+  font-size: var(--fs-lead);
+  line-height: 26px;
+  color: var(--color-text-body);
+}
+
+.online-classes__features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-block-start: 24px;
+}
+
+.online-classes__feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.online-classes__feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-pill);
+  background-color: #ffedd4;
+}
+
+.online-classes__feature-icon img {
+  width: 16px;
+  height: 16px;
+}
+
+.online-classes__feature-text {
+  font-size: var(--fs-lead);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-secondary-btn);
+}
+
+.online-classes__cta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-block-start: 24px;
+}
+
+.online-classes__price {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.online-classes__price-value {
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: var(--fw-bold);
+  color: var(--color-brand);
+}
+
+.online-classes__price-note {
+  font-size: var(--fs-body);
+  line-height: 16px;
+  font-weight: var(--fw-medium);
+  color: rgba(49, 65, 88, 0.5);
+}
+
+/* Отличается от базовой .btn--lg отступами по макету этой секции */
+.online-classes__cta .btn--lg {
+  padding-inline: 32px;
+  gap: 4px;
+}
+
+/* --- Медиаколонка ------------------------------------------------------------ */
+
+.online-classes__media {
+  position: relative;
+  flex: 0 0 595px;
+  height: 595px;
+  border-radius: 32px;
+  overflow: hidden;
+  background-color: var(--color-border-light);
+}
+
+.online-classes__media-card {
+  position: absolute;
+  inset-inline-start: -24px;
+  inset-block-start: 501.5px;
+  width: 200px;
+  padding: 21px 21px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: 16px;
+  box-shadow: 0 20px 12.5px rgba(0, 0, 0, 0.1), 0 8px 5px rgba(0, 0, 0, 0.1);
+}
+
+.online-classes__media-card-title {
+  font-size: var(--fs-body);
+  line-height: 20px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.online-classes__media-card-text {
+  font-size: var(--fs-small);
+  line-height: 16px;
+  color: var(--color-text-muted);
+}
+
+/* --- Заглушка для табов без контента в макете -------------------------------- */
+
+.online-classes__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+}

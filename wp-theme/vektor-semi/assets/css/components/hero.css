@@ -1,0 +1,262 @@
+/* ==========================================================================
+   Герой главной — Figma node 1:8
+   Секция 2543 × 807.5; контент 1336 × 615.5 с отступом сверху 80.
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  padding-block: 80px 112px;
+  background-color: #f8f9ff;
+  overflow: hidden;
+}
+
+/* Размытые градиентные пятна фона (1:9, 1:10) */
+.hero__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(64px);
+  pointer-events: none;
+}
+
+.hero__blob--right {
+  inset-block-start: -48px;
+  inset-inline-end: -200px;
+  width: 600px;
+  height: 600px;
+  background-image: linear-gradient(
+    135deg,
+    rgba(233, 212, 255, 0.4) 0%,
+    rgba(224, 231, 255, 0.4) 100%
+  );
+}
+
+.hero__blob--left {
+  inset-block-start: 474px;
+  inset-inline-start: -167px;
+  width: 500px;
+  height: 500px;
+  background-image: linear-gradient(
+    45deg,
+    rgba(190, 219, 255, 0.4) 0%,
+    rgba(206, 250, 254, 0.4) 100%
+  );
+}
+
+.hero__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 652fr 652fr;
+  gap: var(--grid-gap);
+  align-items: start;
+}
+
+/* --- Левая колонка ------------------------------------------------------ */
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  background-color: rgba(243, 232, 255, 0.8);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-semibold);
+  color: #8200db;
+  white-space: nowrap;
+}
+
+.hero__title {
+  max-width: 618px;
+  margin-block-start: 26px;
+  font-size: 60px;
+  line-height: 69px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -1.5px;
+  color: var(--color-text);
+}
+
+.hero__title-accent {
+  color: var(--color-brand);
+}
+
+.hero__text {
+  max-width: 576px;
+  margin-block-start: 24px;
+  font-size: 20px;
+  line-height: 32.5px;
+  color: var(--color-text-body);
+}
+
+.hero__text-strong {
+  display: block;
+  margin-block-start: 40.5px;
+  font-weight: var(--fw-medium);
+  color: #1d293d;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 16px;
+  margin-block-start: 32px;
+}
+
+/* Кнопки героя — увеличенная тень относительно кнопок шапки */
+.hero__actions .btn--primary {
+  box-shadow: 0 20px 12.5px rgba(123, 97, 255, 0.2),
+    0 8px 5px rgba(123, 97, 255, 0.2);
+}
+
+.hero__actions .btn--outline {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding-inline: 33px;
+}
+
+.hero__actions .btn--outline:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* --- Строка преимуществ ------------------------------------------------- */
+
+.hero__stats {
+  display: flex;
+  align-items: center;
+  gap: var(--grid-gap);
+  margin-block-start: 40px;
+  padding-block-start: 32px;
+  border-top: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+.hero__stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hero__stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-brand);
+}
+
+.hero__stat-text {
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+/* --- Правая колонка ----------------------------------------------------- */
+
+.hero__media {
+  position: relative;
+  height: 600px;
+  margin-block-start: 7.75px;
+}
+
+.hero__frame {
+  position: absolute;
+  inset-block-start: 17px;
+  inset-inline-start: 70px;
+  width: 512px;
+  height: 566px;
+  border: 8px solid #ffffff;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(198, 210, 255, 0.5);
+}
+
+.hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__play-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(49, 44, 133, 0.1);
+}
+
+.hero__play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-pill);
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform var(--duration-base) var(--ease);
+}
+
+.hero__play:hover {
+  transform: scale(1.06);
+}
+
+/* --- Плавающие карточки ------------------------------------------------- */
+
+.hero__card {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 17px;
+  border: 1px solid var(--color-border-light);
+  border-radius: 16px;
+  background-color: var(--color-surface);
+  box-shadow: 0 20px 12.5px rgba(0, 0, 0, 0.1), 0 8px 5px rgba(0, 0, 0, 0.1);
+}
+
+.hero__card--students {
+  inset-block-start: 42.25px;
+  inset-inline-start: -47.5px;
+}
+
+.hero__card--attestation {
+  inset-block-start: 387.76px;
+  inset-inline-start: 501.93px;
+  width: 182px;
+}
+
+.hero__card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+}
+
+.hero__card-icon--blue {
+  background-color: #dbeafe;
+}
+
+.hero__card-icon--green {
+  background-color: #dcfce7;
+}
+
+.hero__card-label {
+  display: block;
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-muted);
+}
+
+.hero__card-value {
+  display: block;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+  white-space: nowrap;
+}

@@ -1,0 +1,320 @@
+/* ==========================================================================
+   ParentsTeachers — Figma node 1:579
+   Три подсекции: 1:580 (родителям спокойно, фиолетовый тон), 1:619
+   (для кого подходит школа, белый фон), 1:702 (преподаватели, `#f8fafc`).
+   Блочные отступы здесь 96px (не 80, как в остальных секциях) — так в
+   макете, не унифицировать.
+   ========================================================================== */
+
+/* --- Подсекция 1: «Почему родителям спокойно с нами» ----------------------- */
+
+.parents-teachers__calm {
+  padding-block: 96px;
+  background-color: rgba(250, 245, 255, 0.5);
+}
+
+.parents-teachers__calm-grid {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+.parents-teachers__photo-wrap {
+  position: relative;
+  flex: 1 1 636px;
+}
+
+.parents-teachers__photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 636 / 477;
+  overflow: hidden;
+  border-radius: 48px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.parents-teachers__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.parents-teachers__photo-card {
+  position: absolute;
+  inset-block-end: -32px;
+  inset-inline-end: -32px;
+  width: 280px;
+  padding: 24px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: 24px;
+  box-shadow: 0 20px 12.5px rgba(0, 0, 0, 0.1), 0 8px 5px rgba(0, 0, 0, 0.1);
+}
+
+.parents-teachers__photo-card-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.parents-teachers__photo-card-title {
+  margin-block-start: 12px;
+  font-size: 18px;
+  line-height: 22.5px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.parents-teachers__photo-card-text {
+  margin-block-start: 8px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: var(--color-text-muted);
+}
+
+.parents-teachers__calm-content {
+  flex: 1 1 636px;
+}
+
+.parents-teachers__calm-title {
+  font-size: 48px;
+  line-height: 48px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -1.2px;
+  color: var(--color-text);
+}
+
+.parents-teachers__calm-text {
+  margin-block-start: 24px;
+  font-size: 18px;
+  line-height: 29.25px;
+  color: var(--color-text-body);
+}
+
+.parents-teachers__calm-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-block-start: 40px;
+}
+
+.parents-teachers__calm-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.parents-teachers__calm-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.parents-teachers__calm-icon img {
+  width: 24px;
+  height: 24px;
+}
+
+.parents-teachers__calm-item-title {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.parents-teachers__calm-item-text {
+  margin-block-start: 4px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-text-body);
+}
+
+/* --- Подсекция 2: «Для кого подходит школа» --------------------------------- */
+
+.parents-teachers__fit {
+  padding-block: 96px;
+  background-color: var(--color-surface);
+}
+
+.parents-teachers__header {
+  max-width: 768px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.parents-teachers__title {
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.9px;
+  color: var(--color-text);
+}
+
+.parents-teachers__text {
+  margin-block-start: 16px;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-text-body);
+}
+
+.parents-teachers__fit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-block-start: 64px;
+}
+
+.parents-teachers__fit-card {
+  padding: 32px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: 24px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.04);
+}
+
+.parents-teachers__fit-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-surface-muted);
+  border-radius: 16px;
+}
+
+.parents-teachers__fit-icon img {
+  width: 24px;
+  height: 24px;
+}
+
+.parents-teachers__fit-card-title {
+  margin-block-start: 24px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.parents-teachers__fit-card-text {
+  margin-block-start: 12px;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-text-body);
+}
+
+/* --- Подсекция 3: «Преподаватели, которых любят дети» ----------------------- */
+
+.parents-teachers__teachers {
+  padding-block: 96px;
+  background-color: var(--color-surface-muted);
+}
+
+.parents-teachers__teachers-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.parents-teachers__teachers-title {
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.9px;
+  color: var(--color-text);
+}
+
+.parents-teachers__teachers-text {
+  margin-block-start: 16px;
+  max-width: 672px;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-text-body);
+}
+
+.parents-teachers__teachers-link {
+  flex-shrink: 0;
+  font-size: 16px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-brand);
+  white-space: nowrap;
+}
+
+.parents-teachers__teachers-link:hover {
+  color: #6a4dff;
+}
+
+.parents-teachers__teachers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-block-start: 48px;
+}
+
+.parents-teachers__teacher {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+.parents-teachers__teacher-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 424 / 527.5;
+  overflow: hidden;
+}
+
+.parents-teachers__teacher-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.parents-teachers__teacher-badge {
+  position: absolute;
+  inset-inline-start: 16px;
+  inset-block-end: 16px;
+  padding: 5px 13px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-small);
+  line-height: 16px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-text);
+}
+
+.parents-teachers__teacher-body {
+  padding: 32px;
+}
+
+.parents-teachers__teacher-subject {
+  font-size: var(--fs-body);
+  line-height: 20px;
+  font-weight: var(--fw-bold);
+  color: var(--color-brand);
+}
+
+.parents-teachers__teacher-name {
+  margin-block-start: 4px;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.parents-teachers__teacher-text {
+  margin-block-start: 12px;
+  font-size: var(--fs-body);
+  line-height: 22.75px;
+  color: var(--color-text-body);
+}

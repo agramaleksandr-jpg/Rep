@@ -1,0 +1,1104 @@
+/* ==========================================================================
+   Страница «Контакты» — Figma node 41:8724
+   ========================================================================== */
+
+/* --- Hero (41:8805) ------------------------------------------------------------ */
+
+.contacts-hero {
+  padding-block: 96px;
+  background-color: var(--color-surface);
+}
+
+.contacts-hero__grid {
+  position: relative;
+  min-height: 512px;
+}
+
+.contacts-hero__content {
+  max-width: 644px;
+  padding-block-start: 59px;
+}
+
+.contacts-hero__title {
+  font-size: 60px;
+  line-height: 75px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -1.5px;
+  color: var(--color-text);
+}
+
+.contacts-hero__text {
+  max-width: 576px;
+  margin-block-start: 24px;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--color-text-body);
+}
+
+.contacts-hero__actions {
+  display: flex;
+  gap: 16px;
+  margin-block-start: 40px;
+}
+
+.contacts-hero__note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-block-start: 48px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: var(--color-text-muted);
+}
+
+.contacts-hero__note .asset-pending {
+  width: 20px;
+  height: 20px;
+}
+
+/* Сетка 2×2 цветных карточек справа */
+.contacts-hero__tiles {
+  position: absolute;
+  inset-inline-start: 824px;
+  inset-block-start: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 248px);
+  gap: 16px;
+}
+
+.contacts-hero__tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 248px;
+  padding: 25px;
+  border-radius: 24px;
+  text-align: center;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  font-weight: var(--fw-bold);
+}
+
+.contacts-hero__tile .asset-pending {
+  width: 32px;
+  height: 32px;
+  margin-block-end: 12px;
+}
+
+.contacts-hero__tile--program {
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+  color: #1c398e;
+}
+
+.contacts-hero__tile--payment {
+  background-color: #fff7ed;
+  border: 1px solid #ffedd4;
+  color: #7e2a0c;
+}
+
+.contacts-hero__tile--support {
+  background-color: #f0fdf4;
+  border: 1px solid #dcfce7;
+  color: #0d542b;
+}
+
+.contacts-hero__tile--admin {
+  background-color: #faf5ff;
+  border: 1px solid #f3e8ff;
+  color: #59168b;
+}
+
+/* --- Общий заголовок секции ---------------------------------------------------- */
+
+.contacts-title {
+  text-align: center;
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+/* --- Быстрые контакты (41:8871) ------------------------------------------------ */
+
+.contacts-quick {
+  padding-block: 80px;
+  background-color: var(--color-surface-muted);
+}
+
+.contacts-quick__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-block-start: 40px;
+}
+
+.contacts-quick__card {
+  display: flex;
+  flex-direction: column;
+  padding: 33px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.contacts-quick__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-block-end: 24px;
+  border-radius: var(--radius-pill);
+}
+
+.contacts-quick__icon .asset-pending {
+  width: 24px;
+  height: 24px;
+}
+
+.contacts-quick__icon--blue { background-color: #eff6ff; }
+.contacts-quick__icon--violet { background-color: #faf5ff; }
+.contacts-quick__icon--amber { background-color: #fff7ed; }
+.contacts-quick__icon--green { background-color: #f0fdf4; }
+
+.contacts-quick__label {
+  margin-block-end: 8px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.contacts-quick__value {
+  margin-block-end: 12px;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.contacts-quick__text {
+  margin-block-end: 32px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: var(--color-text-body);
+}
+
+.contacts-quick__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  margin-block-start: auto;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-brand);
+  border-radius: 14px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  font-weight: var(--fw-medium);
+  color: var(--color-brand);
+  text-decoration: none;
+}
+
+/* --- Мессенджеры (41:8964) ----------------------------------------------------- */
+
+.contacts-messengers {
+  padding-block: 80px;
+  background-color: var(--color-surface);
+}
+
+.contacts-messengers__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-block-start: 40px;
+}
+
+.contacts-messengers__card {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  background-color: var(--color-surface-muted);
+  border: 1px solid var(--color-border-light);
+  border-radius: 16px;
+}
+
+.contacts-messengers__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-block-end: 16px;
+}
+
+.contacts-messengers__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+}
+
+.contacts-messengers__icon .asset-pending {
+  width: 20px;
+  height: 20px;
+}
+
+.contacts-messengers__title {
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.contacts-messengers__text {
+  margin-block-end: 24px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: var(--color-text-body);
+}
+
+.contacts-messengers__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  margin-block-start: auto;
+  border-radius: 14px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  font-weight: var(--fw-medium);
+  color: var(--color-on-brand);
+  text-decoration: none;
+}
+
+/* Фирменные цвета сервисов — перенесены из макета как есть */
+.contacts-messengers__card--telegram .contacts-messengers__icon,
+.contacts-messengers__card--telegram .contacts-messengers__btn { background-color: #0088cc; }
+.contacts-messengers__card--whatsapp .contacts-messengers__icon,
+.contacts-messengers__card--whatsapp .contacts-messengers__btn { background-color: #25d366; }
+.contacts-messengers__card--vk .contacts-messengers__icon,
+.contacts-messengers__card--vk .contacts-messengers__btn { background-color: #0077ff; }
+.contacts-messengers__card--youtube .contacts-messengers__icon,
+.contacts-messengers__card--youtube .contacts-messengers__btn { background-color: #ff0000; }
+
+/* --- Куда написать (41:9048) --------------------------------------------------- */
+
+.contacts-routes {
+  padding-block: 81px;
+  background-color: var(--color-surface-muted);
+  border-block: 1px solid var(--color-border);
+}
+
+.contacts-routes__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-block-start: 64px;
+}
+
+.contacts-routes__card {
+  display: flex;
+  flex-direction: column;
+  padding: 33px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.contacts-routes__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-border-light);
+}
+
+.contacts-routes__icon .asset-pending {
+  width: 24px;
+  height: 24px;
+}
+
+.contacts-routes__title {
+  margin-block-start: 24px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.contacts-routes__text {
+  margin-block: 12px 32px;
+  font-size: var(--fs-body);
+  line-height: 22.75px;
+  color: var(--color-text-body);
+}
+
+.contacts-routes__link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-block-start: auto;
+  font-size: var(--fs-lead);
+  line-height: 24px;
+  font-weight: var(--fw-medium);
+  color: #155dfc;
+  text-decoration: none;
+}
+
+.contacts-routes__link .asset-pending {
+  width: 16px;
+  height: 16px;
+}
+
+/* --- Две формы (41:9190) ------------------------------------------------------- */
+
+.contacts-forms {
+  padding-block: 80px;
+  background-color: var(--color-surface);
+}
+
+.contacts-forms__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.contacts-form {
+  padding: 49px 49px 33px;
+  border-radius: 48px;
+}
+
+.contacts-form--study {
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+}
+
+.contacts-form--payment {
+  background-color: #fff7ed;
+  border: 1px solid #ffedd4;
+}
+
+.contacts-form__title {
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: var(--fw-bold);
+}
+
+.contacts-form--study .contacts-form__title { color: #1c398e; }
+.contacts-form--payment .contacts-form__title { color: #7e2a0c; }
+
+.contacts-form__text {
+  margin-block-start: 16px;
+  font-size: var(--fs-lead);
+  line-height: 24px;
+}
+
+.contacts-form--study .contacts-form__text { color: #193cb8; }
+.contacts-form--payment .contacts-form__text { color: #9f2d00; }
+
+.contacts-form__contacts {
+  margin-block-start: 32px;
+}
+
+.contacts-form__contact {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: var(--color-text);
+}
+
+.contacts-form__contact + .contacts-form__contact {
+  margin-block-start: 16px;
+}
+
+.contacts-form__contact .asset-pending {
+  width: 20px;
+  height: 20px;
+}
+
+.contacts-form__contact strong {
+  font-weight: var(--fw-bold);
+}
+
+.contacts-form__faq {
+  margin-block-start: 32px;
+  padding: 25px;
+  background-color: var(--color-surface);
+  border-radius: 16px;
+}
+
+.contacts-form--study .contacts-form__faq { border: 1px solid #dbeafe; }
+.contacts-form--payment .contacts-form__faq { border: 1px solid #ffedd4; }
+
+.contacts-form__faq-title {
+  font-size: var(--fs-body);
+  line-height: 20px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.contacts-form__faq-list {
+  margin-block-start: 12px;
+}
+
+.contacts-form__faq-list li {
+  position: relative;
+  padding-inline-start: 14px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: var(--color-text-body);
+}
+
+.contacts-form__faq-list li + li {
+  margin-block-start: 8px;
+}
+
+.contacts-form__faq-list li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-pill);
+}
+
+.contacts-form--study .contacts-form__faq-list li::before { background-color: #51a2ff; }
+.contacts-form--payment .contacts-form__faq-list li::before { background-color: #ff8904; }
+
+.contacts-form__fields {
+  margin-block-start: 32px;
+}
+
+.contacts-form__input,
+.contacts-form__textarea {
+  width: 100%;
+  padding-inline: 13px;
+  background-color: var(--color-surface);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 14px;
+  font-size: var(--fs-body);
+  color: var(--color-text);
+}
+
+.contacts-form__input {
+  height: 48px;
+}
+
+.contacts-form__textarea {
+  height: 128px;
+  padding-block: 9px;
+  line-height: 20px;
+  resize: vertical;
+}
+
+.contacts-form__input::placeholder,
+.contacts-form__textarea::placeholder {
+  color: #717182;
+}
+
+.contacts-form__field + .contacts-form__field {
+  margin-block-start: 16px;
+}
+
+.contacts-form__submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  margin-block-start: 16px;
+  border-radius: 14px;
+  font-size: var(--fs-lead);
+  line-height: 24px;
+  font-weight: var(--fw-medium);
+  color: var(--color-on-brand);
+  box-shadow: 0 4px 3px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.contacts-form--study .contacts-form__submit { background-color: var(--color-brand); }
+.contacts-form--payment .contacts-form__submit { background-color: #f54900; }
+
+.contacts-form__error {
+  display: block;
+  margin-block-start: 4px;
+  font-size: var(--fs-small);
+  line-height: 16px;
+  color: #9f0712;
+}
+
+/* --- Письмо директору (41:9342) ------------------------------------------------ */
+
+.contacts-director {
+  position: relative;
+  overflow: hidden;
+  padding-block: 80px;
+  background-color: #0f172b;
+}
+
+.contacts-director__glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.contacts-director__glow--right {
+  inset-inline-end: -400px;
+  inset-block-start: -400px;
+  width: 800px;
+  height: 800px;
+  filter: blur(100px);
+  background-color: rgba(21, 93, 252, 0.2);
+}
+
+.contacts-director__glow--left {
+  inset-inline-start: -147px;
+  inset-block-start: 270px;
+  width: 600px;
+  height: 600px;
+  filter: blur(150px);
+  background-image: linear-gradient(
+    135deg,
+    rgba(156, 63, 253, 0.4) 0%,
+    rgba(224, 231, 255, 0.4) 100%
+  );
+}
+
+.contacts-director__inner {
+  position: relative;
+  max-width: 896px;
+  margin-inline: auto;
+}
+
+.contacts-director__title {
+  text-align: center;
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: var(--fw-bold);
+  color: #ffffff;
+}
+
+.contacts-director__text {
+  margin-block-start: 24px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 28px;
+  color: #cad5e2;
+}
+
+.contacts-director__card {
+  margin-block-start: 48px;
+  padding: 49px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 48px;
+}
+
+.contacts-director__person {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.contacts-director__avatar {
+  flex-shrink: 0;
+  width: 96px;
+  height: 96px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-text-body);
+}
+
+.contacts-director__name {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: var(--fw-bold);
+  color: #ffffff;
+}
+
+.contacts-director__role {
+  margin-block-start: 4px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  font-weight: var(--fw-medium);
+  color: #8ec5ff;
+}
+
+.contacts-director__quote {
+  margin-block-start: 16px;
+  font-size: var(--fs-body);
+  line-height: 22.75px;
+  font-style: italic;
+  color: #cad5e2;
+}
+
+.contacts-director__form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-block-start: 40px;
+}
+
+.contacts-director__input,
+.contacts-director__select,
+.contacts-director__textarea {
+  width: 100%;
+  height: 48px;
+  padding-inline: 13px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  font-size: var(--fs-body);
+  color: #ffffff;
+}
+
+.contacts-director__textarea {
+  height: 112px;
+  padding-block: 9px;
+  line-height: 20px;
+  resize: vertical;
+}
+
+.contacts-director__input::placeholder,
+.contacts-director__textarea::placeholder {
+  color: #90a1b9;
+}
+
+.contacts-director__select {
+  appearance: none;
+  color: #90a1b9;
+}
+
+.contacts-director__select option {
+  color: var(--color-text);
+}
+
+.contacts-director__submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  background-color: var(--color-surface);
+  border-radius: 14px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.contacts-director__note {
+  margin-block-start: 24px;
+  text-align: center;
+  font-size: var(--fs-small);
+  line-height: 16px;
+  color: #90a1b9;
+}
+
+.contacts-director__note strong {
+  font-weight: var(--fw-regular);
+  color: #ffffff;
+}
+
+.contacts-director__error {
+  display: block;
+  margin-block-start: 4px;
+  font-size: var(--fs-small);
+  line-height: 16px;
+  color: #ffc9c9;
+}
+
+/* --- Адрес и режим работы (41:9392) -------------------------------------------- */
+
+.contacts-place {
+  padding-block: 80px;
+  background-color: var(--color-surface-muted);
+}
+
+.contacts-place__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+}
+
+.contacts-place__heading {
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.contacts-place__address {
+  display: flex;
+  gap: 16px;
+  margin-block-start: 32px;
+  padding: 33px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.contacts-place__address .asset-pending {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-block-start: 4px;
+}
+
+.contacts-place__address-title {
+  font-size: var(--fs-lead);
+  line-height: 24px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.contacts-place__address-value {
+  margin-block-start: 8px;
+  font-size: var(--fs-lead);
+  line-height: 24px;
+  color: var(--color-text-body);
+}
+
+.contacts-place__address-note {
+  margin-block-start: 16px;
+  padding: 13px;
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+  border-radius: 10px;
+  font-size: var(--fs-small);
+  font-style: italic;
+  line-height: 16px;
+  color: #90a1b9;
+}
+
+.contacts-place__hours-heading {
+  margin-block-start: 48px;
+}
+
+.contacts-place__hours {
+  margin-block-start: 32px;
+  overflow: hidden;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+.contacts-place__hours-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px;
+  border-block-end: 1px solid var(--color-border-light);
+}
+
+.contacts-place__hours-row:last-child {
+  border-block-end: 0;
+}
+
+.contacts-place__hours-name {
+  font-size: var(--fs-lead);
+  line-height: 24px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.contacts-place__hours-value {
+  padding: 6px 12px;
+  background-color: var(--color-surface-muted);
+  border-radius: 10px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: var(--color-text-body);
+}
+
+/* Карта — в макете заглушка, реальный виджет не подключаем (см. AUDIT) */
+.contacts-place__map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 624px;
+  background-color: var(--color-border);
+  border: 1px solid #cad5e2;
+  border-radius: 48px;
+  font-size: var(--fs-lead);
+  line-height: 24px;
+  font-weight: var(--fw-medium);
+  color: #90a1b9;
+}
+
+.contacts-place__map .asset-pending {
+  width: 48px;
+  height: 48px;
+}
+
+/* --- Реквизиты (41:9490) ------------------------------------------------------- */
+
+.contacts-legal {
+  padding-block: 80px;
+  background-color: var(--color-surface);
+}
+
+.contacts-legal__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+}
+
+.contacts-legal__heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.contacts-legal__heading .asset-pending {
+  width: 24px;
+  height: 24px;
+}
+
+.contacts-legal__card {
+  margin-block-start: 24px;
+  overflow: hidden;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+}
+
+.contacts-legal__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-body);
+  line-height: 20px;
+}
+
+.contacts-legal__table th,
+.contacts-legal__table td {
+  padding: 16px;
+  text-align: start;
+  vertical-align: top;
+  border-block-end: 1px solid var(--color-border-light);
+}
+
+.contacts-legal__table th {
+  width: 214px;
+  background-color: rgba(248, 250, 252, 0.5);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-muted);
+}
+
+.contacts-legal__table td {
+  color: var(--color-text);
+}
+
+.contacts-legal__table tr:last-child th,
+.contacts-legal__table tr:last-child td {
+  border-block-end: 0;
+}
+
+/* Реквизиты в макете набраны моноширинным — сохраняем */
+.contacts-legal__table--bank td {
+  font-family: Consolas, "SF Mono", Menlo, monospace;
+}
+
+.contacts-legal__actions {
+  display: flex;
+  gap: 12px;
+  padding: 17px 16px 16px;
+  background-color: var(--color-surface-muted);
+  border-block-start: 1px solid var(--color-border-light);
+}
+
+.contacts-legal__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding-inline: 17px;
+  border-radius: 10px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  font-weight: var(--fw-medium);
+}
+
+.contacts-legal__btn .asset-pending {
+  width: 16px;
+  height: 16px;
+}
+
+.contacts-legal__btn--copy {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-brand);
+  color: var(--color-brand);
+}
+
+.contacts-legal__btn--pdf {
+  padding-inline: 16px;
+  color: var(--color-text-muted);
+}
+
+/* --- Документы и партнёрство (41:9615) ----------------------------------------- */
+
+.contacts-docs {
+  padding-block: 80px;
+  background-color: var(--color-surface);
+}
+
+.contacts-docs__heading {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.contacts-docs__grid {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-block-start: 24px;
+}
+
+.contacts-docs__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  flex: 1 1 636px;
+}
+
+.contacts-docs__link {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 310px;
+  padding: 17px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  font-weight: var(--fw-medium);
+  color: var(--color-text-secondary-btn);
+  text-decoration: none;
+}
+
+/* В макете у «Правил оплаты и возврата» обводка выделена синим */
+.contacts-docs__link--accent {
+  border-color: #2b7fff;
+}
+
+.contacts-docs__link .asset-pending {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.contacts-docs__partners {
+  position: relative;
+  flex: 1 1 659px;
+  min-height: 192px;
+  overflow: hidden;
+  padding: 32px;
+  background-color: #1c398e;
+  border-radius: 24px;
+}
+
+.contacts-docs__partners-bg {
+  position: absolute;
+  inset-inline-start: 476px;
+  inset-block-start: 32px;
+  width: 96px;
+  height: 96px;
+  opacity: 0.2;
+}
+
+.contacts-docs__partners-title {
+  position: relative;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: var(--fw-bold);
+  color: #ffffff;
+}
+
+.contacts-docs__partners-text {
+  position: relative;
+  max-width: 384px;
+  margin-block-start: 8px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: #bedbff;
+}
+
+.contacts-docs__partners-mail {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  margin-block-start: 24px;
+  padding-inline: 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  font-size: var(--fs-lead);
+  line-height: 24px;
+  font-weight: var(--fw-bold);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.contacts-docs__partners-mail .asset-pending {
+  width: 16px;
+  height: 16px;
+}
+
+/* --- Финальный CTA (41:9850) --------------------------------------------------- */
+
+.contacts-cta {
+  padding-block: 80px;
+  background-color: #eff6ff;
+  text-align: center;
+}
+
+.contacts-cta__title {
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.contacts-cta__text {
+  max-width: 704px;
+  margin-inline: auto;
+  margin-block-start: 24px;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-text-body);
+}
+
+.contacts-cta__actions {
+  margin-block-start: 40px;
+}
+
+.contacts-cta__button {
+  padding-inline: 40px;
+  font-size: 18px;
+  line-height: 28px;
+}

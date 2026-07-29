@@ -1,0 +1,474 @@
+/* ==========================================================================
+   Страница «Блог» — Figma node 36:4408
+   ========================================================================== */
+
+/* --- Hero с поиском (36:4490) ------------------------------------------------- */
+
+.blog-hero {
+  padding-block: 64px 80px;
+  background-color: var(--color-surface);
+  text-align: center;
+}
+
+.blog-hero__title {
+  font-size: 60px;
+  line-height: 75px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -1.5px;
+  color: var(--color-text);
+}
+
+.blog-hero__text {
+  max-width: 672px;
+  margin-inline: auto;
+  margin-block-start: 24px;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-text-body);
+}
+
+.blog-hero__search {
+  position: relative;
+  margin-block-start: 40px;
+}
+
+.blog-hero__search-icon {
+  position: absolute;
+  inset-inline-start: 16px;
+  inset-block-start: 18px;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+.blog-hero__search-input {
+  width: 100%;
+  height: 56px;
+  padding-inline: 49px 17px;
+  background-color: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  font-size: var(--fs-body);
+  color: var(--color-text);
+}
+
+.blog-hero__search-input::placeholder {
+  color: #90a1b9;
+}
+
+.blog-hero__hints {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-block-start: 16px;
+  text-align: start;
+}
+
+.blog-hero__hints-label {
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: var(--color-text-muted);
+}
+
+.blog-hero__hint {
+  font-size: var(--fs-body);
+  line-height: 20px;
+  font-weight: var(--fw-medium);
+  color: #155dfc;
+}
+
+.blog-hero__hint:hover,
+.blog-hero__hint:focus-visible {
+  text-decoration: underline;
+}
+
+/* --- Фильтр по рубрикам (36:4522) --------------------------------------------- */
+
+.blog-filters {
+  padding-block: 32px 33px;
+  background-color: var(--color-surface-muted);
+  border-block-end: 1px solid var(--color-border);
+}
+
+.blog-filters__list {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+}
+
+.blog-filters__item {
+  flex-shrink: 0;
+  padding: 11px 21px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-body);
+  line-height: 20px;
+  font-weight: var(--fw-medium);
+  color: var(--color-text-body);
+  white-space: nowrap;
+}
+
+.blog-filters__item--active {
+  padding: 12px 20px;
+  background-color: var(--color-text);
+  border-color: var(--color-text);
+  color: var(--color-on-brand);
+}
+
+/* --- Лента (36:4549) ----------------------------------------------------------- */
+
+.blog-feed {
+  padding-block: 48px 96px;
+  background-color: var(--color-surface);
+}
+
+/* Избранная статья */
+.blog-featured {
+  display: flex;
+  gap: 32px;
+  padding: 32px;
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+  border-radius: 32px;
+}
+
+.blog-featured__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 619px;
+  height: 302.5px;
+  overflow: hidden;
+  border-radius: 24px;
+  background-color: #bedbff;
+}
+
+.blog-featured__media .asset-pending {
+  width: 64px;
+  height: 64px;
+}
+
+.blog-featured__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 619px;
+  padding-block: 16px;
+}
+
+.blog-featured__meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.blog-featured__category {
+  padding: 4px 12px;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-body);
+  line-height: 20px;
+  font-weight: var(--fw-medium);
+  color: #1447e6;
+}
+
+.blog-featured__time {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: var(--color-text-muted);
+}
+
+.blog-featured__time .asset-pending {
+  width: 16px;
+  height: 16px;
+}
+
+.blog-featured__date {
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: #90a1b9;
+}
+
+.blog-featured__title {
+  margin-block-start: 16px;
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.blog-featured__text {
+  margin-block: 16px 32px;
+  font-size: 18px;
+  line-height: 29.25px;
+  color: var(--color-text-body);
+}
+
+.blog-featured__button {
+  align-self: flex-start;
+  margin-block-start: auto;
+}
+
+/* Двухколоночная раскладка: лента + боковая колонка */
+.blog-feed__layout {
+  display: flex;
+  gap: 48px;
+  margin-block-start: 64px;
+}
+
+.blog-feed__main {
+  flex: 1 1 968px;
+  min-width: 0;
+}
+
+.blog-feed__heading {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.blog-feed__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-block-start: 32px;
+}
+
+/* Карточка статьи */
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+.blog-card__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 262.125px;
+  background-color: var(--color-border-light);
+}
+
+.blog-card__body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 32px;
+}
+
+.blog-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.blog-card__category {
+  font-size: var(--fs-small);
+  line-height: 16px;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #155dfc;
+}
+
+.blog-card__time {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  font-size: var(--fs-small);
+  line-height: 16px;
+  color: #90a1b9;
+}
+
+.blog-card__time .asset-pending {
+  width: 12px;
+  height: 12px;
+}
+
+.blog-card__title {
+  margin-block-start: 12px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.blog-card__text {
+  margin-block: 12px 24px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: var(--color-text-body);
+}
+
+/* margin-block-start: auto прижимает подвал карточки к низу — карточки
+   в ряду одинаковой высоты независимо от длины заголовка и описания */
+.blog-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-block-start: auto;
+  padding-block-start: 17px;
+  border-block-start: 1px solid var(--color-border-light);
+}
+
+.blog-card__date {
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: #90a1b9;
+}
+
+.blog-card__link {
+  font-size: var(--fs-body);
+  line-height: 20px;
+  font-weight: var(--fw-medium);
+  color: #155dfc;
+  text-decoration: none;
+}
+
+.blog-card__link:hover,
+.blog-card__link:focus-visible {
+  text-decoration: underline;
+}
+
+/* --- Пагинация (36:4082) -------------------------------------------------------
+   Компонент в макете взят из другой библиотеки: Montserrat и синий #0964c6
+   вместо Inter и #155dfc всего остального сайта — см. блокер в AUDIT.md.
+   Геометрия и цвета перенесены как нарисованы, шрифт — проектный Inter. */
+
+.blog-pagination {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin-block-start: 48px;
+}
+
+.blog-pagination__page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background-color: var(--color-surface-muted);
+  border-radius: 16px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  font-weight: var(--fw-medium);
+  color: #0964c6;
+  text-decoration: none;
+}
+
+.blog-pagination__page--current {
+  background-color: #0964c6;
+  color: var(--color-on-brand);
+}
+
+.blog-pagination__ellipsis {
+  color: #8695a4;
+}
+
+.blog-pagination__next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background-color: var(--color-surface);
+  border-radius: 16px;
+}
+
+.blog-pagination__next .asset-pending {
+  width: 20px;
+  height: 20px;
+}
+
+/* --- Боковая колонка: подписка (36:4744) --------------------------------------- */
+
+/* В макете карточка подписки выровнена не по заголовку «Последние
+   материалы», а по верхней кромке сетки карточек — отсюда отступ 64px */
+.blog-feed__aside {
+  flex: 0 0 320px;
+  padding-block-start: 64px;
+}
+
+.blog-subscribe {
+  padding: 24px;
+  background-color: #1c398e;
+  border-radius: 16px;
+}
+
+.blog-subscribe__title {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: var(--fw-bold);
+  color: #ffffff;
+}
+
+.blog-subscribe__text {
+  margin-block-start: 8px;
+  font-size: var(--fs-body);
+  line-height: 20px;
+  color: #bedbff;
+}
+
+.blog-subscribe__form {
+  margin-block-start: 24px;
+}
+
+.blog-subscribe__input {
+  width: 100%;
+  height: 36px;
+  padding-inline: 13px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-size: var(--fs-body);
+  color: #ffffff;
+}
+
+.blog-subscribe__input::placeholder {
+  color: #8ec5ff;
+}
+
+.blog-subscribe__submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  margin-block-start: 12px;
+  padding-inline: 24px;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-body);
+  line-height: 20px;
+  font-weight: var(--fw-medium);
+  color: #1c398e;
+}
+
+.blog-subscribe__note {
+  margin-block-start: 8px;
+  text-align: center;
+  font-size: 10px;
+  line-height: 15px;
+  color: #8ec5ff;
+}
+
+.blog-subscribe__error {
+  display: block;
+  margin-block-start: 8px;
+  font-size: var(--fs-small);
+  line-height: 16px;
+  color: #ffc9c9;
+}

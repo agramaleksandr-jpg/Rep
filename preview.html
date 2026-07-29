@@ -176,7 +176,10 @@ h6,
 p,
 ul,
 ol,
-figure {
+figure,
+dl,
+dd,
+blockquote {
   margin: 0;
 }
 
@@ -2962,6 +2965,879 @@ button {
 
 .modal__status[hidden] {
   display: none;
+}
+</style>
+<style>
+/* ==========================================================================
+   Адаптив — мобильная и планшетная раскладка
+
+   ВАЖНО: в Figma мобильных и планшетных макетов нет (блокер 5.1 в
+   docs/AUDIT.md). Раскладки ниже спроектированы нами по прямому согласованию
+   с заказчиком и НЕ являются переносом макета. Поэтому они вынесены
+   отдельным слоем: файл подключается последним на всех страницах, а
+   компонентный CSS, сверенный со скриншотами Figma, остаётся нетронутым.
+   Когда появятся настоящие мобильные макеты — правится (или заменяется)
+   только этот файл.
+
+   Брейкпоинты: 1200px — планшет-ландшафт, 900px — планшет-портрет,
+   600px — телефон.
+   ========================================================================== */
+
+/* ==========================================================================
+   ≤1200px — планшет-ландшафт
+   Главное: «плавающие» иллюстрации героев, которые в макете позиционированы
+   абсолютно по координатам 1336-пиксельной сетки, переводятся в поток.
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+
+  /* --- Герои: иллюстрация уходит под текст ------------------------------ */
+
+  .course-hero__grid,
+  .courses-hero__grid,
+  .about-hero__grid,
+  .parents-hero__grid,
+  .contacts-hero__grid {
+    min-height: 0;
+  }
+
+  .course-hero__media,
+  .attestation-hero__media,
+  .courses-hero__media {
+    position: static;
+    width: min(512px, 100%);
+    height: auto;
+    aspect-ratio: 1;
+    margin-block-start: 48px;
+    margin-inline: auto;
+  }
+
+  .about-hero__cards,
+  .parents-hero__topics,
+  .contacts-hero__tiles {
+    position: static;
+    width: 100%;
+    margin-block-start: 48px;
+  }
+
+  .about-hero__cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  /* Вторая колонка карточек «О школе» больше не нужна со сдвигом */
+  .about-hero__cards--second {
+    padding-block-start: 0;
+  }
+
+  .about-hero__card--feature {
+    height: auto;
+    min-height: 200px;
+  }
+
+  .parents-hero__topics,
+  .contacts-hero__tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contacts-hero__tile {
+    height: auto;
+    min-height: 200px;
+  }
+
+  .contacts-hero__content,
+  .about-hero__content,
+  .parents-hero__content,
+  .course-hero__content,
+  .courses-hero__content {
+    max-width: none;
+    padding-block-start: 0;
+  }
+
+  /* Плавающие карточки поверх иллюстраций в потоке не нужны:
+     они дублируют смысл соседних блоков и на узком экране только мешают */
+  .course-hero__card,
+  .courses-hero__card,
+  .attestation-hero__card--lesson,
+  .attestation-hero__card--calendar,
+  .hero__card,
+  .online-classes__media-card,
+  .parents-teachers__photo-card {
+    position: static;
+    width: auto;
+    margin-block-start: 16px;
+  }
+
+  /* --- Сетки: 7 и 4 колонки становятся 2 -------------------------------- */
+
+  .timeline-format__steps-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .timeline-format__steps-line {
+    display: none;
+  }
+
+  .benefits__grid,
+  .attestation-exam__subjects,
+  .attestation-help__grid,
+  .attestation-classes__grid,
+  .courses-need__grid,
+  .course-fit__grid,
+  .course-steps__grid,
+  .contacts-quick__grid,
+  .contacts-messengers__grid,
+  .about-stats__grid,
+  .parents-path__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .course-features__grid,
+  .course-pricing__grid,
+  .course-roles__grid,
+  .parents-cases__grid,
+  .contacts-routes__grid,
+  .parents-teachers__fit-grid,
+  .parents-teachers__teachers-grid,
+  .results-faq__reviews-grid,
+  .post-related__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* --- Колонки с фиксированной flex-базой становятся гибкими -------------- */
+
+  .online-classes__content,
+  .online-classes__media,
+  .timeline-format__visual-wrap,
+  .timeline-format__overview-content,
+  .parents-teachers__calm-content,
+  .parents-teachers__photo-wrap,
+  .attestation-transparency__content,
+  .attestation-transparency__dashboard,
+  .parents-role__content,
+  .parents-role__panel,
+  .blog-featured__media,
+  .blog-featured__body,
+  .courses-filters,
+  .blog-feed__main,
+  .blog-feed__aside,
+  .contacts-docs__links,
+  .contacts-docs__partners {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .online-classes__media {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .online-classes__content {
+    margin-block-start: 0;
+  }
+
+  /* Заголовок блока преподавателей: ссылка переносится под текст */
+  .parents-teachers__teachers-head,
+  .courses-catalog__layout {
+    flex-wrap: wrap;
+  }
+
+  /* Соединительная линия «Пути родителя» между 4 шагами в 2 ряда не имеет
+     смысла — убираем, шаги остаются пронумерованными */
+  .parents-path__steps::before {
+    display: none;
+  }
+
+  .about-stats__item:not(:last-child) {
+    border-inline-end: 0;
+  }
+
+  /* --- Двухколоночные блоки ---------------------------------------------- */
+
+  .blog-feed__layout {
+    flex-direction: column;
+  }
+
+  .blog-feed__aside {
+    flex: 1 1 auto;
+    padding-block-start: 0;
+  }
+
+  .blog-subscribe {
+    max-width: 420px;
+  }
+
+  .contacts-docs__grid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contacts-docs__link {
+    width: calc(50% - 8px);
+  }
+
+  /* --- Фиксированные ширины ---------------------------------------------- */
+
+  .courses-hero__features,
+  .parents-path__steps,
+  .course-subjects__tablist,
+  .attestation-basics__grid,
+  .blog-subscribe,
+  .contacts-place__map {
+    width: auto;
+    max-width: none;
+  }
+
+  .contacts-place__map {
+    min-height: 360px;
+  }
+}
+
+/* ==========================================================================
+   ≤900px — планшет-портрет
+   Здесь навигация уходит в бургер, а все парные колонки схлопываются.
+   ========================================================================== */
+
+@media (max-width: 900px) {
+
+  /* --- Шапка: бургер-меню ------------------------------------------------ */
+
+  .header__nav {
+    position: static;
+  }
+
+  .header__nav-list {
+    position: fixed;
+    inset-block-start: var(--header-total-height);
+    inset-inline: 0;
+    z-index: 90;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    max-height: calc(100dvh - var(--header-total-height));
+    overflow-y: auto;
+    padding: 8px 32px 24px;
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 12px 20px rgba(15, 23, 43, 0.08);
+    /* закрыто по умолчанию; открывается классом .is-open из main.js */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity var(--duration-base) var(--ease),
+      transform var(--duration-base) var(--ease),
+      visibility var(--duration-base) var(--ease);
+  }
+
+  .header__nav-list.is-open {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
+
+  .header__nav-list li {
+    width: 100%;
+  }
+
+  .header__nav-link {
+    display: block;
+    padding-block: 14px;
+    border-bottom: 1px solid var(--color-border-light);
+    font-size: var(--fs-lead);
+  }
+
+  .header__nav-list li:last-child .header__nav-link {
+    border-bottom: 0;
+  }
+
+  .header__burger {
+    display: flex;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  /* Иконка бургера нарисована в CSS: отдельного ассета в макете нет */
+  .header__burger::before,
+  .header__burger::after {
+    content: "";
+    position: absolute;
+    inset-inline-start: 10px;
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: var(--color-text);
+    transition: transform var(--duration-base) var(--ease);
+  }
+
+  .header__burger::before {
+    transform: translateY(-4px);
+  }
+
+  .header__burger::after {
+    transform: translateY(4px);
+  }
+
+  .header__burger[aria-expanded="true"]::before {
+    transform: rotate(45deg);
+  }
+
+  .header__burger[aria-expanded="true"]::after {
+    transform: rotate(-45deg);
+  }
+
+  /* Телефон и расписание в шапке занимают слишком много места */
+  .header__contacts,
+  .header__actions .btn--secondary {
+    display: none;
+  }
+
+  /* --- Парные колонки в одну ---------------------------------------------- */
+
+  .hero__inner,
+  .timeline-format__overview-grid,
+  .parents-teachers__calm-grid,
+  .attestation-transparency__grid,
+  .parents-role__grid,
+  .course-compare-approach__grid,
+  .courses-lists__grid,
+  .about-compare__grid,
+  .parents-day__grid,
+  .contacts-forms__grid,
+  .contacts-place__grid,
+  .contacts-legal__grid,
+  .blog-featured,
+  .post-gallery,
+  .blog-feed__grid,
+  .courses-grid,
+  .attestation-basics__grid,
+  .contacts-director__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post-gallery,
+  .blog-feed__grid,
+  .courses-grid,
+  .attestation-basics__grid {
+    gap: 24px;
+  }
+
+  .blog-featured__media {
+    flex: 0 0 auto;
+    height: 260px;
+  }
+
+  .contacts-director__form > * {
+    width: 100%;
+  }
+
+  .contacts-docs__link {
+    width: 100%;
+  }
+
+  /* Три и четыре колонки — в две, сетки шагов — в две */
+  .course-features__grid,
+  .course-pricing__grid,
+  .course-roles__grid,
+  .parents-cases__grid,
+  .contacts-routes__grid,
+  .parents-teachers__fit-grid,
+  .parents-teachers__teachers-grid,
+  .results-faq__reviews-grid,
+  .post-related__grid,
+  .timeline-format__steps-grid,
+  .timeline-format__features,
+  .course-week__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  /* Строки расписания: подпись переносится над содержимым */
+  .course-week__row {
+    flex-wrap: wrap;
+  }
+
+  .course-week__row-label {
+    flex: 1 1 100%;
+  }
+
+  /* Ряды, которые в макете всегда в одну строку, на узком экране переносятся */
+  .attestation-exam__features,
+  .results-faq__accred,
+  .results-faq__accred-logos,
+  .attestation-exam__facts,
+  .hero__stats,
+  .hero__actions,
+  .blog-hero__hints,
+  .course-hero__actions,
+  .courses-hero__actions,
+  .about-hero__actions,
+  .parents-hero__actions,
+  .contacts-hero__actions {
+    flex-wrap: wrap;
+  }
+
+  /* Колонки-контейнеры не должны раздуваться min-content'ом своих строк */
+  .hero__content,
+  .hero__media,
+  .courses-hero__content,
+  .course-hero__content,
+  .about-hero__content,
+  .parents-hero__content,
+  .contacts-hero__content,
+  .blog-featured__body,
+  .contacts-form,
+  .post-header__meta > * {
+    min-width: 0;
+  }
+
+  /* Заглушки ассетов никогда не шире своей колонки */
+  .asset-pending {
+    max-width: 100%;
+  }
+
+  /* Кадр героя главной: из абсолютного позиционирования — в поток */
+  .hero__media {
+    height: auto;
+    margin-block-start: 24px;
+  }
+
+  .hero__frame {
+    position: static;
+    width: 100%;
+    max-width: 512px;
+    height: auto;
+    aspect-ratio: 512 / 566;
+    margin-inline: auto;
+  }
+
+  .attestation-exam__feature {
+    flex: 1 1 200px;
+  }
+
+  .results-faq__accred-logos {
+    flex-shrink: 1;
+    gap: 16px 24px;
+  }
+
+  /* Переключатель возрастов: прокрутка вместо распирания */
+  .online-classes__tablist,
+  .course-subjects__tablist {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .online-classes__tab,
+  .course-subjects__tab {
+    flex-shrink: 0;
+  }
+
+  /* Тёмная карточка «Официальная аттестация»: колонки друг под другом */
+  .attestation-exam__card-grid {
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .attestation-exam__intro,
+  .attestation-exam__how {
+    flex: 1 1 100%;
+    min-width: 0;
+    margin-block-start: 0;
+  }
+
+  /* Наклонная карточка видеозвонка на узком экране выпрямляется */
+  .timeline-format__visual {
+    transform: none;
+  }
+
+  /* Подвал: 4 колонки в 2 */
+  .footer__columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+  }
+
+  /* --- Таблицы: горизонтальная прокрутка ---------------------------------- */
+
+  .contacts-legal__card,
+  .post-body__table-wrap,
+  .courses-compare__table-wrap {
+    overflow-x: auto;
+  }
+
+  .contacts-legal__table,
+  .post-body__table {
+    min-width: 520px;
+  }
+
+  .contacts-legal__table th {
+    width: auto;
+    white-space: nowrap;
+  }
+
+  /* --- Крупная типографика ------------------------------------------------ */
+
+  .hero__title,
+  .blog-hero__title,
+  .contacts-hero__title {
+    font-size: 44px;
+    line-height: 54px;
+    letter-spacing: -1px;
+  }
+
+  .course-hero__title,
+  .courses-hero__title,
+  .about-hero__title,
+  .parents-hero__title,
+  .post-header__title {
+    font-size: 38px;
+    line-height: 48px;
+    letter-spacing: -0.8px;
+  }
+
+  .contacts-director__title,
+  .post-cta__title,
+  .about-belief__title,
+  .timeline-format__overview-title {
+    font-size: 30px;
+    line-height: 38px;
+  }
+}
+
+/* ==========================================================================
+   ≤600px — телефон
+   ========================================================================== */
+
+@media (max-width: 600px) {
+
+  :root {
+    --container-padding: 20px;
+  }
+
+  /* --- Шапка на телефоне ---------------------------------------------------- */
+
+  /* Подпись под логотипом переносилась в три строки и распирала шапку */
+  .logo__tagline {
+    display: none;
+  }
+
+  .logo__name {
+    white-space: nowrap;
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+  }
+
+  /* Логотип, кнопка и бургер должны уместиться в 375px: считаем по узкому
+     краю — 375 − 40 (поля) = 335. Иначе бургер уезжает за правый край. */
+  .header__actions .btn--primary {
+    padding-inline: 12px;
+    font-size: var(--fs-caption);
+  }
+
+  .header__inner,
+  .header__aside {
+    gap: 8px;
+  }
+
+  /* --- Всё в одну колонку -------------------------------------------------- */
+
+  .benefits__grid,
+  .attestation-exam__subjects,
+  .attestation-help__grid,
+  .attestation-classes__grid,
+  .courses-need__grid,
+  .course-fit__grid,
+  .course-steps__grid,
+  .course-features__grid,
+  .contacts-quick__grid,
+  .contacts-messengers__grid,
+  .contacts-routes__grid,
+  .course-pricing__grid,
+  .course-roles__grid,
+  .parents-cases__grid,
+  .parents-path__steps,
+  .parents-teachers__fit-grid,
+  .parents-teachers__teachers-grid,
+  .results-faq__reviews-grid,
+  .post-related__grid,
+  .timeline-format__steps-grid,
+  .timeline-format__features,
+  .course-week__grid,
+  .about-stats__grid,
+  .about-hero__cards,
+  .parents-hero__topics,
+  .contacts-hero__tiles,
+  .footer__columns,
+  .course-hero__facts,
+  .courses-hero__features {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Аккордеоны FAQ — обе колонки в одну */
+  .courses-faq__panel,
+  .results-faq__faq-panel {
+    flex-direction: column;
+  }
+
+  /* --- Кнопки на всю ширину ------------------------------------------------ */
+
+  .hero__actions,
+  .course-hero__actions,
+  .courses-hero__actions,
+  .about-hero__actions,
+  .parents-hero__actions,
+  .contacts-hero__actions,
+  .results-faq__cta-actions,
+  .post-share,
+  .contacts-legal__actions,
+  .about-cta__actions,
+  .parents-cta__actions,
+  .contacts-cta__actions,
+  .course-pricing__cta {
+    flex-wrap: wrap;
+  }
+
+  .hero__actions .btn,
+  .course-hero__actions .btn,
+  .courses-hero__actions .btn,
+  .about-hero__actions .btn,
+  .parents-hero__actions .btn,
+  .contacts-hero__actions .btn,
+  .about-cta__actions .btn,
+  .parents-cta__actions .btn,
+  .contacts-cta__actions .btn,
+  .course-pricing__cta .btn {
+    width: 100%;
+    padding-inline: 16px !important;
+  }
+
+  /* Длинные слова и подписи не должны распирать узкую колонку */
+  h1, h2, h3, h4, p, li, a, dd, dt, td, th {
+    overflow-wrap: break-word;
+  }
+
+  /* Каталог курсов уже перенесён в колонку — снимаем min-content у обеих */
+  .courses-catalog__layout > * {
+    min-width: 0;
+    width: 100%;
+  }
+
+  /* --- Уменьшенные отступы секций ------------------------------------------ */
+
+  .benefits,
+  .online-classes,
+  .attestation-exam__intro,
+  .attestation-exam__exams,
+  .parents-teachers__why,
+  .parents-teachers__fit,
+  .parents-teachers__teachers,
+  .timeline-format__steps,
+  .timeline-format__overview,
+  .course-hero,
+  .courses-hero,
+  .about-hero,
+  .parents-hero,
+  .contacts-hero,
+  .attestation-basics,
+  .attestation-forms,
+  .attestation-help,
+  .attestation-transparency,
+  .attestation-classes,
+  .attestation-callout,
+  .about-belief,
+  .about-compare,
+  .about-docs,
+  .about-cta,
+  .parents-path,
+  .parents-role,
+  .parents-day,
+  .parents-cases,
+  .parents-cta,
+  .blog-hero,
+  .blog-feed,
+  .post-header,
+  .post-related,
+  .post-cta,
+  .contacts-quick,
+  .contacts-messengers,
+  .contacts-routes,
+  .contacts-forms,
+  .contacts-director,
+  .contacts-place,
+  .contacts-legal,
+  .contacts-docs,
+  .contacts-cta,
+  .courses-faq,
+  .courses-compare,
+  .courses-lists,
+  .courses-cta {
+    padding-block: 48px;
+  }
+
+  /* --- Типографика --------------------------------------------------------- */
+
+  .hero__title,
+  .blog-hero__title,
+  .contacts-hero__title,
+  .course-hero__title,
+  .courses-hero__title,
+  .about-hero__title,
+  .parents-hero__title,
+  .post-header__title {
+    font-size: 30px;
+    line-height: 38px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero__text,
+  .course-hero__text,
+  .courses-hero__text,
+  .about-hero__text,
+  .parents-hero__text,
+  .contacts-hero__text,
+  .post-header__lead {
+    font-size: var(--fs-lead);
+    line-height: 26px;
+  }
+
+  .contacts-title,
+  .benefits__title,
+  .attestation-basics .course-section-title,
+  .course-section-title,
+  .courses-compare__title,
+  .courses-faq__title,
+  .about-compare__title,
+  .about-cta__title,
+  .parents-path__title,
+  .parents-cases__title,
+  .parents-cta__title,
+  .contacts-cta__title,
+  .attestation-help__title,
+  .parents-day__title,
+  .post-related__title,
+  .blog-feed__heading {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .contacts-director__title,
+  .post-cta__title,
+  .about-belief__title,
+  .timeline-format__overview-title,
+  .contacts-form__title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .post-body h2 { font-size: 24px; line-height: 32px; }
+  .post-body h3 { font-size: 20px; line-height: 28px; }
+
+  /* --- Крупные карточки: уменьшенные внутренние поля ------------------------ */
+
+  .contacts-form,
+  .contacts-director__card,
+  .parents-role__panel {
+    padding: 24px;
+    border-radius: 24px;
+  }
+
+  .about-compare__col,
+  .contacts-quick__card,
+  .contacts-routes__card,
+  .post-checklist,
+  .attestation-callout__card,
+  .about-docs__card,
+  .blog-card__body,
+  .blog-featured {
+    padding: 24px;
+  }
+
+  .attestation-callout__card,
+  .contacts-place__map {
+    border-radius: 24px;
+  }
+
+  .blog-featured {
+    border-radius: 24px;
+  }
+
+  /* --- Точечные правки ------------------------------------------------------ */
+
+  .post-header__meta,
+  .blog-featured__meta,
+  .contacts-place__hours-row,
+  .blog-card__meta {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+  }
+
+  .contacts-place__hours-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .contacts-director__person {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .post-video__frame {
+    height: 220px;
+  }
+
+  .post-gallery__item,
+  .blog-card__media,
+  .blog-featured__media {
+    height: 200px;
+  }
+
+  .contacts-place__map {
+    min-height: 260px;
+  }
+
+  /* Таблицы с nowrap-ячейками должны прокручиваться, а не распирать страницу */
+  .courses-compare__table-wrap,
+  .post-body__table-wrap,
+  .contacts-legal__card {
+    max-width: 100%;
+  }
+
+  /* Пагинация блога: скрываем средние номера, оставляем края и стрелку */
+  .blog-pagination__page:nth-child(n + 4):nth-child(-n + 5) {
+    display: none;
+  }
+
+  /* Плавающие цифры шагов на фоне перекрывают текст на узком экране */
+  .timeline-format__step-bgnum,
+  .course-steps__bgnum {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   ≤360px — самые узкие телефоны
+   Логотип и бургер обязаны быть на экране всегда, поэтому кнопка
+   «Записаться» из шапки уходит: тот же призыв есть в первом экране
+   каждой страницы и в подвале.
+   ========================================================================== */
+
+@media (max-width: 360px) {
+  .header__actions {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Общее для всех узких экранов: контейнер не должен «выпирать»
+   ========================================================================== */
+
+@media (max-width: 1400px) {
+  .container {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 </style>
 </head>

@@ -1,0 +1,143 @@
+/* ==========================================================================
+   Шапка — Figma node 7:1479
+   В макете шапка вынесена отдельным слоем поверх страницы, а внутри страницы
+   стоит «Placeholder for Header» той же высоты — значит шапка фиксированная,
+   а место под неё занимает распорка.
+   ========================================================================== */
+
+.header {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: 100;
+  background-color: var(--color-header-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.header__spacer {
+  height: var(--header-total-height);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+}
+
+/* --- Логотип ------------------------------------------------------------ */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo__mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border-radius: var(--radius-logo);
+  background-image: var(--color-brand-gradient);
+}
+
+.logo__mark img {
+  width: 33px;
+  height: 24px;
+}
+
+.logo__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logo__name {
+  font-size: var(--fs-logo);
+  line-height: var(--lh-logo);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-logo);
+  color: var(--color-text);
+}
+
+.logo__tagline {
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-caption);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* --- Навигация ---------------------------------------------------------- */
+
+.header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.header__nav-link {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-body);
+  white-space: nowrap;
+}
+
+.header__nav-link:hover,
+.header__nav-link[aria-current="page"] {
+  color: var(--color-text);
+}
+
+/* --- Правый блок -------------------------------------------------------- */
+
+.header__aside {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header__contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.header__phone {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.header__schedule {
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* --- Бургер (нужен для адаптива; в desktop-макете скрыт) ---------------- */
+
+.header__burger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+}
