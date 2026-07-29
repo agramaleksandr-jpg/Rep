@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Блог для родителей и учеников — Вектор семьи</title>
+  <meta name="description" content="Разбираем дистанционное обучение, аттестацию, мотивацию, экзамены и переход в онлайн-школу простым языком.">
+
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components/button.css">
+  <link rel="stylesheet" href="../assets/css/components/header.css">
+  <link rel="stylesheet" href="../assets/css/components/footer.css">
+  <link rel="stylesheet" href="../assets/css/components/breadcrumb.css">
+  <link rel="stylesheet" href="../assets/css/components/modal.css">
+  <link rel="stylesheet" href="../assets/css/components/blog.css">
+</head>
+<body>
+
+  <a class="visually-hidden" href="#main">Перейти к содержанию</a>
+
+  <!-- ======================= Шапка (Figma 7:1479) ======================= -->
+  <header class="header">
+    <div class="container header__inner">
+
+      <a class="logo" href="../index.html">
+        <span class="logo__mark">
+          <span class="asset-pending" style="width:33px;height:24px"></span>
+        </span>
+        <span class="logo__text">
+          <span class="logo__name">Вектор семьи</span>
+          <span class="logo__tagline">онлайн-школа</span>
+        </span>
+      </a>
+
+      <nav class="header__nav" aria-label="Основная навигация">
+        <ul class="header__nav-list" data-menu>
+          <li><a class="header__nav-link" href="courses.html">Курсы</a></li>
+          <li><a class="header__nav-link" href="attestation.html">Аттестация</a></li>
+          <li><a class="header__nav-link" href="about.html">О школе</a></li>
+          <li><a class="header__nav-link" href="parents.html">Для родителей</a></li>
+          <li><a class="header__nav-link" href="blog.html" aria-current="page">Блог</a></li>
+          <li><a class="header__nav-link" href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__aside">
+        <div class="header__contacts">
+          <a class="header__phone" href="tel:+78001234567">8 (800) 123-45-67</a>
+          <span class="header__schedule">Ежедневно с 9:00 до 21:00</span>
+        </div>
+
+        <div class="header__actions">
+          <a class="btn btn--secondary" href="#">
+            <span class="asset-pending" style="width:16px;height:16px"></span>
+            Войти
+          </a>
+          <button class="btn btn--primary" type="button" data-modal-open="consultation">
+            Записаться
+            <span class="asset-pending" style="width:16px;height:16px"></span>
+          </button>
+        </div>
+
+        <button class="header__burger" type="button"
+                aria-expanded="false" aria-controls="main-menu"
+                data-menu-toggle>
+          <span class="visually-hidden">Открыть меню</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="header__spacer" aria-hidden="true"></div>
+
+  <main id="main">
+
+    <nav class="breadcrumb" aria-label="Хлебные крошки">
+      <div class="container">
+        <ol class="breadcrumb__list">
+          <li><a class="breadcrumb__link" href="../index.html">Главная</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="breadcrumb__current" aria-current="page">Блог</li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- ============== Заголовок и поиск (Figma 36:4490) ================= -->
+    <section class="blog-hero">
+      <div class="container">
+        <h1 class="blog-hero__title">Блог для родителей и учеников</h1>
+        <p class="blog-hero__text">Разбираем дистанционное обучение, аттестацию, мотивацию, экзамены и переход в онлайн-школу простым языком.</p>
+
+        <!-- Поиск визуальный: поведение выдачи в макете не спроектировано -->
+        <form class="blog-hero__search" role="search" onsubmit="return false">
+          <label class="visually-hidden" for="blog-search">Найти статью</label>
+          <!-- Требуется экспорт из Figma: node 36:4500, 20×20 -->
+          <span class="asset-pending blog-hero__search-icon" aria-hidden="true"></span>
+          <input class="blog-hero__search-input" type="search" id="blog-search" name="q" placeholder="Найти статью (например, аттестация)">
+        </form>
+
+        <div class="blog-hero__hints">
+          <span class="blog-hero__hints-label">Часто ищут:</span>
+          <button class="blog-hero__hint" type="button">аттестация</button>
+          <button class="blog-hero__hint" type="button">ОГЭ</button>
+          <button class="blog-hero__hint" type="button">режим дня</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================ Рубрики (Figma 36:4522) ========================= -->
+    <nav class="blog-filters" aria-label="Рубрики блога">
+      <div class="container">
+        <ul class="blog-filters__list">
+          <li><button class="blog-filters__item blog-filters__item--active" type="button" aria-pressed="true">Все</button></li>
+          <li><button class="blog-filters__item" type="button" aria-pressed="false">Родителям</button></li>
+          <li><button class="blog-filters__item" type="button" aria-pressed="false">Аттестация</button></li>
+          <li><button class="blog-filters__item" type="button" aria-pressed="false">Дистанционное обучение</button></li>
+          <li><button class="blog-filters__item" type="button" aria-pressed="false">ОГЭ и ЕГЭ</button></li>
+          <li><button class="blog-filters__item" type="button" aria-pressed="false">Психология</button></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ================== Лента статей (Figma 36:4549) ================== -->
+    <section class="blog-feed">
+      <div class="container">
+
+        <!-- Избранная статья (36:4553) -->
+        <article class="blog-featured">
+          <div class="blog-featured__media" aria-hidden="true">
+            <!-- Требуется экспорт из Figma: node 36:4556, 64×64 -->
+            <span class="asset-pending"></span>
+          </div>
+
+          <div class="blog-featured__body">
+            <div class="blog-featured__meta">
+              <span class="blog-featured__category">Родителям</span>
+              <span class="blog-featured__time">
+                <!-- Требуется экспорт из Figma: node 36:4564, 16×16 -->
+                <span class="asset-pending" aria-hidden="true"></span>
+                5 мин
+              </span>
+              <span class="blog-featured__date">12 мая 2024</span>
+            </div>
+
+            <h2 class="blog-featured__title">
+              <a href="blog-post.html">Как перейти на дистанционное обучение без стресса: пошаговый план</a>
+            </h2>
+            <p class="blog-featured__text">Разбираем все этапы: от разговора с ребенком до оформления документов и адаптации в первые недели.</p>
+
+            <a class="btn btn--primary btn--rect blog-featured__button" href="blog-post.html">Читать статью</a>
+          </div>
+        </article>
+
+        <div class="blog-feed__layout">
+
+          <div class="blog-feed__main">
+            <h2 class="blog-feed__heading">Последние материалы</h2>
+
+            <div class="blog-feed__grid">
+              <article class="blog-card">
+                <div class="blog-card__media">
+                  <span class="asset-pending asset-pending--photo">Обложка статьи<br>assets/images/blog-1.jpg</span>
+                </div>
+                <div class="blog-card__body">
+                  <div class="blog-card__meta">
+                    <span class="blog-card__category">Аттестация</span>
+                    <span class="blog-card__time">
+                      <!-- Требуется экспорт из Figma: node 36:4601, 12×12 -->
+                      <span class="asset-pending" aria-hidden="true"></span>
+                      7 мин
+                    </span>
+                  </div>
+                  <h3 class="blog-card__title"><a href="blog-post.html">Что такое промежуточная аттестация и как к ней готовиться</a></h3>
+                  <p class="blog-card__text">Отвечаем на главные страхи родителей о проверках знаний на семейном обучении.</p>
+                  <div class="blog-card__footer">
+                    <span class="blog-card__date">15 мая 2026</span>
+                    <a class="blog-card__link" href="blog-post.html">Читать →</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="blog-card">
+                <div class="blog-card__media">
+                  <span class="asset-pending asset-pending--photo">Обложка статьи<br>assets/images/blog-2.jpg</span>
+                </div>
+                <div class="blog-card__body">
+                  <div class="blog-card__meta">
+                    <span class="blog-card__category">Психология</span>
+                    <span class="blog-card__time">
+                      <span class="asset-pending" aria-hidden="true"></span>
+                      7 мин
+                    </span>
+                  </div>
+                  <h3 class="blog-card__title"><a href="blog-post.html">Как организовать рабочее место дома</a></h3>
+                  <p class="blog-card__text">Чек-лист для создания среды, в которой ребенку захочется учиться.</p>
+                  <div class="blog-card__footer">
+                    <span class="blog-card__date">06 мая 2026</span>
+                    <a class="blog-card__link" href="blog-post.html">Читать →</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="blog-card">
+                <div class="blog-card__media">
+                  <span class="asset-pending asset-pending--photo">Обложка статьи<br>assets/images/blog-3.jpg</span>
+                </div>
+                <div class="blog-card__body">
+                  <div class="blog-card__meta">
+                    <span class="blog-card__category">ОГЭ и ЕГЭ</span>
+                    <span class="blog-card__time">
+                      <span class="asset-pending" aria-hidden="true"></span>
+                      7 мин
+                    </span>
+                  </div>
+                  <h3 class="blog-card__title"><a href="blog-post.html">ОГЭ на заочном: мифы и реальность</a></h3>
+                  <p class="blog-card__text">Как получить допуск, подготовиться без паники и сдать экзамены.</p>
+                  <div class="blog-card__footer">
+                    <span class="blog-card__date">05 мая 2026</span>
+                    <a class="blog-card__link" href="blog-post.html">Читать →</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="blog-card">
+                <div class="blog-card__media">
+                  <span class="asset-pending asset-pending--photo">Обложка статьи<br>assets/images/blog-4.jpg</span>
+                </div>
+                <div class="blog-card__body">
+                  <div class="blog-card__meta">
+                    <span class="blog-card__category">Дистанционное обучение</span>
+                    <span class="blog-card__time">
+                      <span class="asset-pending" aria-hidden="true"></span>
+                      7 мин
+                    </span>
+                  </div>
+                  <h3 class="blog-card__title"><a href="blog-post.html">Сколько времени на самом деле занимает онлайн-школа</a></h3>
+                  <p class="blog-card__text">Разрушаем миф о том, что ребенок будет сидеть перед экраном по 8 часов в день.</p>
+                  <div class="blog-card__footer">
+                    <span class="blog-card__date">02 мая 2026</span>
+                    <a class="blog-card__link" href="blog-post.html">Читать →</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Пагинация (36:4082). Адреса страниц в макете не заданы -->
+            <nav class="blog-pagination" aria-label="Страницы блога">
+              <a class="blog-pagination__page blog-pagination__page--current" href="#" aria-current="page">1</a>
+              <a class="blog-pagination__page" href="#">2</a>
+              <a class="blog-pagination__page" href="#">3</a>
+              <a class="blog-pagination__page" href="#">4</a>
+              <a class="blog-pagination__page" href="#">5</a>
+              <span class="blog-pagination__page blog-pagination__ellipsis" aria-hidden="true">…</span>
+              <a class="blog-pagination__page" href="#">12</a>
+              <a class="blog-pagination__next" href="#" aria-label="Следующая страница">
+                <!-- Требуется экспорт из Figma: шеврон вправо, 20×20 -->
+                <span class="asset-pending" aria-hidden="true"></span>
+              </a>
+            </nav>
+          </div>
+
+          <aside class="blog-feed__aside">
+            <div class="blog-subscribe">
+              <h2 class="blog-subscribe__title">Полезные письма</h2>
+              <p class="blog-subscribe__text">Получайте новые статьи и чек-листы для родителей раз в неделю.</p>
+
+              <form class="blog-subscribe__form" data-validate novalidate>
+                <div data-field>
+                  <label class="visually-hidden" for="blog-subscribe-email">Ваш Email</label>
+                  <input class="blog-subscribe__input" type="email" id="blog-subscribe-email" name="email" placeholder="Ваш Email" required>
+                  <span class="blog-subscribe__error" data-error hidden></span>
+                </div>
+                <button class="blog-subscribe__submit" type="submit">Подписаться</button>
+                <p class="blog-subscribe__note">Нажимая кнопку, вы соглашаетесь с правилами.</p>
+                <p class="modal__status" data-form-status hidden></p>
+              </form>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================= Подвал (Figma 7:1480) ====================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+
+      <div class="footer__columns">
+
+        <div class="footer__about">
+          <a class="logo" href="../index.html">
+            <span class="logo__mark">
+              <span class="asset-pending" style="width:33px;height:24px"></span>
+            </span>
+            <span class="logo__text">
+              <span class="logo__name">Вектор семьи</span>
+              <span class="logo__tagline">онлайн-школа</span>
+            </span>
+          </a>
+
+          <p class="footer__description">
+            Современная онлайн-школа с человеческим лицом. Учим детей, бережем нервы родителей.
+          </p>
+
+          <div class="footer__contacts">
+            <a class="footer__phone" href="tel:+78001234567">8 (800) 123-45-67</a>
+            <a class="footer__email" href="mailto:hello@tochkarosta.ru">hello@tochkarosta.ru</a>
+          </div>
+        </div>
+
+        <div class="footer__column">
+          <h2 class="footer__heading">Обучение</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="courses.html#catalog">Начальная школа 1-4 кл.</a></li>
+            <li><a class="footer__link" href="courses.html#catalog">Средняя школа 5-9 кл.</a></li>
+            <li><a class="footer__link" href="courses.html#catalog">Старшая школа 10-11 кл.</a></li>
+            <li><a class="footer__link" href="courses.html#catalog">Подготовка к ОГЭ/ЕГЭ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h2 class="footer__heading">Информация</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="about.html">Об онлайн-школе</a></li>
+            <li><a class="footer__link" href="#">Преподаватели</a></li>
+            <li><a class="footer__link" href="attestation.html">Аттестация</a></li>
+            <li><a class="footer__link" href="#">Отзывы</a></li>
+            <li><a class="footer__link" href="blog.html">Блог</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h2 class="footer__heading">Документы</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="#">Оферта</a></li>
+            <li><a class="footer__link" href="#">Политика конфиденциальности</a></li>
+            <li><a class="footer__link" href="#">Лицензия</a></li>
+            <li><a class="footer__link" href="#">Реквизиты</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">© 2026 Онлайн-школа «Точка роста». Все права защищены.</p>
+
+        <ul class="footer__social">
+          <li><span class="footer__social-item"></span></li>
+          <li><span class="footer__social-item"></span></li>
+          <li><span class="footer__social-item"></span></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== Модалка консультации (Figma 7:1254) ================= -->
+  <div class="modal" id="consultation" data-modal hidden>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="consultation-title">
+      <button class="modal__close" type="button" data-modal-close aria-label="Закрыть">
+        <span class="asset-pending" style="width:16px;height:16px"></span>
+      </button>
+
+      <div class="modal__header">
+        <h2 class="modal__title" id="consultation-title">Записаться на консультацию</h2>
+        <p class="modal__subtitle">Оставьте свои данные, и мы поможем подобрать подходящую программу для вашего ребенка</p>
+      </div>
+
+      <form class="modal__form" data-validate novalidate>
+        <div class="modal__field" data-field>
+          <label class="modal__label" for="consultation-name">Как к вам обращаться?</label>
+          <input class="modal__input" type="text" id="consultation-name" name="name" placeholder="Ваше имя" required>
+          <span class="modal__error" data-error hidden></span>
+        </div>
+
+        <div class="modal__field" data-field>
+          <label class="modal__label" for="consultation-phone">Номер телефона</label>
+          <input class="modal__input" type="tel" id="consultation-phone" name="phone" placeholder="+7 (999) 000-00-00" data-phone required>
+          <span class="modal__error" data-error hidden></span>
+        </div>
+
+        <div class="modal__field" data-field>
+          <label class="modal__label" for="consultation-grade">В какой класс пойдет ребенок?</label>
+          <span class="modal__select-wrap">
+            <select class="modal__select" id="consultation-grade" name="grade" required>
+              <option value="" selected disabled hidden>Выберите класс</option>
+              <option value="1">1 класс</option>
+              <option value="2">2 класс</option>
+              <option value="3">3 класс</option>
+              <option value="4">4 класс</option>
+              <option value="5">5 класс</option>
+              <option value="6">6 класс</option>
+              <option value="7">7 класс</option>
+              <option value="8">8 класс</option>
+              <option value="9">9 класс</option>
+              <option value="10">10 класс</option>
+              <option value="11">11 класс</option>
+            </select>
+            <span class="asset-pending modal__select-icon"></span>
+          </span>
+          <span class="modal__error" data-error hidden></span>
+        </div>
+
+        <div class="modal__field" data-field>
+          <label class="modal__consent">
+            <input type="checkbox" name="consent" required>
+            <span class="modal__consent-text">
+              Нажимая на кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a> и <a href="#">обработкой персональных данных</a>
+            </span>
+          </label>
+          <span class="modal__error" data-error hidden></span>
+        </div>
+
+        <button class="btn btn--primary modal__submit" type="submit">Оставить заявку</button>
+        <p class="modal__status" data-form-status hidden></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -82,7 +82,8 @@ project/
   `pages/course.html` (Figma `36:2139` «Одиночная курса»),
   `pages/attestation.html` (Figma `38:6513` «Аттестация»),
   `pages/about.html` (Figma `38:7407` «О школе») и
-  `pages/parents.html` (Figma `37:5853` «Для родителей»)
+  `pages/parents.html` (Figma `37:5853` «Для родителей») и
+  `pages/blog.html` (Figma `36:4408` «Блог»)
 * `main.js`: мобильное меню, якоря, появление при прокрутке, модалки
   (ловушка фокуса + Escape), маска телефона, клиентская валидация форм
 * сборщик превью
@@ -91,8 +92,8 @@ project/
 
 Главная полностью свёрстана. По порядку из `docs/AUDIT.md` §6: внутренние
 страницы — `courses.html`, `course.html`, `attestation.html`,
-`about.html` и `parents.html` готовы; дальше `blog.html`,
-`blog-post.html`, `contacts.html`. Потом адаптив, потом тема WordPress.
+`about.html`, `parents.html` и `blog.html` готовы; дальше
+`blog-post.html` и `contacts.html`. Потом адаптив, потом тема WordPress.
 
 К WordPress **не переходить**, пока статика не закрыта и не сверена.
 
