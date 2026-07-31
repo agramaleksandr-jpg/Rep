@@ -50,6 +50,24 @@
     margin-block-start: 48px;
   }
 
+  /* Кадр героя главной: из абсолютного позиционирования — в поток.
+     Правило должно срабатывать уже на 1200: карточки поверх кадра ниже
+     становятся блоками в потоке, а сам кадр оставался абсолютным и
+     наезжал на них, вылезая за правый край колонки. */
+  .hero__media {
+    height: auto;
+    margin-block-start: 24px;
+  }
+
+  .hero__frame {
+    position: static;
+    width: 100%;
+    max-width: 512px;
+    height: auto;
+    aspect-ratio: 512 / 566;
+    margin-inline: auto;
+  }
+
   .about-hero__cards {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -158,10 +176,32 @@
     min-width: 0;
   }
 
+  /* Панель таба в макете — две колонки по 595px в жёсткой высоте 693px.
+     На узком экране колонки сжимались до нечитаемой полосы, а лишний
+     текст обрезался (overflow: hidden прятал это от проверки прокрутки). */
+  .online-classes__panel {
+    flex-direction: column;
+    height: auto;
+    padding: 32px;
+  }
+
+  /* Медиаблок перестаёт быть жёстким квадратом: карточка «Фокус на базе»
+     стала обычным блоком в потоке и обрезалась его overflow: hidden.
+     Квадратной остаётся сама фотография, а рамка отдаёт высоту содержимому. */
   .online-classes__media {
+    align-self: stretch;
     width: 100%;
     height: auto;
+    aspect-ratio: auto;
+    overflow: visible;
+    background-color: transparent;
+  }
+
+  .online-classes__media .asset-pending--photo {
+    height: auto;
     aspect-ratio: 1;
+    border-radius: 32px;
+    background-color: var(--color-border-light);
   }
 
   .online-classes__content {
@@ -186,6 +226,13 @@
 
   /* --- Двухколоночные блоки ---------------------------------------------- */
 
+  /* У этих пар обе колонки в макете имеют жёсткую flex-базу под сетку
+     1336px. На 1200 они уже не помещаются, и одна колонка сплющивалась
+     до нечитаемой полосы (видео-звонок — до 156px, обложка статьи — до 58).
+     Поэтому они схлопываются в столбец не на 900, а сразу на 1200. */
+  .timeline-format__overview-grid,
+  .parents-teachers__calm-grid,
+  .blog-featured,
   .blog-feed__layout {
     flex-direction: column;
   }
@@ -317,6 +364,13 @@
     transform: rotate(-45deg);
   }
 
+  /* Обе промо-карточки в макете — flex: 1 1 0 под строку. В столбце
+     нулевая база схлопывает их до min-content, и текст обрезался
+     собственным overflow: hidden — возвращаем размер по содержимому. */
+  .results-faq__promo-grid > * {
+    flex: 0 0 auto;
+  }
+
   /* Телефон и расписание в шапке занимают слишком много места */
   .header__contacts,
   .header__actions .btn--secondary {
@@ -326,8 +380,7 @@
   /* --- Парные колонки в одну ---------------------------------------------- */
 
   .hero__inner,
-  .timeline-format__overview-grid,
-  .parents-teachers__calm-grid,
+  .results-faq__promo-grid,
   .attestation-transparency__grid,
   .parents-role__grid,
   .course-compare-approach__grid,
@@ -337,7 +390,6 @@
   .contacts-forms__grid,
   .contacts-place__grid,
   .contacts-legal__grid,
-  .blog-featured,
   .post-gallery,
   .blog-feed__grid,
   .courses-grid,
@@ -427,21 +479,6 @@
   /* Заглушки ассетов никогда не шире своей колонки */
   .asset-pending {
     max-width: 100%;
-  }
-
-  /* Кадр героя главной: из абсолютного позиционирования — в поток */
-  .hero__media {
-    height: auto;
-    margin-block-start: 24px;
-  }
-
-  .hero__frame {
-    position: static;
-    width: 100%;
-    max-width: 512px;
-    height: auto;
-    aspect-ratio: 512 / 566;
-    margin-inline: auto;
   }
 
   .attestation-exam__feature {
@@ -571,6 +608,54 @@
     gap: 8px;
   }
 
+  /* Крупные внутренние поля карточек из макета (64px и 32px) на телефоне
+     съедают почти всю ширину: у тёмной карточки аттестации на 320px
+     оставалось 152px под текст. */
+  .attestation-exam__card {
+    padding: 32px 20px;
+  }
+
+  .courses-card,
+  .blog-subscribe {
+    padding: 24px 20px;
+  }
+
+  /* Вложенная панель «Как проходит аттестация» добавляла ещё 33px с каждой
+     стороны поверх полей карточки */
+  .attestation-exam__how {
+    padding: 24px 20px;
+  }
+
+  /* Заголовок блока преподавателей переносится, но его текстовая часть
+     держала min-content шире колонки */
+  .parents-teachers__teachers-head > * {
+    min-width: 0;
+  }
+
+  /* Поле подписки и кнопка в одну строку не помещаются: поле сжималось
+     до 27px, а кнопка выдавливала блок за экран */
+  .results-faq__newsletter-form {
+    flex-direction: column;
+  }
+
+  .results-faq__newsletter-form .btn {
+    width: 100%;
+  }
+
+  /* Поля промо-карточек и блока аккредитации великоваты для телефона */
+  .results-faq__newsletter,
+  .results-faq__trial {
+    padding: 32px 20px;
+  }
+
+  .results-faq__accred {
+    padding: 32px 20px;
+  }
+
+  .results-faq__accred > * {
+    min-width: 0;
+  }
+
   /* --- Всё в одну колонку -------------------------------------------------- */
 
   .benefits__grid,
@@ -625,8 +710,15 @@
   .about-cta__actions,
   .parents-cta__actions,
   .contacts-cta__actions,
-  .course-pricing__cta {
+  .course-pricing__cta,
+  .online-classes__cta {
     flex-wrap: wrap;
+  }
+
+  /* Цена и кнопка «Узнать подробнее» в строку не помещаются */
+  .online-classes__cta .btn {
+    width: 100%;
+    padding-inline: 16px !important;
   }
 
   .hero__actions .btn,
