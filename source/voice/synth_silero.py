@@ -6,40 +6,24 @@ torch.set_num_threads(2)
 here = pathlib.Path(__file__).parent
 VOICES = {'narrator': 'xenia', 'frag': 'xenia', 'nyam': 'aidar', 'shusha': 'kseniya', 'poch': 'baya', 'drak': 'eugene'}
 RATES = {'narrator': '82%', 'frag': '82%', 'nyam': '90%', 'shusha': '92%', 'poch': '92%', 'drak': '75%'}
-VER = 'v1'
+VER = 'v2'
 SR = 24000
 cache = here / 'cache' / 'silero'
 cache.mkdir(parents=True, exist_ok=True)
 (here / 'packs').mkdir(exist_ok=True)
 
-ONES = ['ноль', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять', 'десять', 'одиннадцать', 'двенадцать',
-        'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать']
-TENS = ['', '', 'двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто']
-def num(n):
-    n = int(n)
-    if n < 20: return ONES[n]
-    if n < 100: return TENS[n // 10] + ('' if n % 10 == 0 else ' ' + ONES[n % 10])
-    return str(n)
-STRESS = [('Шуш', 'Ш+уш'), ('Дракош', 'Драк+ош'), ('Почемучк', 'Почем+учк'), ('Бульбик', 'Б+ульбик'), ('Ириск', 'Ир+иск'),
-          ('Мандаринк', 'Мандар+инк'), ('Мятик', 'М+ятик'), ('Пончик', 'П+ончик')]
+from textprep import prep_base
+ST = json.loads((here / 'stressed.json').read_text())
 def prep(t):
-    t = re.sub(r'[«»"“”„]', '', t)
-    t = re.sub(r'\s*[—–]\s*', ', ', t)
-    t = t.replace('…', '.').replace('...', '.')
-    t = re.sub(r'\d+', lambda m: num(m.group()), t)
-    for a, b in STRESS:
-        t = re.sub(a, b, t); t = re.sub(a.lower(), b.lower(), t)
-    t = re.sub(r'^[,\s]+', '', t).strip()
-    if not re.search(r'[.!?]$', t): t += '.'
-    return t
+    return ST.get(t) or prep_base(t)
 
 model = torch.package.PackageImporter(str(here / 'silero' / 'v4_ru.pt')).load_pickle('tts_models', 'model')
 def synth(text, voice, rate):
     ssml = f'<speak><prosody rate="{rate}">{text}</prosody></speak>'
     try:
-        a = model.apply_tts(ssml_text=ssml, speaker=voice, sample_rate=SR, put_accent=True, put_yo=True)
+        a = model.apply_tts(ssml_text=ssml, speaker=voice, sample_rate=SR, put_accent=False, put_yo=False)
     except Exception:
-        a = model.apply_tts(text=text, speaker=voice, sample_rate=SR, put_accent=True, put_yo=True)
+        a = model.apply_tts(text=text, speaker=voice, sample_rate=SR, put_accent=False, put_yo=False)
     a = a.numpy().astype(np.float32)
     thr = max(1e-4, np.abs(a).max() * 0.02)
     idx = np.where(np.abs(a) > thr)[0]
