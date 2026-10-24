@@ -1,0 +1,47 @@
+<div id="app">
+  <div id="stage">
+    <section id="scr-choose" class="screen" hidden>
+      <div class="orbit" id="chOrbit"></div>
+      <div class="dome" id="chDome"></div>
+      <img class="mon tap" id="chMon" alt="">
+      <div class="info" id="chInfo">
+        <span class="lbl">Выбери своего монстрика</span>
+        <span class="name" id="chName"></span>
+        <span class="trait" id="chTrait"></span>
+      </div>
+      <div class="avatars" id="chAvas"></div>
+      <button class="cta" id="chGo" style="position:absolute"><svg viewBox="0 0 24 24"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="#fff"/></svg>Это я!</button>
+      <span class="chint" id="chHint">Других друзей добавим позже</span>
+    </section>
+
+    <section id="scr-map" class="screen" hidden>
+      <div class="viewport" id="vp"><div class="world" id="world"><img class="mapbg" id="mapbg" alt=""></div></div>
+      <div class="hud-ava" id="hudAva"><img alt=""></div>
+      <div class="backpack" id="backpack"></div>
+      <button class="rbtn lockbtn" id="lockBtn" aria-label="Для родителей: удерживайте">
+        <svg class="ring" viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2D1856" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </button>
+      <button class="rbtn homebtn" id="homeBtn" aria-label="К моему дому"><svg viewBox="0 0 24 24" fill="none" stroke="#2D1856" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .7-1.53l7-6a2 2 0 0 1 2.6 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></button>
+    </section>
+
+    <section id="scr-house" class="screen" hidden></section>
+    <section id="scr-garden" class="screen" hidden></section>
+
+    <section id="scr-game" class="screen" hidden>
+      <button class="rbtn" id="gBack" style="left:var(--side);top:14px" aria-label="Назад"><svg viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="#2D1856" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="dots" id="gDots"></div>
+      <div class="rchip" id="gReward" style="right:calc(var(--side) + 56px)"><img alt=""><span>+2</span></div>
+      <button class="rbtn" id="gSay" style="right:var(--side);top:14px" aria-label="Повторить задание"><svg viewBox="0 0 24 24" fill="none"><path d="M3.5 9.5H7L11.5 5.5v13L7 14.5H3.5z" fill="#2D1856"/><path d="M15 9a4 4 0 0 1 0 6M17.8 6.3a7.8 7.8 0 0 1 0 11.4" stroke="#2D1856" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+      <div class="gwrap" id="gWrap"><div class="ghost" id="gHost"></div><div class="board" id="gBoard"></div></div>
+    </section>
+
+    <div class="overlay" id="ov-build" hidden></div>
+    <div class="overlay" id="ov-reward" hidden></div>
+    <div class="overlay" id="ov-parents" hidden></div>
+    <canvas id="confetti"></canvas>
+    <div id="toast" style="opacity:0"></div>
+  </div>
+  <button id="start" aria-label="Играть"><img id="stImg" alt=""><i><svg viewBox="0 0 24 24"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="#fff"/></svg></i></button>
+  <div id="rotate"><img id="rotImg" alt=""><b>Поверни телефон</b><span>Играть удобнее боком</span></div>
+</div>
