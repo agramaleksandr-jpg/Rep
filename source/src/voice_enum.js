@@ -49,4 +49,7 @@ window.__venum=function(){
  for(const r of RIDDLES)add('poch',`Да! Это ${r[1]}!`);
  for(const s of ORDER)add('poch',orderText(s));
  for(let k=1;k<=5;k++)add('poch',`Нет. Сейчас нужно ${COUNTW[k].toLowerCase()}. Посчитай!`);
+ // ---- fly (Дракоша)
+ for(const c of FLY_COLS){add('drak',`Лови только ${c.pl} шарики!`);add('drak',`Нет, не тот цвет! Лови ${c.pl} шарики!`);add('drak',`Лови ${c.pl} шарики!`)}
+ for(let k=1;k<=5;k++){add('drak',`Нет! Сейчас нужна цифра ${COUNTW[k].toLowerCase()}.`);add('drak',COUNTW[k]+'!')}
  return out};

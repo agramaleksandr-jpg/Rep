@@ -41,12 +41,12 @@ const addS = (spk, text) => { const t = clean(text); if (!okText(t)) return; for
 const addF = text => { const t = clean(text).replace(/^[\s,.:;!?—–«»"()+=-]+|[\s,:;—–«»"(+=-]+$/g, '').trim(); if (!okText(t)) return; const k = vnorm(t); if (k && k.length > 1 && !S.frag[k]) S.frag[k] = t };
 
 function sectionsOf(file, src) {
-  if (file !== 'games.js') return [{ from: 0, spk: 'narrator' }];
+  if (file !== 'games.js' && file !== 'games2.js') return [{ from: 0, spk: 'narrator' }];
   const marks = [{ from: 0, spk: 'narrator' }]; const re = /\/\* --- /g; let m;
   while ((m = re.exec(src))) { const h = /GAMES\.\w+=\{host:'(\w+)'/.exec(src.slice(m.index)); marks.push({ from: m.index, spk: h ? h[1] : 'narrator' }) }
   return marks;
 }
-for (const file of ['app.js', 'games.js', 'garden.js']) {
+for (const file of ['app.js', 'games.js', 'games2.js', 'garden.js']) {
   const src = read(file); const secs = sectionsOf(file, src);
   const spkAt = pos => { let s = 'narrator'; for (const x of secs) if (x.from <= pos) s = x.spk; return s };
   for (const lit of literals(src)) {

@@ -22,9 +22,9 @@ const BABIES=[
  {id:'ponchik',name:'Пончик',trait:'Любит поспать',dome:['#C9997A','#A9724B'],tint:'#EEDDCF'}];
 const NB={
  nyam:{id:'nyam',name:'Ням',dat:'Няму',gen:'Няма',res:'wood',dome:['#F25B70','#E23D55'],tint:'#FFE5E1',trait:'Вечно голодный, живёт у леса',hello:'Я голодный! Поиграем? За игру дам доски.',games:['feed','count','sort'],house:'h_nyam',hx:278,hy:188,hw:170,mx:392,my:198,mh:84},
- shusha:{id:'shusha',name:'Шуша',dat:'Шуше',gen:'Шуши',res:'sand',dome:['#BC97F4','#9B6BE0'],tint:'#F1E6FF',trait:'Проказница, живёт у песочницы',hello:'Хочешь песочка? Поиграй со мной!',games:['prank','detective'],house:'h_shusha',hx:940,hy:183,hw:160,mx:828,my:190,mh:86},
+ shusha:{id:'shusha',name:'Шуша',dat:'Шуше',gen:'Шуши',res:'sand',dome:['#BC97F4','#9B6BE0'],tint:'#F1E6FF',trait:'Проказница, живёт у песочницы',hello:'Хочешь песочка? Поиграй со мной!',games:['prank','detective','sling'],house:'h_shusha',hx:940,hy:183,hw:160,mx:828,my:190,mh:86},
  poch:{id:'poch',name:'Почемучка',dat:'Почемучке',gen:'Почемучки',res:'water',dome:['#FFD670','#FFB81F'],tint:'#FFF0C9',trait:'Всё знает и обо всём спрашивает',hello:'Привет! Ответишь на мои вопросы? Дам водичку.',games:['why','riddle','order'],house:'h_poch',hx:262,hy:455,hw:148,mx:365,my:460,mh:84},
- drak:{id:'drak',name:'Дракоша',dat:'Дракоше',gen:'Дракоши',res:'fire',dome:['#B2DB72','#7FBE36'],tint:'#E8F6D6',trait:'Огнедышащий почтальон',hello:'Помоги мне разнести посылки! Дам огонёк.',games:['parcel','maze'],house:'h_drak',hx:956,hy:485,hw:172,mx:842,my:463,mh:88}};
+ drak:{id:'drak',name:'Дракоша',dat:'Дракоше',gen:'Дракоши',res:'fire',dome:['#B2DB72','#7FBE36'],tint:'#E8F6D6',trait:'Огнедышащий почтальон',hello:'Помоги мне разнести посылки! Дам огонёк.',games:['parcel','maze','fly'],house:'h_drak',hx:956,hy:485,hw:172,mx:842,my:463,mh:88}};
 const RES_OWNER={wood:'nyam',sand:'shusha',water:'poch',fire:'drak'};
 const PARTS=[
  {id:'door',name:'Дверь',acc:'дверь',ic:'🚪',tint:'#FFE7D6',need:['wood','wood']},
@@ -236,7 +236,7 @@ function buildMap(){
  mapBuilt=true}
 function renderBackpack(bumpKey){const bp=$('#backpack');bp.innerHTML='';for(const k of RES_KEYS){const n=ST.inv[k]||0;const it=el('div','bpi'+(n?'':' zero'));it.id='bp-'+k;it.appendChild(resImg(k,30));it.appendChild(el('span',null,String(n)));bp.appendChild(it);if(bumpKey===k)it.classList.add('bump')}}
 function refreshMap(bumpKey){
- if(!mapBuilt)buildMap();
+ if(!mapBuilt)buildMap();mapAmbient();
  const pl=player();
  playerEl.src=IMG[pl.id];const ph=PLAYER.h,pw=ph*RATIO[pl.id];Object.assign(playerEl.style,{height:ph+'px',width:pw+'px',left:(PLAYER.x-pw/2)+'px',top:(PLAYER.y-ph)+'px'});
  Object.assign($('#playerHit').style,{left:(PLAYER.x-pw/2)+'px',top:(PLAYER.y-ph)+'px',width:pw+'px',height:ph+'px'});
@@ -371,7 +371,7 @@ const ctx={
  say(text,bubbleText){GS.task=text;const b=document.querySelector('#scr-game .taskb');if(b){const t=b.querySelector('.tb-text')||b;t.textContent=bubbleText||text;b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop')}say(text)},
  later(fn,ms){const g=GS,r=GS.round;setTimeout(()=>{if(GS===g&&GS.round===r)fn()},ms)},
  mon(m){return m||GS.hostMon},
- success(msg,delay=1500,m){if(!GS||GS.busy)return;GS.busy=true;GS.step++;renderDots();sfx.good();buzz(25);hop(this.mon(m),'dance');if(msg!==null)say(msg||pick(PRAISE));
+ success(msg,delay=1500,m){if(!GS||GS.busy)return;GS.busy=true;GS.step++;renderDots();sfx.good();buzz(25);if(!GS.g.canvas)uiBurst();hop(this.mon(m),'dance');if(msg!==null)say(msg||pick(PRAISE));
   if(GS.step>=GS.g.rounds)this.later(finishGame,delay+300);else this.later(()=>nextRound(false),delay)},
  mistake(msg,m,elm){if(!GS)return;GS.mistakes++;sfx.bad();buzz([30,50,30]);hop(this.mon(m),'sad');if(elm)shake(elm);if(msg!==null)say(msg||pick(TRY))}};
 $('#gBack').addEventListener('click',()=>{sfx.tap();const nb=GS&&GS.nb;GS=null;hush();if(nb)openHouse(nb.id);else goMap(false)});
