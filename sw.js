@@ -1,4 +1,4 @@
-const C='igralochka-v6';
+const C='igralochka-20261027-125549';
 const FILES=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./icon-maskable.png','./apple-touch-icon.png','./voice-drak.js','./voice-frag.js','./voice-narrator.js','./voice-nyam.js','./voice-poch.js','./voice-shusha.js'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
