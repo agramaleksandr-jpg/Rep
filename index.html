@@ -1058,7 +1058,8 @@ function openParents(){
   <div class="pbtns"><button class="pbtn" id="pChange">Сменить монстрика</button><button class="pbtn" id="pGive">+2 каждого ресурса (тест)</button><button class="pbtn" id="pGrow">Вырастить сад (тест)</button><button class="pbtn warn" id="pReset">Начать заново</button></div>
   <div class="pbtns" id="pConfirm" hidden><span class="pnote" style="align-self:center">Стереть дом, ресурсы и уровни?</span><button class="pbtn warn" id="pYes">Стереть</button><button class="pbtn" id="pNo">Отмена</button></div>
   <div class="pnote">Игра работает в горизонтальном положении. Чтобы поставить на телефон иконкой, откройте ссылку в браузере: Android — меню ⋮ → «Добавить на главный экран», iPhone — «Поделиться» → «На экран Домой».</div>
-  <div class="pbtns"><button class="pbtn" id="pClose">Закрыть</button></div>`;
+  <div class="pnote" id="pVer"></div>
+  <div class="pbtns"><button class="pbtn" id="pUpdate">Обновить игру</button><button class="pbtn" id="pClose">Закрыть</button></div>`;
  ov.appendChild(p);
  const s=$('#pSound'),v=$('#pVoice');s.checked=ST.sound;v.checked=ST.voice;
  s.onchange=()=>{ST.sound=s.checked;save()};v.onchange=()=>{ST.voice=v.checked;save();if(!v.checked)hush()};
@@ -1068,6 +1069,8 @@ function openParents(){
  $('#pGive').onclick=()=>{RES_KEYS.forEach(k=>ST.inv[k]+=2);save();refreshMap();toast('Добавлено по 2 каждого ресурса');ov.hidden=true};
  $('#pReset').onclick=()=>{$('#pConfirm').hidden=false};$('#pNo').onclick=()=>{$('#pConfirm').hidden=true};
  $('#pYes').onclick=()=>{const keepSound=ST.sound,keepVoice=ST.voice;ST=S0();ST.sound=keepSound;ST.voice=keepVoice;save();ov.hidden=true;openChoose()};
+ (async()=>{try{const ks=(await caches.keys()).filter(k=>k.startsWith('igralochka-'));$('#pVer').textContent=ks.length?'Версия: '+ks[0].replace('igralochka-',''):''}catch(e){}})();
+ $('#pUpdate').onclick=async()=>{toast('Обновляю игру…');try{if(navigator.serviceWorker)for(const r of await navigator.serviceWorker.getRegistrations())await r.unregister();for(const k of await caches.keys())await caches.delete(k)}catch(e){}setTimeout(()=>location.reload(),300)};
  $('#pClose').onclick=()=>{ov.hidden=true}}
 
 /* ================= GAMES (5 levels each) ================= */
