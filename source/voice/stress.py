@@ -16,6 +16,7 @@ for spk, d in S.items():
         if t in out: continue
         s = acc(prep_base(t))
         s = re.sub(r"[+А-Яа-яЁё]+", lambda m: strip1(m.group()), s)
+        if not re.search(r'(?i)\bвсё\b', prep_base(t)): s = re.sub(r'\b([Вв])сё\b', r'\1се', s)  # «все» (all) is not «всё»
         def fix(m):
             w = m.group(); plain = w.replace('+', '').lower()
             if plain in FIX:

@@ -21,10 +21,10 @@ const BABIES=[
  {id:'myatik',name:'Мятик',trait:'Всё изобретает',dome:['#7DDCC7','#3FC4AA'],tint:'#CFF3EB'},
  {id:'ponchik',name:'Пончик',trait:'Любит поспать',dome:['#C9997A','#A9724B'],tint:'#EEDDCF'}];
 const NB={
- nyam:{id:'nyam',name:'Ням',dat:'Няму',gen:'Няма',res:'wood',dome:['#F25B70','#E23D55'],tint:'#FFE5E1',trait:'Вечно голодный, живёт у леса',hello:'Я голодный! Поиграем? За игру дам доски.',games:['feed','count','sort'],house:'h_nyam',hx:278,hy:188,hw:170,mx:392,my:198,mh:84},
- shusha:{id:'shusha',name:'Шуша',dat:'Шуше',gen:'Шуши',res:'sand',dome:['#BC97F4','#9B6BE0'],tint:'#F1E6FF',trait:'Проказница, живёт у песочницы',hello:'Хочешь песочка? Поиграй со мной!',games:['prank','detective','sling'],house:'h_shusha',hx:940,hy:183,hw:160,mx:828,my:190,mh:86},
- poch:{id:'poch',name:'Почемучка',dat:'Почемучке',gen:'Почемучки',res:'water',dome:['#FFD670','#FFB81F'],tint:'#FFF0C9',trait:'Всё знает и обо всём спрашивает',hello:'Привет! Ответишь на мои вопросы? Дам водичку.',games:['why','riddle','order'],house:'h_poch',hx:262,hy:455,hw:148,mx:365,my:460,mh:84},
- drak:{id:'drak',name:'Дракоша',dat:'Дракоше',gen:'Дракоши',res:'fire',dome:['#B2DB72','#7FBE36'],tint:'#E8F6D6',trait:'Огнедышащий почтальон',hello:'Помоги мне разнести посылки! Дам огонёк.',games:['parcel','maze','fly'],house:'h_drak',hx:956,hy:485,hw:172,mx:842,my:463,mh:88}};
+ nyam:{id:'nyam',name:'Ням',dat:'Няму',gen:'Няма',res:'wood',dome:['#F25B70','#E23D55'],tint:'#FFE5E1',trait:'Вечно голодный, живёт у леса',hello:'Я голодный! Поиграем? За игру дам доски.',games:['feed','count','sort','slice'],house:'h_nyam',hx:278,hy:188,hw:170,mx:392,my:198,mh:84},
+ shusha:{id:'shusha',name:'Шуша',dat:'Шуше',gen:'Шуши',res:'sand',dome:['#BC97F4','#9B6BE0'],tint:'#F1E6FF',trait:'Проказница, живёт у песочницы',hello:'Хочешь песочка? Поиграй со мной!',games:['prank','detective','sling','cups','dig','molds','pairs'],house:'h_shusha',hx:940,hy:183,hw:160,mx:828,my:190,mh:86},
+ poch:{id:'poch',name:'Почемучка',dat:'Почемучке',gen:'Почемучки',res:'water',dome:['#FFD670','#FFB81F'],tint:'#FFF0C9',trait:'Всё знает и обо всём спрашивает',hello:'Привет! Ответишь на мои вопросы? Дам водичку.',games:['why','riddle','order','run'],house:'h_poch',hx:262,hy:455,hw:148,mx:365,my:460,mh:84},
+ drak:{id:'drak',name:'Дракоша',dat:'Дракоше',gen:'Дракоши',res:'fire',dome:['#B2DB72','#7FBE36'],tint:'#E8F6D6',trait:'Огнедышащий почтальон',hello:'Помоги мне разнести посылки! Дам огонёк.',games:['parcel','maze','fly','fire','mail','dots'],house:'h_drak',hx:956,hy:485,hw:172,mx:842,my:463,mh:88}};
 const RES_OWNER={wood:'nyam',sand:'shusha',water:'poch',fire:'drak'};
 const PARTS=[
  {id:'door',name:'Дверь',acc:'дверь',ic:'🚪',tint:'#FFE7D6',need:['wood','wood']},
@@ -341,7 +341,8 @@ function openHouse(id){
  for(const gid of nb.games){const g=GAMES[gid];const lv=ST.levels[gid]||1;const c=el('button','gtile');c.setAttribute('aria-label',g.name);
   c.innerHTML=`<span class="lvs">${[1,2,3,4,5].map(i=>`<i class="${i<=lv?'on':''}"></i>`).join('')}</span><div class="art emo" style="background:${nb.tint}">${g.art}</div><b>${g.name}</b><div class="play"><i>${SVG.play}</i></div>`;
   c.onclick=()=>{audio();sfx.good();startGame(gid)};games.appendChild(c)}
- s.appendChild(games);layoutHouse();say(nb.hello)}
+ if(nb.games.length>4)games.classList.add('many');s.appendChild(games);layoutHouse();say(nb.hello);
+ if(nb.games.length>4){const g=games;setTimeout(()=>{if(g.isConnected&&g.scrollLeft<5){g.scrollTo({left:90,behavior:'smooth'});setTimeout(()=>{if(g.isConnected)g.scrollTo({left:0,behavior:'smooth'})},900)}},1300)}}
 function layoutHouse(){
  const s=$('#scr-house');const cx=Math.max(178,Math.min(W*.22,240));const d=440;
  Object.assign(s.querySelector('.dome').style,{width:d+'px',height:d+'px',left:(cx-d/2-20)+'px',top:(H/2-155)+'px'});
@@ -350,7 +351,7 @@ function layoutHouse(){
  const b=$('#hBub');b.style.left=(cx+mh*k/2-10)+'px';b.style.top=(H/2-118)+'px';b.style.width='124px';
  const x=Math.max(cx+mh*k/2+158,W*.535);const w=Math.min(372,W-x-SIDE);
  Object.assign(s.querySelector('.info').style,{left:x+'px',top:(H/2-168)+'px',width:w+'px'});
- Object.assign(s.querySelector('.games').style,{left:x+'px',top:(H/2-14)+'px',width:w+'px'})}
+ const gs=s.querySelector('.games');Object.assign(gs.style,{left:x+'px',top:(H/2-14)+'px',width:(gs.classList.contains('many')?W-x:w)+'px'})}
 
 /* ================= GAME SHELL ================= */
 const board=$('#gBoard'),gHost=$('#gHost');
@@ -431,7 +432,8 @@ function openParents(){
   <div class="pbtns"><button class="pbtn" id="pChange">Сменить монстрика</button><button class="pbtn" id="pGive">+2 каждого ресурса (тест)</button><button class="pbtn" id="pGrow">Вырастить сад (тест)</button><button class="pbtn warn" id="pReset">Начать заново</button></div>
   <div class="pbtns" id="pConfirm" hidden><span class="pnote" style="align-self:center">Стереть дом, ресурсы и уровни?</span><button class="pbtn warn" id="pYes">Стереть</button><button class="pbtn" id="pNo">Отмена</button></div>
   <div class="pnote">Игра работает в горизонтальном положении. Чтобы поставить на телефон иконкой, откройте ссылку в браузере: Android — меню ⋮ → «Добавить на главный экран», iPhone — «Поделиться» → «На экран Домой».</div>
-  <div class="pbtns"><button class="pbtn" id="pClose">Закрыть</button></div>`;
+  <div class="pnote" id="pVer"></div>
+  <div class="pbtns"><button class="pbtn" id="pUpdate">Обновить игру</button><button class="pbtn" id="pClose">Закрыть</button></div>`;
  ov.appendChild(p);
  const s=$('#pSound'),v=$('#pVoice');s.checked=ST.sound;v.checked=ST.voice;
  s.onchange=()=>{ST.sound=s.checked;save()};v.onchange=()=>{ST.voice=v.checked;save();if(!v.checked)hush()};
@@ -441,6 +443,8 @@ function openParents(){
  $('#pGive').onclick=()=>{RES_KEYS.forEach(k=>ST.inv[k]+=2);save();refreshMap();toast('Добавлено по 2 каждого ресурса');ov.hidden=true};
  $('#pReset').onclick=()=>{$('#pConfirm').hidden=false};$('#pNo').onclick=()=>{$('#pConfirm').hidden=true};
  $('#pYes').onclick=()=>{const keepSound=ST.sound,keepVoice=ST.voice;ST=S0();ST.sound=keepSound;ST.voice=keepVoice;save();ov.hidden=true;openChoose()};
+ (async()=>{try{const ks=(await caches.keys()).filter(k=>k.startsWith('igralochka-'));$('#pVer').textContent=ks.length?'Версия: '+ks[0].replace('igralochka-',''):''}catch(e){}})();
+ $('#pUpdate').onclick=async()=>{toast('Обновляю игру…');try{if(navigator.serviceWorker)for(const r of await navigator.serviceWorker.getRegistrations())await r.unregister();for(const k of await caches.keys())await caches.delete(k)}catch(e){}setTimeout(()=>location.reload(),300)};
  $('#pClose').onclick=()=>{ov.hidden=true}}
 
 /* ================= boot ================= */

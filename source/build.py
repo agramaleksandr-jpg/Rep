@@ -8,7 +8,7 @@ for f in sorted((root / 'img').glob('*.webp')):
 css = (src / 'style.css').read_text()
 body = (src / 'body.html').read_text()
 extra = (src / 'voice_enum.js').read_text() if DEV else ''
-js = (src / 'app.js').read_text().replace('/* ================= boot ================= */', (src / 'games.js').read_text() + '\n' + (src / 'games2.js').read_text() + '\n' + (src / 'garden.js').read_text() + '\n' + extra + '\n/* ================= boot ================= */', 1)
+js = (src / 'app.js').read_text().replace('/* ================= boot ================= */', (src / 'games.js').read_text() + '\n' + (src / 'games2.js').read_text() + '\n' + (src / 'games3.js').read_text() + '\n' + (src / 'games4.js').read_text() + '\n' + (src / 'garden.js').read_text() + '\n' + extra + '\n/* ================= boot ================= */', 1)
 assert 'GAMES.sort=' in js and 'function openGarden' in js
 voice_js = ''
 fonts = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Rubik:wght@800;900&display=swap">'

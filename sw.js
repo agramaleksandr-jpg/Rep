@@ -1,4 +1,4 @@
-const C='igralochka-v10-20261028';
+const C='igralochka-v11-20261029';
 const CORE=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./icon-maskable.png','./apple-touch-icon.png'];
 const VOICE=['./voice-drak.js','./voice-frag.js','./voice-narrator.js','./voice-nyam.js','./voice-poch.js','./voice-shusha.js'];
 const fresh=u=>new Request(u,{cache:'reload'});

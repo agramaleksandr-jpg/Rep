@@ -1,17 +1,22 @@
 # Как продолжить работу над «Игралочкой»
 
 ## Сборка
-- Исходники: `source/src` (app.js, games.js, games2.js, garden.js, style.css, body.html), картинки `source/img`, Matter.js `source/vendor`.
-- `python3 build.py` → `dist/igralochka.html` + `dist/voice-*.js`; `python3 pwa.py vN` → `dist/pwa` (корень этого репозитория). Перед запуском скрипты из `source/` копируются в одну папку: `src/ img/ vendor/ voice/ build.py pwa.py`.
-- Озвучка: `voice/packs/<голос>.json` ({ключ: base64 mp3}). build.py превращает их в `voice-<голос>.js`.
+- Исходники: `source/src` (app.js, games.js, games2.js, games3.js, games4.js, garden.js, style.css, body.html), картинки `source/img`, Matter.js `source/vendor`.
+- Скрипты из `source/` копируются в одну папку: `src/ img/ vendor/ voice/ build.py pwa.py`.
+- `python3 build.py` → `dist/igralochka.html` + `dist/voice-*.js`; `python3 pwa.py vN-ДАТА` → `dist/pwa` (корень этого репозитория).
+- Озвучка: `voice/packs/<голос>.json` ({ключ: base64 mp3}), build.py превращает их в `voice-<голос>.js`.
+
+## Игры (по 5 уровней)
+- Ням: feed, count, sort, slice. Почемучка: why, riddle, order, run.
+- Шуша: prank, detective, sling, cups («Где мячик?»), dig («Раскопки»), molds («Куличики»), pairs («Пары»).
+- Дракоша: parcel, maze, fly, fire («Огонёк»), mail («Почта»), dots («Точки»).
+- Если у соседа больше 4 игр, плитки в доме листаются лентой.
 
 ## Конвейер озвучки (source/voice)
-1. `python3 build.py --dev` → в странице доступен `window.__venum()` (все динамические фразы) → сохранить в `voice/enum.json`.
-2. `node voice/sentences.js` → `voice/sentences.json` (фразы целиком по голосам: narrator, nyam, shusha, poch, drak, frag).
-3. `python3 voice/stress.py` (pip silero-stress) → `voice/stressed.json` с ударениями «+»; ручные исправления в `voice/stress_fix.json`.
-4. Синтез: `voice/synth_silero.py` (Silero v4: модель из GitHub-репозитория Politrees/silero-tts, файл silero_tts/silero_models/v4_ru_ru.pt → voice/silero/v4_ru.pt).
-
-## Следующий шаг (запрос пользователя)
-Переозвучить игру открытой нейросетью нового поколения (F5-TTS, русская модель Misha24-10/F5-TTS_RUSSIAN с Hugging Face, вокодер charactr/vocos-mel-24khz) с клонированием голоса по образцу 10–15 с.
-Голоса: ведущая — тёплый женский, у монстриков свои. Сначала пробные фразы на выбор, потом вся игра (~2000 фраз; кусочки frag можно оставить Silero).
-Входной текст брать из `voice/stressed.json` (ударения «+»), результат — те же `voice/packs/<голос>.json`.
+1. `python3 build.py --dev` → в странице `window.__venum()` (все динамические фразы) → `voice/enum.json`.
+2. `node voice/sentences.js` → `voice/sentences.json` (фразы по голосам: narrator, nyam, shusha, poch, drak, frag).
+3. `python3 voice/stress.py` (pip silero-stress) → `voice/stressed.json` с ударениями «+»; ручные правки в `voice/stress_fix.json`.
+4. Основной голос — Яндекс SpeechKit v3 (озвучивает пользователь у себя: tools/yandex_tts.py из пакета обновления).
+   Голоса: narrator=marina:friendly:0.9, nyam=zahar:good, shusha=marina:friendly:1:60, poch=lera:friendly, drak=alexander:good:0.9.
+5. Новые фразы до переозвучки: `python3 voice/add_interim.py` (Silero v4, только отсутствующие ключи).
+6. Пакет для переозвучки: `python3 voice/make_update.py <старый phrases.csv> <старый .original.json> <папка> dist/pwa`.

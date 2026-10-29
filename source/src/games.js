@@ -42,7 +42,7 @@ GAMES.feed={host:'nyam',name:'Покорми Няма',sub:'Проведи ло�
 const FOODS=[{e:'🍓',f:['клубничку','клубнички','клубничек'],g:'f'},{e:'🍎',f:['яблоко','яблока','яблок'],g:'n'},{e:'🍌',f:['банан','банана','бананов'],g:'m'},{e:'🥕',f:['морковку','морковки','морковок'],g:'f'},{e:'🍪',f:['печенье','печенья','печений'],g:'n'},{e:'🍒',f:['вишенку','вишенки','вишенок'],g:'f'},{e:'🍐',f:['грушу','груши','груш'],g:'f'},{e:'🧁',f:['кекс','кекса','кексов'],g:'m'}];
 const numAcc=(n,g)=>n===1?(g==='f'?'одну':g==='n'?'одно':'один'):n===2?(g==='f'?'две':'два'):['','','','три','четыре','пять','шесть','семь','восемь','девять'][n];
 const plural=(n,f)=>{const a=n%10,b=n%100;return a===1&&b!==11?f[0]:a>=2&&a<=4&&(b<10||b>=20)?f[1]:f[2]};
-const COUNTW=['','Один','Два','Три','Четыре','Пять','Шесть','Семь','Восемь','Девять'];
+const COUNTW=['','Один','Два','Три','Четыре','Пять','Шесть','Семь','Восемь','Девять','Десять'];
 GAMES.count={host:'nyam',name:'Считалка',sub:'Считай вместе с Нямом',art:'🔢',rounds:4,layout:'full',
  round(c,lv){
   const bw=c.bw(),bh=c.bh();if(!GS.foods)GS.foods=shuffle(FOODS);const food=GS.foods[(GS.round-1)%GS.foods.length];
@@ -68,18 +68,32 @@ GAMES.count={host:'nyam',name:'Считалка',sub:'Считай вместе 
   const bubTxt=mode==='put'?`Положи мне ${N} ${plural(N,food.f)}!`:`У меня ${A}. Сделай, чтобы стало ${N}!`;
   const bub=taskBubble(bubTxt,cw+34,12,Math.min(210,nx-cw-30),'t-right');const dots=el('div','cdots');bub.appendChild(dots);
   const renderDots2=k=>{dots.innerHTML='';for(let i=0;i<N;i++){const d=el('i',(i<A?'got given':i<k?'got':''),i<k?`<span class="emo">${food.e}</span>`:'');dots.appendChild(d)}};
-  c.say(mode==='put'?`Положи мне в тарелку ${numAcc(N,food.g)} ${plural(N,food.f)}!`:`У меня в тарелке ${A}. Добавь, чтобы стало ${N}!`,bubTxt);
+  c.say((GS.round===1?'Перетаскивай еду пальцем в тарелку. ':'')+(mode==='put'?`Положи мне в тарелку ${numAcc(N,food.g)} ${plural(N,food.f)}!`:`У меня в тарелке ${A}. Добавь, чтобы стало ${N}!`),bubTxt);
   const cols=4,rows=3,cellW=cw/cols,cellH=(bh-32)/rows;const cells=sample([...Array(cols*rows).keys()],total);
   const items=cells.map(ci=>{const x=16+(ci%cols+.5)*cellW+(Math.random()-.5)*cellW*.3,y=16+(Math.floor(ci/cols)+.5)*cellH+(Math.random()-.5)*cellH*.3;const e=el('button','cnt-item emo',food.e);e.style.left=x+'px';e.style.top=y+'px';board.appendChild(e);return{e,x,y,inp:false}});
   const given=[...Array(A)].map(()=>{const e=el('div','cnt-item emo inplate given',food.e);board.appendChild(e);return{e,inp:true,given:true}});
   const all=()=>[...given,...items.filter(i=>i.inp)];
   let warned=false;
   const relayout=()=>{const inP=all();const sl=plateSlots(inP.length);inP.forEach((it,i)=>{it.e.style.left=sl[i][0]+'px';it.e.style.top=sl[i][1]+'px'});renderDots2(Math.min(inP.length,N));return inP.length};relayout();
-  items.forEach(it=>{it.e.onclick=()=>{if(done)return;audio();if(it.inp){it.inp=false;it.e.classList.remove('inplate');it.e.style.left=it.x+'px';it.e.style.top=it.y+'px';sfx.tap();const k=relayout();if(k<=N)warned=false;return}
-   if(all().length>=9)return;it.inp=true;it.e.classList.add('inplate');const k=relayout();sfx.pop();
+  // drag food onto the plate (the whole right side counts: plate and Ням); drag back out to remove
+  GS.dbg=()=>({N,inPlate:all().length});
+  const plateZone=p=>p.x>cw+24;
+  const home=it=>{if(it.inp)relayout();else{it.e.style.left=it.x+'px';it.e.style.top=it.y+'px'}};
+  const putIn=it=>{if(all().length>=9){home(it);return}it.inp=true;it.e.classList.add('inplate');const k=relayout();sfx.pop();
    if(k===N){done=true;say(COUNTW[k]+'!');setTimeout(()=>hop(ny_,'chomp'),300);c.success(mode==='put'?`Ням-ням! Ровно ${numAcc(N,food.g)}! Спасибо!`:`Было ${A}, добавили ${N-A}, стало ${N}! Молодец!`,2600,ny_)}
-   else if(k>N){if(!warned){warned=true;c.mistake('Ой, многовато! Нажми на лишнюю в тарелке.',ny_)}else say(COUNTW[k]||String(k))}
-   else say(COUNTW[k])}});
+   else if(k>N){if(!warned){warned=true;c.mistake('Ой, многовато! Вытащи лишнюю из тарелки.',ny_)}else say(COUNTW[k]||String(k))}
+   else say(COUNTW[k])};
+  const takeOut=it=>{it.inp=false;it.e.classList.remove('inplate');it.e.style.left=it.x+'px';it.e.style.top=it.y+'px';sfx.tap();const k=relayout();if(k<=N)warned=false};
+  let fing=null;
+  if(GS.round===1&&lv===1){const it=items[0];fing=el('div','finger emo cnt-hint','👆');fing.style.left=it.x+'px';fing.style.top=it.y+'px';fing.style.setProperty('--dx',(pcx-it.x)+'px');fing.style.setProperty('--dy',(pcy-it.y)+'px');board.appendChild(fing)}
+  items.forEach(it=>{const e=it.e;e.style.touchAction='none';
+   e.onpointerdown=ev=>{if(done)return;audio();ev.preventDefault();ev.stopPropagation();if(fing){fing.remove();fing=null}
+    const p0=toLocal(ev,board),x0=parseFloat(e.style.left),y0=parseFloat(e.style.top);e.classList.add('drag');sfx.tap();
+    try{e.setPointerCapture(ev.pointerId)}catch(_){}
+    e.onpointermove=m=>{const p=toLocal(m,board);e.style.left=(x0+p.x-p0.x)+'px';e.style.top=(y0+p.y-p0.y)+'px'};
+    e.onpointerup=e.onpointercancel=u=>{e.onpointermove=e.onpointerup=e.onpointercancel=null;e.classList.remove('drag');if(done)return;
+     const p={x:x0+toLocal(u,board).x-p0.x,y:y0+toLocal(u,board).y-p0.y};const moved=Math.hypot(p.x-x0,p.y-y0)>14;
+     if(!it.inp&&plateZone(p))putIn(it);else if(it.inp&&moved&&!plateZone(p))takeOut(it);else home(it)}}});
  }};
 
 /* --- 3. Prank: scenes room/kitchen/yard, L5 "what disappeared?" --- */

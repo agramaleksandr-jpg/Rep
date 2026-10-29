@@ -52,4 +52,13 @@ window.__venum=function(){
  // ---- fly (Дракоша)
  for(const c of FLY_COLS){add('drak',`Лови только ${c.pl} шарики!`);add('drak',`Нет, не тот цвет! Лови ${c.pl} шарики!`);add('drak',`Лови ${c.pl} шарики!`)}
  for(let k=1;k<=5;k++){add('drak',`Нет! Сейчас нужна цифра ${COUNTW[k].toLowerCase()}.`);add('drak',COUNTW[k]+'!')}
+ // ---- slice (Ням)
+ for(const t of COUNTABLE){for(let n=2;n<=4;n++)add('nyam',`Нарежь ${numAcc(n,t.g)} ${plural(n,t.f)}!`);add('nyam',`Это не ${t.nom}! Режь ${t.pl}.`)}
+ // ---- v6: Шуша (Где мячик?, Раскопки) и Дракоша (Огонёк, Точки)
+ for(const co in TCOL){const a=TCOL[co].a[0];add('shusha',`Где ${a} мячик?`);add('shusha',`Вот он, ${a} мячик!`);
+  for(const co2 in TCOL)if(co2!==co)add('shusha',`Это ${a} мячик. А где ${TCOL[co2].a[0]}?`)}
+ for(let n=2;n<=4;n++)add('shusha',`Откопай ${numAcc(n,'f')} ${plural(n,['ракушку','ракушки','ракушек'])}!`);
+ for(let n=2;n<=4;n++)add('drak',`Зажги ${numAcc(n,'m')} ${plural(n,['фонарик','фонарика','фонариков'])}!`);
+ for(const l of LANT){add('drak',`Зажги только ${l.pl} фонарики!`);add('drak',`Ура! Все ${l.pl} фонарики горят!`);for(const w of LANT)if(w!==l)add('drak',`Это ${l.a} фонарик! Зажигай ${w.pl}.`)}
+ for(let k=1;k<=10;k++){add('drak',COUNTW[k]+'!');add('drak',`Нет! Сейчас нужна цифра ${COUNTW[k].toLowerCase()}.`)}
  return out};
